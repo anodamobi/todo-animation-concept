@@ -1,0 +1,75 @@
+PODS:
+  - ANODA-Alister (0.2):
+    - ANODA-Alister/ANKeyboardHandler (= 0.2)
+    - ANODA-Alister/ANPrototypingUIKit (= 0.2)
+    - ANODA-Alister/Core (= 0.2)
+  - ANODA-Alister/ANKeyboardHandler (0.2)
+  - ANODA-Alister/ANPrototypingUIKit (0.2):
+    - ANODA-Alister/ANKeyboardHandler
+    - ANODA-Alister/Core
+    - libextobjc
+    - Masonry
+  - ANODA-Alister/Core (0.2):
+    - ANODA-Alister/ANKeyboardHandler
+  - libextobjc (0.4.1):
+    - libextobjc/EXTADT (= 0.4.1)
+    - libextobjc/EXTConcreteProtocol (= 0.4.1)
+    - libextobjc/EXTKeyPathCoding (= 0.4.1)
+    - libextobjc/EXTNil (= 0.4.1)
+    - libextobjc/EXTSafeCategory (= 0.4.1)
+    - libextobjc/EXTScope (= 0.4.1)
+    - libextobjc/EXTSelectorChecking (= 0.4.1)
+    - libextobjc/EXTSynthesize (= 0.4.1)
+    - libextobjc/NSInvocation+EXT (= 0.4.1)
+    - libextobjc/NSMethodSignature+EXT (= 0.4.1)
+    - libextobjc/RuntimeExtensions (= 0.4.1)
+    - libextobjc/UmbrellaHeader (= 0.4.1)
+  - libextobjc/EXTADT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTConcreteProtocol (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTKeyPathCoding (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTNil (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSafeCategory (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTScope (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSelectorChecking (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSynthesize (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSInvocation+EXT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSMethodSignature+EXT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/RuntimeExtensions (0.4.1)
+  - libextobjc/UmbrellaHeader (0.4.1)
+  - Masonry (1.1.0)
+  - SnapKit (4.0.0)
+
+DEPENDENCIES:
+  - ANODA-Alister (from `https://github.com/anodamobi/Alister.git`, commit `7a5bd5a`, branch `master`)
+  - SnapKit
+
+EXTERNAL SOURCES:
+  ANODA-Alister:
+    :branch: master
+    :commit: 7a5bd5a
+    :git: https://github.com/anodamobi/Alister.git
+
+CHECKOUT OPTIONS:
+  ANODA-Alister:
+    :commit: 7a5bd5ab21ce82e833d49453c8c9188f6468baed
+    :git: https://github.com/anodamobi/Alister.git
+
+SPEC CHECKSUMS:
+  ANODA-Alister: 193602452fd17d2cad2f0e7fe93ffdb605eae0fc
+  libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+
+PODFILE CHECKSUM: 3536f9aaab4491c1633ab4145e1820cde4a0b106
+
+COCOAPODS: 1.3.1
