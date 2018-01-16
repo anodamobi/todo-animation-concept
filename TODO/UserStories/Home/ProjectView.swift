@@ -1,15 +1,15 @@
 //
-//  ProjectTasksView.swift
+//  ProjectView.swift
 //  TODO
 //
-//  Created by Simon Kostenko on 1/16/18.
-//  Copyright © 2018 Simon Kostenko. All rights reserved.
+//  Created by ANODA on 1/16/18.
+//  Copyright © 2018 ANODA. All rights reserved.
 //
 
 import UIKit
 import SnapKit
 
-class ProjectTasksView: UIView {
+class ProjectView: UIView {
     
     let projectImageView = UIImageView()
     let moreButton = UIButton()

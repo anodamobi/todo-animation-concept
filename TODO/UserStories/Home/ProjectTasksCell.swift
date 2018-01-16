@@ -21,7 +21,7 @@ class ProjectTasksCellViewModel: NSObject {
 
 class ProjectTasksCell: ANCollectionViewCell {
     
-    let projectTasksView = ProjectTasksView()
+    let projectView = ProjectView()
     
     override func update(withModel model: Any!) {
         guard let viewModel = model as? ProjectTasksCellViewModel else {
@@ -51,8 +51,8 @@ class ProjectTasksCell: ANCollectionViewCell {
         clipsToBounds = true
         
         
-        addSubview(projectTasksView)
-        projectTasksView.snp.makeConstraints { (make) in
+        addSubview(projectView)
+        projectView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
 //        backgroundView = UIView.init(frame: CGRect.zero)
