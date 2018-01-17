@@ -9,6 +9,11 @@
 import UIKit
 import SnapKit
 
+enum ProjectViewState {
+    case expanded
+    case collapsed
+}
+
 class ProjectView: UIView {
     
     let projectImageView = UIImageView()
@@ -17,6 +22,7 @@ class ProjectView: UIView {
     let nameLabel = UILabel()
     let progressView = UIProgressView()
     let progressLabel = UILabel()
+    var state: ProjectViewState = .expanded
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,6 +32,11 @@ class ProjectView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func updateConstraints() {
+        
+        super.updateConstraints()
     }
     
     private func setupLayout() {

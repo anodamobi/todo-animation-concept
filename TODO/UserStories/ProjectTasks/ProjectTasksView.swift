@@ -18,6 +18,7 @@ struct ProjectTasksConstants {
 }
 
 class ProjectTasksView: UIView {
+    let projectView: ProjectView = ProjectView()
     let tableView: UITableView = UITableView()
     let newTaskButton: UIButton = UIButton()
     
@@ -33,13 +34,24 @@ class ProjectTasksView: UIView {
     private func setupLayout() {
         backgroundColor = UIColor.white
         
+        addSubview(projectView)
+        projectView.snp.makeConstraints { (make) in
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
+            make.left.equalTo(safeAreaLayoutGuide.snp.left)
+            make.right.equalTo(safeAreaLayoutGuide.snp.right)
+            make.height.equalTo(295)
+        }
+        
         addSubview(tableView)
         let leftOffset = ProjectTasksConstants.rowHeight + ProjectTasksConstants.leftOffset
         tableView.separatorInset = UIEdgeInsetsMake(0, leftOffset, 0, 0)
         tableView.rowHeight = ProjectTasksConstants.rowHeight
         tableView.sectionHeaderHeight = ProjectTasksConstants.sectionHeaderHeight
         tableView.snp.makeConstraints { (make) in
-            make.edges.equalTo(safeAreaLayoutGuide.snp.edges)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
+            make.left.equalTo(safeAreaLayoutGuide.snp.left)
+            make.right.equalTo(safeAreaLayoutGuide.snp.right)
+            make.top.equalTo(projectView.snp.bottom)
         }
         
         insertSubview(newTaskButton, aboveSubview: tableView)
