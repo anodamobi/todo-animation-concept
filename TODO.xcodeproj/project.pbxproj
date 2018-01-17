@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210B85C0200FDC48005DA5E4 /* ProjectAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B85BF200FDC48005DA5E4 /* ProjectAnimator.swift */; };
 		21509922200E532300131F74 /* ProjectTasksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21509921200E532300131F74 /* ProjectTasksVC.swift */; };
 		21509924200E553F00131F74 /* ProjectTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21509923200E553F00131F74 /* ProjectTasksView.swift */; };
 		216F4D28200F6EBC00804BAD /* DebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216F4D27200F6EBC00804BAD /* DebugVC.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		210B85BF200FDC48005DA5E4 /* ProjectAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectAnimator.swift; sourceTree = "<group>"; };
 		21509921200E532300131F74 /* ProjectTasksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTasksVC.swift; sourceTree = "<group>"; };
 		21509923200E553F00131F74 /* ProjectTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTasksView.swift; sourceTree = "<group>"; };
 		216F4D27200F6EBC00804BAD /* DebugVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugVC.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				21BE8B4F200E6A490059823E /* Cell */,
 				21509921200E532300131F74 /* ProjectTasksVC.swift */,
 				21509923200E553F00131F74 /* ProjectTasksView.swift */,
+				210B85BF200FDC48005DA5E4 /* ProjectAnimator.swift */,
 			);
 			path = ProjectTasks;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				B18D3323200E882600936B73 /* ProjectView.swift in Sources */,
 				B18D331D200E584200936B73 /* HomeVC.swift in Sources */,
 				21509924200E553F00131F74 /* ProjectTasksView.swift in Sources */,
+				210B85C0200FDC48005DA5E4 /* ProjectAnimator.swift in Sources */,
 				216F4D28200F6EBC00804BAD /* DebugVC.swift in Sources */,
 				21509922200E532300131F74 /* ProjectTasksVC.swift in Sources */,
 				B18D3308200E480400936B73 /* ViewController.swift in Sources */,

@@ -15,7 +15,7 @@ class HomeVC: UIViewController {
     
     let storage: ANStorage = ANStorage()
     var controller: ANCollectionController!
-    
+    var rect: CGRect = .zero
     override func loadView() {
         view = contentView
     }
@@ -48,6 +48,18 @@ class HomeVC: UIViewController {
         viewModel3.name = "Home"
         viewModel3.numberOfTasks = 7
         viewModel3.progress = 0.32
+        controller.configureItemSelectionBlock { [unowned self] (_, indexPath) in
+            
+            guard let cell = self.controller.collectionView.cellForItem(at: indexPath!) else { return }
+            let convertedRect = self.controller.collectionView.convert(cell.frame,
+                                                                       to: self.view)
+            self.rect = convertedRect
+            
+            let vc = UINavigationController(rootViewController: ProjectTasksVC())
+            vc.modalPresentationStyle = .custom
+            vc.transitioningDelegate = self
+            self.present(vc, animated: true, completion: nil)
+        }
         
         storage.updateWithoutAnimationChange { (change) in
             change?.addItem(viewModel1)
@@ -100,5 +112,13 @@ class HomeVC: UIViewController {
                 })
             }
         }
+    }
+}
+
+extension HomeVC: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let animator = ProjectTasksAnimator()
+        animator.originFrame = self.rect
+        return animator
     }
 }

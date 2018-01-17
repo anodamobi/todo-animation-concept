@@ -8,6 +8,7 @@
 
 import UIKit
 import ANODA_Alister
+import SnapKit
 
 class ProjectTasksVC: UIViewController {
     
@@ -26,6 +27,18 @@ class ProjectTasksVC: UIViewController {
         controller.attachStorage(storage)
 
         storage.updateWithoutAnimationChange { (updater) in }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                                           target: self,
+                                                           action: #selector(close))
+    }
+    
+    @objc func close() {
+        dismiss(animated: true, completion: nil)
     }
 
 }
