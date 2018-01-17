@@ -12,6 +12,10 @@
 		B18D330D200E480400936B73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B18D330C200E480400936B73 /* Assets.xcassets */; };
 		B18D3310200E480400936B73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18D330E200E480400936B73 /* LaunchScreen.storyboard */; };
 		B18D331A200E49E500936B73 /* DebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18D3319200E49E500936B73 /* DebugVC.swift */; };
+		B18D331D200E584200936B73 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18D331C200E584200936B73 /* HomeVC.swift */; };
+		B18D331F200E58FC00936B73 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18D331E200E58FC00936B73 /* HomeView.swift */; };
+		B18D3321200E86E900936B73 /* ProjectTasksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18D3320200E86E900936B73 /* ProjectTasksCell.swift */; };
+		B18D3323200E882600936B73 /* ProjectTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18D3322200E882600936B73 /* ProjectTasksView.swift */; };
 		DF29FE5D6BE0B49B6DEA1AAD /* Pods_TODO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D5ADC8E769AF16D2F1E2C0 /* Pods_TODO.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +28,10 @@
 		B18D330F200E480400936B73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B18D3311200E480400936B73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B18D3319200E49E500936B73 /* DebugVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugVC.swift; sourceTree = "<group>"; };
+		B18D331C200E584200936B73 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		B18D331E200E58FC00936B73 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B18D3320200E86E900936B73 /* ProjectTasksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTasksCell.swift; sourceTree = "<group>"; };
+		B18D3322200E882600936B73 /* ProjectTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTasksView.swift; sourceTree = "<group>"; };
 		B4E8F5D4692AF052E6924A50 /* Pods-TODO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TODO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TODO/Pods-TODO.debug.xcconfig"; sourceTree = "<group>"; };
 		DEC9FAC1FFB941C936222E9A /* Pods-TODO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TODO.release.xcconfig"; path = "Pods/Target Support Files/Pods-TODO/Pods-TODO.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +91,7 @@
 		B18D3317200E49BF00936B73 /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
+				B18D331B200E582700936B73 /* Home */,
 				B18D3318200E49D100936B73 /* Debug */,
 			);
 			path = UserStories;
@@ -94,6 +103,17 @@
 				B18D3319200E49E500936B73 /* DebugVC.swift */,
 			);
 			path = Debug;
+			sourceTree = "<group>";
+		};
+		B18D331B200E582700936B73 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B18D331C200E584200936B73 /* HomeVC.swift */,
+				B18D331E200E58FC00936B73 /* HomeView.swift */,
+				B18D3320200E86E900936B73 /* ProjectTasksCell.swift */,
+				B18D3322200E882600936B73 /* ProjectTasksView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		DF2F8DFF517C8128E9EE39B6 /* Frameworks */ = {
@@ -238,8 +258,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B18D3321200E86E900936B73 /* ProjectTasksCell.swift in Sources */,
 				B18D331A200E49E500936B73 /* DebugVC.swift in Sources */,
+				B18D3323200E882600936B73 /* ProjectTasksView.swift in Sources */,
+				B18D331D200E584200936B73 /* HomeVC.swift in Sources */,
 				B18D3308200E480400936B73 /* ViewController.swift in Sources */,
+				B18D331F200E58FC00936B73 /* HomeView.swift in Sources */,
 				B18D3306200E480400936B73 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
