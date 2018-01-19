@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import ANODA_Alister
+import Hero
 
 struct ProjectTasksConstants {
     static let rowHeight: CGFloat = 44.0
@@ -33,13 +34,15 @@ class ProjectTasksView: UIView {
     
     private func setupLayout() {
         backgroundColor = UIColor.white
+//        isHeroEnabledForSubviews = true
+//        heroModifiers = [.useNoSnapshot, .translate(y: -400), .arc]
         
         addSubview(projectView)
         projectView.snp.makeConstraints { (make) in
             make.top.equalTo(safeAreaLayoutGuide.snp.top)
             make.left.equalTo(safeAreaLayoutGuide.snp.left)
             make.right.equalTo(safeAreaLayoutGuide.snp.right)
-            make.height.equalTo(295)
+            make.height.equalTo(135)
         }
         
         addSubview(tableView)
@@ -60,6 +63,8 @@ class ProjectTasksView: UIView {
         newTaskButton.backgroundColor = UIColor(red: 0.36, green: 0.55, blue: 0.89, alpha: 1.00)
         newTaskButton.setTitle("＋", for: .normal)
         newTaskButton.setTitleColor(UIColor.white, for: .normal)
+//        newTaskButton.heroID = "newTask"
+//        newTaskButton.heroModifiers = [.contentsScale(0.1), .fade, .translate(x: 100, y: 100, z: 0)]
         newTaskButton.snp.makeConstraints { (make) in
             make.size.equalTo(ProjectTasksConstants.buttonSize)
             make.right.equalToSuperview().offset(-22)
