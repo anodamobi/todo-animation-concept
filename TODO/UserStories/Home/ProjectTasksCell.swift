@@ -9,9 +9,32 @@
 import UIKit
 import ANODA_Alister
 
+class ProjectTasksCellViewModel: NSObject {
+    
+    var name: String!
+    var icon: UIImageView!
+    var color: UIColor!
+    var numberOfTasks: Int!
+    var progress: Double!
+
+}
+
 class ProjectTasksCell: ANCollectionViewCell {
     
     let projectTasksView = ProjectTasksView()
+    
+    override func update(withModel model: Any!) {
+        guard let viewModel = model as? ProjectTasksCellViewModel else {
+            fatalError("incorrect view")
+        }
+        
+        projectTasksView.nameLabel.text = viewModel.name
+        projectTasksView.tasksLabel.text = "\(viewModel.numberOfTasks!) Tasks"
+        projectTasksView.progressView.progress = Float(viewModel.progress)
+        projectTasksView.progressView.progressTintColor = viewModel.color
+        projectTasksView.progressLabel.text = "\(viewModel.progress * 100)%"
+//        projectTasksView.projectImageView.image = viewModel.icon
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
