@@ -58,7 +58,7 @@ class HomeVC: UIViewController {
             
 //            cell.projectView.heroID = "proj"
 
-            let vc = UINavigationController.init(rootViewController: ProjectTasksVC())
+            let vc = ProjectTasksVC() // UINavigationController.init(rootViewController: ProjectTasksVC())
 //            vc.isHeroEnabled = true
 //            vc.contentView.projectView.heroID = "proj"
 //            vc.contentView.projectView.heroModifiers = [HeroModifier.forceAnimate]
@@ -130,88 +130,10 @@ class HomeVC: UIViewController {
 
 extension HomeVC: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let animator = ProjectTasksAnimator()
-        animator.originFrame = self.rect
-        animator.isPresenting = true
-        return animator
+       return ProjectTasksAnimator(duration: 2.0, presentationStyle: .present, originFrame: self.rect)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let animator = ProjectTasksAnimator()
-        animator.originFrame = self.rect
-        animator.isPresenting = false
-        return animator
+        return ProjectTasksAnimator(duration: 2.0, presentationStyle: .dismiss, originFrame: self.rect)
     }
-    
-//    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController!, sourceViewController source: UIViewController) -> UIPresentationController? {
-//        let presentationController = DetailPresentationController(presentedViewController: presented,
-//                                                                  presenting: source)
-//        presentationController.setupDimmingView()
-//        return presentationController
-//    }
 }
-
-//class DetailPresentationController: UIPresentationController {
-//
-//    var dimmingView: UIView!
-//
-//    func setupDimmingView() {
-//        dimmingView = UIView(frame: presentingViewController.view.bounds)
-//
-//        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-//        visualEffectView.frame = dimmingView.bounds
-//        visualEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-//        dimmingView.addSubview(visualEffectView)
-//
-//        let tapRecognizer = UITapGestureRecognizer.init(target: self,
-//                                                        action: #selector(dimmingViewTapped(tapRecognizer:)))
-//        dimmingView.addGestureRecognizer(tapRecognizer)
-//    }
-//
-//    @objc func dimmingViewTapped(tapRecognizer: UITapGestureRecognizer) {
-//        presentingViewController.dismiss(animated: true, completion: nil)
-//    }
-//
-//    override func presentationTransitionWillBegin() {
-//        let containerView = self.containerView!
-//        let presentedViewController = self.presentedViewController
-//
-//        dimmingView.frame = containerView.bounds
-//        dimmingView.alpha = 0.0
-//
-//        containerView.insertSubview(dimmingView, at: 0)
-//        presentedViewController.transitionCoordinator?.animate(alongsideTransition: { (coordinatorContext) -> Void in
-//            self.dimmingView.alpha = 1.0
-//        }, completion: nil)
-//    }
-//
-//    override func dismissalTransitionWillBegin() {
-//        presentedViewController.transitionCoordinator?.animate(alongsideTransition: { (coordinatorContext) -> Void in
-//            self.dimmingView.alpha = 0.0
-//        }, completion: nil)
-//    }
-//
-//    override func containerViewWillLayoutSubviews() {
-//        dimmingView.frame = containerView!.bounds
-//        presentedView?.frame = frameOfPresentedViewInContainerView
-//    }
-//
-//    override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-//        return CGSize.init(width: parentSize.width - 40.0, height: parentSize.height - 80.0)
-//    }
-//
-//    override var frameOfPresentedViewInContainerView: CGRect {
-//        var presentedViewFrame = CGRect.zero
-//        let containerBounds = containerView!.bounds
-//
-//        let contentContainer = presentedViewController
-//
-//        presentedViewFrame.size = size(forChildContentContainer: contentContainer,
-//                                       withParentContainerSize:containerBounds.size) //CGSizeMake(428.0, presentedView().frame.size.height) //
-//        presentedViewFrame.origin.x = 20.0
-//        presentedViewFrame.origin.y = 40.0
-//
-//        return presentedViewFrame
-//    }
-//}
-

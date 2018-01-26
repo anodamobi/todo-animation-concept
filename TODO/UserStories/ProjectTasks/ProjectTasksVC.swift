@@ -29,6 +29,10 @@ class ProjectTasksVC: UIViewController {
             config?.registerHeaderClass(TaskSectionHeader.self, forModelClass: TaskSectionHeaderViewModel.self)
         }
         controller.attachStorage(storage)
+        
+        contentView.cancelButton.addTargetClosure { [unowned self] (_) in
+            self.dismiss(animated: true, completion: nil)
+        }
 
         storage.updateWithoutAnimationChange { (updater) in
             let vm =  TaskCellViewModel.init(title: "First", checkBoxClosure: { (_) in

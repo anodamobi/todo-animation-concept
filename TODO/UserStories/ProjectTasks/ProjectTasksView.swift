@@ -22,6 +22,7 @@ class ProjectTasksView: UIView {
     let projectView: ProjectView = ProjectView()
     let tableView: UITableView = UITableView()
     let newTaskButton: UIButton = UIButton()
+    let cancelButton: UIButton = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,12 +35,29 @@ class ProjectTasksView: UIView {
     
     private func setupLayout() {
         backgroundColor = UIColor.white
-//        isHeroEnabledForSubviews = true
-//        heroModifiers = [.useNoSnapshot, .translate(y: -400), .arc]
+        
+        let navigationView = UIView()
+        navigationView.backgroundColor = UIColor.white
+        addSubview(navigationView)
+        navigationView.snp.makeConstraints { (make) in
+            make.height.equalTo(44)
+            make.width.equalToSuperview()
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
+            make.left.equalTo(safeAreaLayoutGuide.snp.left)
+            make.right.equalTo(safeAreaLayoutGuide.snp.right)
+        }
+        
+        navigationView.addSubview(cancelButton)
+        cancelButton.setTitle("Cancel", for: .normal)
+        cancelButton.setTitleColor(UIColor.black, for: .normal)
+        cancelButton.snp.makeConstraints { (make) in
+            make.left.top.bottom.equalToSuperview()
+            make.width.equalTo(44)
+        }
         
         addSubview(projectView)
         projectView.snp.makeConstraints { (make) in
-            make.top.equalTo(safeAreaLayoutGuide.snp.top)
+            make.top.equalTo(navigationView.snp.bottom)
             make.left.equalTo(safeAreaLayoutGuide.snp.left)
             make.right.equalTo(safeAreaLayoutGuide.snp.right)
             make.height.equalTo(135)
@@ -63,8 +81,6 @@ class ProjectTasksView: UIView {
         newTaskButton.backgroundColor = UIColor(red: 0.36, green: 0.55, blue: 0.89, alpha: 1.00)
         newTaskButton.setTitle("＋", for: .normal)
         newTaskButton.setTitleColor(UIColor.white, for: .normal)
-//        newTaskButton.heroID = "newTask"
-//        newTaskButton.heroModifiers = [.contentsScale(0.1), .fade, .translate(x: 100, y: 100, z: 0)]
         newTaskButton.snp.makeConstraints { (make) in
             make.size.equalTo(ProjectTasksConstants.buttonSize)
             make.right.equalToSuperview().offset(-22)
