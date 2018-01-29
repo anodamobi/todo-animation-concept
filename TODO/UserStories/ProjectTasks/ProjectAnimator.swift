@@ -56,7 +56,7 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
         let projectViewAnimation = POPBasicAnimation(propertyNamed: kPOPViewFrame)
         let projectViewEndFrame = presentationStyle == .present ? CGRect(x: 0, y: 88, width: UIScreen.main.bounds.width, height: 135) : originFrame
         projectViewAnimation?.toValue = NSValue(cgRect: projectViewEndFrame)
-        projectViewAnimation?.duration = 2.0
+        projectViewAnimation?.duration = duration
         projectView.pop_add(projectViewAnimation, forKey: "ProjectViewAnimation")
         containerView.addSubview(projectView)
     
@@ -66,19 +66,27 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
         
         let containerViewAnimation = POPBasicAnimation(propertyNamed: kPOPViewFrame)
         containerViewAnimation?.toValue = NSValue(cgRect: presentationStyle == .present ? finalFrame : originFrame)
-        containerViewAnimation?.duration = 2.0
+        containerViewAnimation?.duration = duration
         switch presentationStyle {
         case .present:
             taskView.newTaskButton.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+            taskView.navigationView.alpha = 0.0
             toView.pop_add(containerViewAnimation, forKey: "containerViewAnimation")
             UIView.animateKeyframes(withDuration: duration, delay: 0, options: [], animations: {
                 taskView.layer.cornerRadius = 0.0
                 UIView.addKeyframe(withRelativeStartTime: 3/4, relativeDuration: 1/4) {
                     taskView.newTaskButton.transform = .identity
+                    taskView.navigationView.alpha = 1.0
                 }
             }, completion: nil)
         case .dismiss:
             fromView.pop_add(containerViewAnimation, forKey: "containerViewAnimation")
+            
+            let navigationViewAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+            navigationViewAnimation?.fromValue = 1.0
+            navigationViewAnimation?.toValue = 0.0
+            navigationViewAnimation?.duration = duration / 8
+            taskView.navigationView.pop_add(navigationViewAnimation, forKey: "navigationViewAnimation")
             
             let taskButtonAnimation = POPBasicAnimation(propertyNamed: kPOPViewScaleXY)
             taskButtonAnimation?.fromValue = NSValue(cgPoint: CGPoint(x: 1.0, y: 1.0))

@@ -23,6 +23,7 @@ class ProjectTasksView: UIView {
     let tableView: UITableView = UITableView()
     let newTaskButton: UIButton = UIButton()
     let cancelButton: UIButton = UIButton()
+    let navigationView: UIView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,7 +37,6 @@ class ProjectTasksView: UIView {
     private func setupLayout() {
         backgroundColor = UIColor.white
         
-        let navigationView = UIView()
         navigationView.backgroundColor = UIColor.white
         addSubview(navigationView)
         navigationView.snp.makeConstraints { (make) in
