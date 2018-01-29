@@ -61,16 +61,18 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
         containerView.addSubview(projectView)
     
         taskView.projectView.isHidden = true
-        taskView.newTaskButton.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
-
+        taskView.layer.cornerRadius = 8.0
+        taskView.clipsToBounds = true
+        
         let containerViewAnimation = POPBasicAnimation(propertyNamed: kPOPViewFrame)
         containerViewAnimation?.toValue = NSValue(cgRect: presentationStyle == .present ? finalFrame : originFrame)
         containerViewAnimation?.duration = 2.0
-        containerViewAnimation?.delegate = self
         switch presentationStyle {
         case .present:
+            taskView.newTaskButton.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
             toView.pop_add(containerViewAnimation, forKey: "containerViewAnimation")
             UIView.animateKeyframes(withDuration: duration, delay: 0, options: [], animations: {
+                taskView.layer.cornerRadius = 0.0
                 UIView.addKeyframe(withRelativeStartTime: 3/4, relativeDuration: 1/4) {
                     taskView.newTaskButton.transform = .identity
                 }
@@ -82,8 +84,12 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
             taskButtonAnimation?.fromValue = NSValue(cgPoint: CGPoint(x: 1.0, y: 1.0))
             taskButtonAnimation?.toValue = NSValue(cgPoint: .zero)
             taskButtonAnimation?.duration = duration / 4
-            taskButtonAnimation?.timingFunction = CAMediaTimingFunction.easeIn
             taskView.newTaskButton.pop_add(taskButtonAnimation, forKey: "taskButtonAnimation")
+            let taskButtonAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+            taskButtonAlphaAnimation?.fromValue = 1.0
+            taskButtonAlphaAnimation?.toValue = 0.0
+            taskButtonAlphaAnimation?.duration = duration / 4
+            taskView.newTaskButton.pop_add(taskButtonAlphaAnimation, forKey: "taskButtonAlphaAnimation")
         }
         
         containerViewAnimation?.completionBlock = { (_, _) in
