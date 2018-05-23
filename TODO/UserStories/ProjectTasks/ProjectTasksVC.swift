@@ -42,6 +42,12 @@ class ProjectTasksVC: UIViewController {
         contentView.cancelButton.addTargetClosure { [unowned self] (_) in
             self.dismiss(animated: true, completion: nil)
         }
+        
+        contentView.newTaskButton.addTargetClosure { [unowned self] _ in
+            let vc = NewTaskVC()
+            vc.transitioningDelegate = self
+            self.present(vc, animated: true, completion: nil)
+        }
 
         storage.updateWithoutAnimationChange { (updater) in
             let vm =  TaskCellViewModel.init(title: "First", checkBoxClosure: { (_) in
@@ -71,4 +77,18 @@ class ProjectTasksVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
+}
+
+extension ProjectTasksVC: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let transition = NewTaskAnimator()
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let transition = NewTaskAnimator()
+        transition.presenting = false
+        return transition
+    }
 }
