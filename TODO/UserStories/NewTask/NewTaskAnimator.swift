@@ -18,6 +18,22 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         return duration
     }
     
+    override init() {
+        super.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(willShow(_:)), name: NSNotification.Name.UIKeyboardWillShow,
+                                               object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func willShow(_ notification: Notification) {
+        rect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+    }
+    
+    private var rect: CGRect?
+    
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
         let toView = transitionContext.view(forKey: .to)!
@@ -84,11 +100,11 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                                     }
                                     )
                                     
-                                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0, animations: {
-                                        newTaskButton.frame.size.width = UIScreen.main.bounds.width
-                                        newTaskButton.center.x = UIScreen.main.bounds.width / 2.0
-                                        newTaskButton.frame.origin.y -= 100
-                                    })
+//                                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.25/1.5, animations: {
+//                                        newTaskButton.frame.size.width = UIScreen.main.bounds.width
+//                                        newTaskButton.center.x = UIScreen.main.bounds.width / 2.0
+//                                        newTaskButton.frame.origin.y = self.rect!.origin.y - 44
+//                                    })
         },
                                 completion: { _ in
                                     hidingView.removeFromSuperview()
@@ -96,11 +112,15 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                                     
         }
         )
-        
+        UIView.animate (withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.init(rawValue: 7), animations: {
+            newTaskButton.frame.size.width = UIScreen.main.bounds.width
+            newTaskButton.center.x = UIScreen.main.bounds.width / 2.0
+            newTaskButton.frame.origin.y = self.rect!.origin.y - 44
+        })
         let round = CABasicAnimation(keyPath: "cornerRadius")
         round.fromValue = newTaskButton.layer.cornerRadius
         round.toValue = 0.0
-        round.duration = 1.5
+        round.duration = 0.3
         newTaskButton.layer.add(round, forKey: nil)
         newTaskButton.layer.cornerRadius = 0.0
     }
