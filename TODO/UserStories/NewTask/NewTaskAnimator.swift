@@ -20,27 +20,85 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-        
         let toView = transitionContext.view(forKey: .to)!
+        let finalFrame = transitionContext.finalFrame(for: transitionContext.viewController(forKey: .to)!)
+        toView.frame = finalFrame
         
-        let newTaskView = presenting ? toView : transitionContext.view(forKey: .from)!
-        let projectView = presenting ? transitionContext.view(forKey: .from)! : toView
+//        containerView.addSubview(toView)
+//        toView.alpha = 0.0
+//        UIView.animate(withDuration: duration,
+//                       animations: {
+//                        toView.alpha = 1.0
+//        },
+//                       completion: { _ in
+//                        transitionContext.completeTransition(true)
+//        }
+//        )
+        
+//        return
+        
+//        let newTaskView = presenting ? toView : transitionContext.view(forKey: .from)!
+//        let projectView = presenting ? transitionContext.view(forKey: .from)! : toView
         
         
-        containerView.addSubview(toView)
-        toView.alpha = 0.0
         let hidingView = dismissView
         containerView.addSubview(hidingView)
         
-        UIView.animate(withDuration: duration,
-                       animations: {
-//                        toView.alpha = 1.0
-                        hidingView.frame.origin = CGPoint.init(x: 0, y: -30)
+        containerView.addSubview(toView)
+        toView.alpha = 0.0
+        toView.center.y += 20.0
+        
+        
+        
+        let fromVC = transitionContext.viewController(forKey: .from) as! ProjectTasksVC
+        fromVC.contentView.newTaskButton.isHidden = true
+        let newTaskButton = UIButton()
+        newTaskButton.frame = fromVC.contentView.newTaskButton.frame
+        newTaskButton.clipsToBounds = true
+        newTaskButton.layer.cornerRadius = newTaskButton.frame.width / 2.0
+        newTaskButton.backgroundColor = UIColor(red: 0.36, green: 0.55, blue: 0.89, alpha: 1.00)
+        newTaskButton.setTitle("＋", for: .normal)
+        newTaskButton.setTitleColor(UIColor.white, for: .normal)
+//        let frame = fromVC.contentView.convert(newTaskButton.frame, to: nil)
+////        newTaskButton.removeFromSuperview()
+//        newTaskButton.frame = frame
+        containerView.addSubview(newTaskButton)
+        
+        UIView.animateKeyframes(withDuration: 1.5, delay: 0.0,
+                                animations: {
+                                    
+                                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.8,
+                                                       animations: {
+                                                        hidingView.frame.origin = CGPoint.init(x: 0, y: -30)
+                                    }
+                                    )
+                                    
+                                    UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25,
+                                                       animations: {
+                                                        toView.alpha = 1.0
+                                                        toView.center.y -= 20.0
+                                    }
+                                    )
+                                    
+                                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0, animations: {
+                                        newTaskButton.frame.size.width = UIScreen.main.bounds.width
+                                        newTaskButton.center.x = UIScreen.main.bounds.width / 2.0
+                                        newTaskButton.frame.origin.y -= 100
+                                    })
         },
-                       completion: { _ in
-                        transitionContext.completeTransition(true)
+                                completion: { _ in
+                                    hidingView.removeFromSuperview()
+                                    transitionContext.completeTransition(true)
+                                    
         }
         )
+        
+        let round = CABasicAnimation(keyPath: "cornerRadius")
+        round.fromValue = newTaskButton.layer.cornerRadius
+        round.toValue = 0.0
+        round.duration = 1.5
+        newTaskButton.layer.add(round, forKey: nil)
+        newTaskButton.layer.cornerRadius = 0.0
     }
     
     

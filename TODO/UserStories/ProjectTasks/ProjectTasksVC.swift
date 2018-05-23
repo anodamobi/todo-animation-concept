@@ -16,6 +16,8 @@ class ProjectTasksVC: UIViewController {
     private var controller: ANTableController!
     private let storage: ANStorage = ANStorage()
     
+    let transition = NewTaskAnimator()
+    
     init(viewModel: ProjectTasksCellViewModel) {
         super.init(nibName: nil, bundle: nil)
         contentView.projectView.update(viewModel)
@@ -82,12 +84,10 @@ class ProjectTasksVC: UIViewController {
 extension ProjectTasksVC: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let transition = NewTaskAnimator()
         return transition
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let transition = NewTaskAnimator()
         transition.presenting = false
         return transition
     }
