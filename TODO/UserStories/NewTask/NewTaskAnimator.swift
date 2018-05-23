@@ -40,6 +40,10 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 //        let newTaskView = presenting ? toView : transitionContext.view(forKey: .from)!
 //        let projectView = presenting ? transitionContext.view(forKey: .from)! : toView
         
+        if let taskView = toView as? NewTaskView {
+            taskView.taskDetailsTextView.becomeFirstResponder()
+        }
+        
         
         let hidingView = dismissView
         containerView.addSubview(hidingView)

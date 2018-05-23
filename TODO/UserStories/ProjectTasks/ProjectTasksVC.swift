@@ -89,6 +89,6 @@ extension ProjectTasksVC: UIViewControllerTransitioningDelegate {
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.presenting = false
-        return transition
+        return nil
     }
 }

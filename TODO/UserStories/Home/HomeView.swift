@@ -20,7 +20,6 @@ class HomeView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupLayout()
     }
     
@@ -31,31 +30,31 @@ class HomeView: UIView {
     private func setupLayout() {
         
         addSubview(avatarImageView)
-        avatarImageView.backgroundColor = UIColor.gray
-        avatarImageView.layer.cornerRadius = 15.0
+        avatarImageView.image = #imageLiteral(resourceName: "avatar")
+        avatarImageView.layer.cornerRadius = 35.0
         avatarImageView.snp.makeConstraints { (make) in
-            make.size.equalTo(30)
-            make.left.equalToSuperview().offset(40)
-            if #available(iOS 11.0, *) {
-                make.top.equalTo(safeAreaLayoutGuide.snp.topMargin).offset(20)
-            } else {
-                make.top.equalToSuperview().offset(80)
-            }
+            make.size.equalTo(70)
+            make.left.equalToSuperview().offset(32)
+            make.top.equalTo(safeAreaLayoutGuide.snp.topMargin).offset(37)
         }
         
         addSubview(helloLabel)
-        helloLabel.text = "Hello, Jane"
+        helloLabel.text = "Hello, Megan."
+        helloLabel.font = UIFont.mediumTitle
+        helloLabel.textColor = .white
         helloLabel.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(40)
-            make.top.equalTo(avatarImageView.snp.bottom).offset(25)
+            make.left.equalToSuperview().offset(44)
+            make.top.equalTo(avatarImageView.snp.bottom).offset(34)
         }
         
         addSubview(todayInfoLabel)
-        todayInfoLabel.numberOfLines = 2
+        todayInfoLabel.numberOfLines = 0
+        todayInfoLabel.font = UIFont.romanBody
+        todayInfoLabel.textColor = .white
         todayInfoLabel.text = "Looks like feel good.\nYou have 3 tasks to do today."
         todayInfoLabel.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(40)
-            make.top.equalTo(helloLabel.snp.bottom).offset(10)
+            make.left.equalTo(helloLabel)
+            make.top.equalTo(helloLabel.snp.bottom).offset(16)
         }
         
         addSubview(collectionView)
@@ -70,6 +69,8 @@ class HomeView: UIView {
         }
         
         addSubview(todayDateLabel)
+        todayDateLabel.textColor = .white
+        todayDateLabel.font = UIFont.heavySubnote
         todayDateLabel.text = "TODAY: SEPTEMBER 12, 2017"
         todayDateLabel.snp.makeConstraints { (make) in
             make.bottom.equalTo(collectionView.snp.top).offset(-8)

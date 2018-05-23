@@ -58,6 +58,7 @@ class NewTaskView: UIView {
         addSubview(taskDetailsTextView)
         taskDetailsTextView.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         taskDetailsTextView.backgroundColor = UIColor.cyan
+        taskDetailsTextView.keyboardAppearance = .alert
         taskDetailsTextView.snp.makeConstraints { (make) in
             make.left.right.equalTo(detailsLabel)
             make.top.equalTo(detailsLabel.snp.bottom).offset(4)

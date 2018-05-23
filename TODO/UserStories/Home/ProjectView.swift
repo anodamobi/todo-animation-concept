@@ -67,6 +67,8 @@ class ProjectView: UIView {
         }
         
         addSubview(progressLabel)
+        progressLabel.font = UIFont.romanFootnote
+        progressLabel.textColor = UIColor.dark
         progressLabel.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-16)
             make.centerY.equalTo(progressView)
@@ -74,12 +76,16 @@ class ProjectView: UIView {
         }
         
         addSubview(nameLabel)
+        nameLabel.font = UIFont.romanTitle
+        nameLabel.textColor = UIColor.dark
         nameLabel.snp.makeConstraints { (make) in
             make.left.equalTo(progressView)
             make.bottom.equalTo(progressView.snp.top).offset(-20)
         }
         
         addSubview(tasksLabel)
+        tasksLabel.font = UIFont.romanSubnote
+        tasksLabel.textColor = UIColor.dark
         tasksLabel.snp.makeConstraints { (make) in
             make.left.equalTo(nameLabel)
             make.bottom.equalTo(nameLabel.snp.top).offset(-8)
