@@ -10,6 +10,8 @@
 		210B85C0200FDC48005DA5E4 /* ProjectAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B85BF200FDC48005DA5E4 /* ProjectAnimator.swift */; };
 		21509922200E532300131F74 /* ProjectTasksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21509921200E532300131F74 /* ProjectTasksVC.swift */; };
 		21509924200E553F00131F74 /* ProjectTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21509923200E553F00131F74 /* ProjectTasksView.swift */; };
+		215F7E3B201F4CA800C1DFB0 /* NewTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F7E3A201F4CA800C1DFB0 /* NewTaskVC.swift */; };
+		215F7E3D201F501900C1DFB0 /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F7E3C201F501900C1DFB0 /* NewTaskView.swift */; };
 		216F4D28200F6EBC00804BAD /* DebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216F4D27200F6EBC00804BAD /* DebugVC.swift */; };
 		21BE8B4E200E5C5C0059823E /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BE8B4D200E5C5C0059823E /* UIButton+Ext.swift */; };
 		21BE8B51200E6B3E0059823E /* TaskSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BE8B50200E6B3E0059823E /* TaskSectionHeader.swift */; };
@@ -29,6 +31,8 @@
 		210B85BF200FDC48005DA5E4 /* ProjectAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectAnimator.swift; sourceTree = "<group>"; };
 		21509921200E532300131F74 /* ProjectTasksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTasksVC.swift; sourceTree = "<group>"; };
 		21509923200E553F00131F74 /* ProjectTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTasksView.swift; sourceTree = "<group>"; };
+		215F7E3A201F4CA800C1DFB0 /* NewTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskVC.swift; sourceTree = "<group>"; };
+		215F7E3C201F501900C1DFB0 /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
 		216F4D27200F6EBC00804BAD /* DebugVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugVC.swift; sourceTree = "<group>"; };
 		21BE8B4D200E5C5C0059823E /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		21BE8B50200E6B3E0059823E /* TaskSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSectionHeader.swift; sourceTree = "<group>"; };
@@ -69,6 +73,15 @@
 				210B85BF200FDC48005DA5E4 /* ProjectAnimator.swift */,
 			);
 			path = ProjectTasks;
+			sourceTree = "<group>";
+		};
+		215F7E39201F4C6C00C1DFB0 /* NewTask */ = {
+			isa = PBXGroup;
+			children = (
+				215F7E3A201F4CA800C1DFB0 /* NewTaskVC.swift */,
+				215F7E3C201F501900C1DFB0 /* NewTaskView.swift */,
+			);
+			path = NewTask;
 			sourceTree = "<group>";
 		};
 		21BE8B4C200E5C0A0059823E /* Extensions */ = {
@@ -134,6 +147,7 @@
 			children = (
 				B18D331B200E582700936B73 /* Home */,
 				21509920200E52E800131F74 /* ProjectTasks */,
+				215F7E39201F4C6C00C1DFB0 /* NewTask */,
 				B18D3318200E49D100936B73 /* Debug */,
 			);
 			path = UserStories;
@@ -290,6 +304,7 @@
 			files = (
 				B18D3321200E86E900936B73 /* ProjectTasksCell.swift in Sources */,
 				B18D3323200E882600936B73 /* ProjectView.swift in Sources */,
+				215F7E3B201F4CA800C1DFB0 /* NewTaskVC.swift in Sources */,
 				B18D331D200E584200936B73 /* HomeVC.swift in Sources */,
 				21509924200E553F00131F74 /* ProjectTasksView.swift in Sources */,
 				210B85C0200FDC48005DA5E4 /* ProjectAnimator.swift in Sources */,
@@ -298,6 +313,7 @@
 				B18D3308200E480400936B73 /* ViewController.swift in Sources */,
 				B18D331F200E58FC00936B73 /* HomeView.swift in Sources */,
 				21BE8B53200E6B770059823E /* TaskCell.swift in Sources */,
+				215F7E3D201F501900C1DFB0 /* NewTaskView.swift in Sources */,
 				B18D3306200E480400936B73 /* AppDelegate.swift in Sources */,
 				21BE8B4E200E5C5C0059823E /* UIButton+Ext.swift in Sources */,
 				21BE8B51200E6B3E0059823E /* TaskSectionHeader.swift in Sources */,
