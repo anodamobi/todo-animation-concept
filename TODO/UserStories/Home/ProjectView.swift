@@ -22,11 +22,14 @@ class ProjectView: UIView {
     let nameLabel = UILabel()
     let progressView = UIProgressView()
     let progressLabel = UILabel()
-    var state: ProjectViewState = .expanded
+    
+    convenience init(viewModel: ProjectTasksCellViewModel) {
+        self.init(frame: .zero)
+        update(viewModel)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupLayout()
     }
     
@@ -58,14 +61,12 @@ class ProjectView: UIView {
         }
         
         addSubview(progressView)
-        progressView.progress = 0.3
         progressView.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(16)
             make.bottom.equalToSuperview().offset(-20)
         }
         
         addSubview(progressLabel)
-        progressLabel.text = "32%"
         progressLabel.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-16)
             make.centerY.equalTo(progressView)
@@ -73,19 +74,25 @@ class ProjectView: UIView {
         }
         
         addSubview(nameLabel)
-        nameLabel.text = "Work"
         nameLabel.snp.makeConstraints { (make) in
             make.left.equalTo(progressView)
             make.bottom.equalTo(progressView.snp.top).offset(-20)
         }
         
         addSubview(tasksLabel)
-        tasksLabel.text = "12 Tasks"
         tasksLabel.snp.makeConstraints { (make) in
             make.left.equalTo(nameLabel)
             make.bottom.equalTo(nameLabel.snp.top).offset(-8)
         }
     }
     
-
+    func update(_ viewModel: ProjectTasksCellViewModel) {
+        nameLabel.text = viewModel.name
+        tasksLabel.text = "\(viewModel.numberOfTasks!) Tasks"
+        progressView.progress = Float(viewModel.progress)
+        progressView.progressTintColor = viewModel.color
+        progressLabel.text = "\(viewModel.progress * 100)%"
+        //        projectTasksView.projectImageView.image = viewModel.icon
+    }
+    
 }

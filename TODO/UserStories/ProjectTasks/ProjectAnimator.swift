@@ -19,11 +19,14 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
     let originFrame: CGRect
     let duration: TimeInterval
     let presentationStyle: PresentationStyle
+    let projectViewModel: ProjectTasksCellViewModel
     
-    init(duration: TimeInterval, presentationStyle: PresentationStyle, originFrame: CGRect) {
+    init(duration: TimeInterval, presentationStyle: PresentationStyle,
+         originFrame: CGRect, projectViewModel: ProjectTasksCellViewModel) {
         self.duration = duration
         self.presentationStyle = presentationStyle
         self.originFrame = originFrame
+        self.projectViewModel = projectViewModel
         super.init()
     }
     
@@ -47,7 +50,7 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
         }
         
         let projectViewStartFrame = presentationStyle == .present ? originFrame :  CGRect(x: 0, y: 88, width: UIScreen.main.bounds.width, height: 135)
-        let projectView = ProjectView()
+        let projectView = ProjectView(viewModel: projectViewModel)
         projectView.frame = projectViewStartFrame
         projectView.backgroundColor = UIColor.white
         projectView.layer.cornerRadius = 8

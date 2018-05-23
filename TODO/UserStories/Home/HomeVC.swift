@@ -17,6 +17,7 @@ class HomeVC: UIViewController {
     let storage: ANStorage = ANStorage()
     var controller: ANCollectionController!
     var rect: CGRect = .zero
+    var viewModel: ProjectTasksCellViewModel?
     override func loadView() {
         view = contentView
     }
@@ -49,16 +50,16 @@ class HomeVC: UIViewController {
         viewModel3.name = "Home"
         viewModel3.numberOfTasks = 7
         viewModel3.progress = 0.32
-        controller.configureItemSelectionBlock { [unowned self] (_, indexPath) in
-            
+        controller.configureItemSelectionBlock { [unowned self] (viewModel, indexPath) in
+            guard let viewModel = viewModel as? ProjectTasksCellViewModel else { return }
             guard let cell = self.controller.collectionView.cellForItem(at: indexPath!) as? ProjectTasksCell else { return }
             let convertedRect = self.controller.collectionView.convert(cell.frame,
                                                                        to: self.view)
             self.rect = convertedRect
-            
-//            cell.projectView.heroID = "proj"
+            self.viewModel = viewModel
+//            cell.projectView.heroID = "proj" 
 
-            let vc = ProjectTasksVC() // UINavigationController.init(rootViewController: ProjectTasksVC())
+            let vc = ProjectTasksVC(viewModel: viewModel) // UINavigationController.init(rootViewController: ProjectTasksVC())
 //            vc.isHeroEnabled = true
 //            vc.contentView.projectView.heroID = "proj"
 //            vc.contentView.projectView.heroModifiers = [HeroModifier.forceAnimate]
@@ -130,10 +131,14 @@ class HomeVC: UIViewController {
 
 extension HomeVC: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-       return ProjectTasksAnimator(duration: 2.0, presentationStyle: .present, originFrame: self.rect)
+        guard let viewModel = viewModel else { return nil }
+        return ProjectTasksAnimator(duration: 0.75, presentationStyle: .present,
+                                    originFrame: rect, projectViewModel: viewModel)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return ProjectTasksAnimator(duration: 2.0, presentationStyle: .dismiss, originFrame: self.rect)
+        guard let viewModel = viewModel else { return nil }
+        return ProjectTasksAnimator(duration: 0.75, presentationStyle: .dismiss,
+                                    originFrame: rect, projectViewModel: viewModel)
     }
 }

@@ -16,6 +16,15 @@ class ProjectTasksVC: UIViewController {
     private var controller: ANTableController!
     private let storage: ANStorage = ANStorage()
     
+    init(viewModel: ProjectTasksCellViewModel) {
+        super.init(nibName: nil, bundle: nil)
+        contentView.projectView.update(viewModel)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         view = contentView
     }
