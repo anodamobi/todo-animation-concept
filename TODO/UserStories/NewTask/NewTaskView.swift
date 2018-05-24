@@ -15,9 +15,12 @@ class NewTaskView: UIView {
     let cancelButton: UIButton = UIButton()
     let taskDetailsTextView: UITextView = UITextView()
     let tableView: UITableView = UITableView()
+    let addNewTaskButton: UIButton = UIButton()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        NotificationCenter.default.addObserver(self, selector: #selector(willShow(_:)), name: NSNotification.Name.UIKeyboardWillShow,
+                                               object: nil)
         setupLayout()
     }
     
@@ -71,5 +74,28 @@ class NewTaskView: UIView {
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
             make.top.equalTo(taskDetailsTextView.snp.bottom).offset(20)
         }
+        
+        addSubview(addNewTaskButton)
+        addNewTaskButton.backgroundColor = UIColor(red: 0.36, green: 0.55, blue: 0.89, alpha: 1.00)
+        addNewTaskButton.setTitle("＋", for: .normal)
+        addNewTaskButton.setTitleColor(UIColor.white, for: .normal)
+        addNewTaskButton.snp.makeConstraints { (make) in
+            make.width.centerX.equalToSuperview()
+            make.height.equalTo(44)
+            make.bottom.equalToSuperview()
+        }
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func willShow(_ notification: Notification) {
+        keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        addNewTaskButton.snp.updateConstraints { (make) in
+            make.bottom.equalToSuperview().offset(-keyboardRect!.size.height)
+        }
+    }
+    
+    private var keyboardRect: CGRect?
 }
