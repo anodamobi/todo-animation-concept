@@ -8,6 +8,7 @@
 
 import UIKit
 import ANODA_Alister
+import Hero
 
 class HomeVC: UIViewController {
     
@@ -15,7 +16,8 @@ class HomeVC: UIViewController {
     
     let storage: ANStorage = ANStorage()
     var controller: ANCollectionController!
-    
+    var rect: CGRect = .zero
+    var viewModel: ProjectTasksCellViewModel?
     override func loadView() {
         view = contentView
     }
@@ -48,6 +50,30 @@ class HomeVC: UIViewController {
         viewModel3.name = "Home"
         viewModel3.numberOfTasks = 7
         viewModel3.progress = 0.32
+        controller.configureItemSelectionBlock { [unowned self] (viewModel, indexPath) in
+            guard let viewModel = viewModel as? ProjectTasksCellViewModel else { return }
+            guard let cell = self.controller.collectionView.cellForItem(at: indexPath!) as? ProjectTasksCell else { return }
+            let convertedRect = self.controller.collectionView.convert(cell.frame,
+                                                                       to: self.view)
+            self.rect = convertedRect
+            self.viewModel = viewModel
+//            cell.projectView.heroID = "proj" 
+
+            let vc = ProjectTasksVC(viewModel: viewModel) // UINavigationController.init(rootViewController: ProjectTasksVC())
+//            vc.isHeroEnabled = true
+//            vc.contentView.projectView.heroID = "proj"
+//            vc.contentView.projectView.heroModifiers = [HeroModifier.forceAnimate]
+//            vc.contentView.tableView.heroID = "tv"
+//            vc.contentView.tableView.heroModifiers = [HeroModifier.cascade(delta: 0.5, direction: CascadeDirection.bottomToTop, delayMatchedViews: true)]
+//            vc.contentView.heroModifiers = [HeroModifier.useNoSnapshot, ]
+//            vc.contentView.projectView.heroModifiers = [.useGlobalCoordinateSpace,
+//                                                        .size(CGSize.init(width: UIScreen.main.bounds.width, height: 135)),
+//                                                        .position(CGPoint.init(x: 0, y: 88))]
+            
+//            vc.modalPresentationStyle = .custom
+            vc.transitioningDelegate = self
+            self.present(vc, animated: true, completion: nil)
+        }
         
         storage.updateWithoutAnimationChange { (change) in
             change?.addItem(viewModel1)
@@ -100,5 +126,19 @@ class HomeVC: UIViewController {
                 })
             }
         }
+    }
+}
+
+extension HomeVC: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let viewModel = viewModel else { return nil }
+        return ProjectTasksAnimator(duration: 0.75, presentationStyle: .present,
+                                    originFrame: rect, projectViewModel: viewModel)
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let viewModel = viewModel else { return nil }
+        return ProjectTasksAnimator(duration: 0.75, presentationStyle: .dismiss,
+                                    originFrame: rect, projectViewModel: viewModel)
     }
 }

@@ -21,19 +21,14 @@ class ProjectTasksCellViewModel: NSObject {
 
 class ProjectTasksCell: ANCollectionViewCell {
     
-    let projectTasksView = ProjectTasksView()
+    let projectView = ProjectView()
     
     override func update(withModel model: Any!) {
         guard let viewModel = model as? ProjectTasksCellViewModel else {
-            fatalError("incorrect view")
+            assert(false, "❌ viewModel for cell is incorrect")
+            return
         }
-        
-        projectTasksView.nameLabel.text = viewModel.name
-        projectTasksView.tasksLabel.text = "\(viewModel.numberOfTasks!) Tasks"
-        projectTasksView.progressView.progress = Float(viewModel.progress)
-        projectTasksView.progressView.progressTintColor = viewModel.color
-        projectTasksView.progressLabel.text = "\(viewModel.progress * 100)%"
-//        projectTasksView.projectImageView.image = viewModel.icon
+        projectView.update(viewModel)
     }
     
     override init(frame: CGRect) {
@@ -50,14 +45,10 @@ class ProjectTasksCell: ANCollectionViewCell {
         layer.cornerRadius = 8
         clipsToBounds = true
         
-        
-        addSubview(projectTasksView)
-        projectTasksView.snp.makeConstraints { (make) in
+        addSubview(projectView)
+        projectView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
-//        backgroundView = UIView.init(frame: CGRect.zero)
-//        backgroundView?.backgroundColor = UIColor.phPaleGreyTwo
-//        selectedBackgroundView = backgroundView
     }
     
 }

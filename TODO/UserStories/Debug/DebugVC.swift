@@ -14,7 +14,7 @@ class DebugVC: UIViewController {
     
     enum DebugScreens: String {
         case main
-        case section
+        case projectTasks
         case addNew
     }
     
@@ -38,7 +38,7 @@ class DebugVC: UIViewController {
         
         storage.updateWithoutAnimationChange { (change) in
             change?.addItem(DebugScreens.main.rawValue)
-            change?.addItem(DebugScreens.section.rawValue)
+            change?.addItem(DebugScreens.projectTasks.rawValue)
             change?.addItem(DebugScreens.addNew.rawValue)
         }
         
@@ -53,8 +53,19 @@ class DebugVC: UIViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
             case 1:
+                
+                let viewModel1 = ProjectTasksCellViewModel()
+                viewModel1.color = UIColor.red
+                viewModel1.name = "Personal"
+                viewModel1.numberOfTasks = 9
+                viewModel1.progress = 0.83
+                
+                let vc = UINavigationController(rootViewController: ProjectTasksVC(viewModel: viewModel1))
+                self.present(vc, animated: true, completion: nil)
                 break
             case 2:
+                let vc = UINavigationController(rootViewController: NewTaskVC())
+                self.present(vc, animated: true, completion: nil)
                 break
             default:
                 break

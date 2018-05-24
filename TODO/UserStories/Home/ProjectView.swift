@@ -1,15 +1,20 @@
 //
-//  ProjectTasksView.swift
+//  ProjectView.swift
 //  TODO
 //
-//  Created by Simon Kostenko on 1/16/18.
-//  Copyright © 2018 Simon Kostenko. All rights reserved.
+//  Created by ANODA on 1/16/18.
+//  Copyright © 2018 ANODA. All rights reserved.
 //
 
 import UIKit
 import SnapKit
 
-class ProjectTasksView: UIView {
+enum ProjectViewState {
+    case expanded
+    case collapsed
+}
+
+class ProjectView: UIView {
     
     let projectImageView = UIImageView()
     let moreButton = UIButton()
@@ -18,14 +23,23 @@ class ProjectTasksView: UIView {
     let progressView = UIProgressView()
     let progressLabel = UILabel()
     
+    convenience init(viewModel: ProjectTasksCellViewModel) {
+        self.init(frame: .zero)
+        update(viewModel)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupLayout()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func updateConstraints() {
+        
+        super.updateConstraints()
     }
     
     private func setupLayout() {
@@ -47,14 +61,12 @@ class ProjectTasksView: UIView {
         }
         
         addSubview(progressView)
-        progressView.progress = 0.3
         progressView.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(16)
             make.bottom.equalToSuperview().offset(-20)
         }
         
         addSubview(progressLabel)
-        progressLabel.text = "32%"
         progressLabel.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-16)
             make.centerY.equalTo(progressView)
@@ -62,19 +74,25 @@ class ProjectTasksView: UIView {
         }
         
         addSubview(nameLabel)
-        nameLabel.text = "Work"
         nameLabel.snp.makeConstraints { (make) in
             make.left.equalTo(progressView)
             make.bottom.equalTo(progressView.snp.top).offset(-20)
         }
         
         addSubview(tasksLabel)
-        tasksLabel.text = "12 Tasks"
         tasksLabel.snp.makeConstraints { (make) in
             make.left.equalTo(nameLabel)
             make.bottom.equalTo(nameLabel.snp.top).offset(-8)
         }
     }
     
-
+    func update(_ viewModel: ProjectTasksCellViewModel) {
+        nameLabel.text = viewModel.name
+        tasksLabel.text = "\(viewModel.numberOfTasks!) Tasks"
+        progressView.progress = Float(viewModel.progress)
+        progressView.progressTintColor = viewModel.color
+        progressLabel.text = "\(viewModel.progress * 100)%"
+        //        projectTasksView.projectImageView.image = viewModel.icon
+    }
+    
 }

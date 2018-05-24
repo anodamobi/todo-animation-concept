@@ -9,5 +9,7 @@ target 'TODO' do
   pod 'ANODA-Alister', :git => 'https://github.com/anodamobi/Alister.git', :branch => 'master', :commit => '7a5bd5a'
     
   pod 'SnapKit'
+  pod 'Hero'
+  pod 'pop', '~> 1.0'
 
 end
