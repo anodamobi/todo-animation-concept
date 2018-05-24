@@ -9,13 +9,22 @@
 import UIKit
 import ANODA_Alister
 
-class ProjectTasksCellViewModel: NSObject {
+class ProjectTasksViewModel: NSObject {
     
-    var name: String!
-    var iconName: String = ""
-    var color: UIColor!
-    var numberOfTasks: Int!
-    var progress: Double!
+    var name: String
+    var icon: UIImage?
+    var background: UIImage?
+    var numberOfTasks: Int
+    var progress: Double
+    
+    init(project: Project) {
+        name = project.name
+        icon = project.icon
+        background = project.background
+        numberOfTasks = 0
+        progress = project.progress
+        super.init()
+    }
 
 }
 
@@ -24,7 +33,7 @@ class ProjectTasksCell: ANCollectionViewCell {
     let projectView = ProjectView()
     
     override func update(withModel model: Any!) {
-        guard let viewModel = model as? ProjectTasksCellViewModel else {
+        guard let viewModel = model as? ProjectTasksViewModel else {
             assert(false, "❌ viewModel for cell is incorrect")
             return
         }

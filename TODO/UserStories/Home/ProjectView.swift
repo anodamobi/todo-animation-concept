@@ -20,7 +20,7 @@ class ProjectView: UIView {
     let progressView = UIProgressView()
     let progressLabel = UILabel()
     
-    convenience init(viewModel: ProjectTasksCellViewModel) {
+    convenience init(viewModel: ProjectTasksViewModel) {
         self.init(frame: .zero)
         update(viewModel)
     }
@@ -87,13 +87,13 @@ class ProjectView: UIView {
         }
     }
     
-    func update(_ viewModel: ProjectTasksCellViewModel) {
+    func update(_ viewModel: ProjectTasksViewModel) {
         nameLabel.text = viewModel.name
-        tasksLabel.text = "\(viewModel.numberOfTasks!) Tasks"
+        tasksLabel.text = "\(viewModel.numberOfTasks) Tasks"
         progressView.progress = Float(viewModel.progress)
-        progressView.progressTintColor = viewModel.color
+//        progressView.progressTintColor = viewModel.color
         progressLabel.text = "\(viewModel.progress * 100)%"
-        //        projectTasksView.projectImageView.image = viewModel.icon
+        projectImageView.setImage(viewModel.icon)
     }
     
 }

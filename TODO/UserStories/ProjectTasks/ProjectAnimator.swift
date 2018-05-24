@@ -19,10 +19,10 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
     let originFrame: CGRect
     let duration: TimeInterval
     let presentationStyle: PresentationStyle
-    let projectViewModel: ProjectTasksCellViewModel
+    let projectViewModel: ProjectTasksViewModel
     
     init(duration: TimeInterval, presentationStyle: PresentationStyle,
-         originFrame: CGRect, projectViewModel: ProjectTasksCellViewModel) {
+         originFrame: CGRect, projectViewModel: ProjectTasksViewModel) {
         self.duration = duration
         self.presentationStyle = presentationStyle
         self.originFrame = originFrame

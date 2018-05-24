@@ -18,7 +18,7 @@ class ProjectTasksVC: UIViewController {
     
     let transition = NewTaskAnimator()
     
-    init(viewModel: ProjectTasksCellViewModel) {
+    init(viewModel: ProjectTasksViewModel) {
         super.init(nibName: nil, bundle: nil)
         contentView.projectView.update(viewModel)
     }
