@@ -84,6 +84,7 @@ class ProjectTasksVC: UIViewController {
 extension ProjectTasksVC: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.presenting = true
         return transition
     }
     
