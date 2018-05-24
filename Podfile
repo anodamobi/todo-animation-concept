@@ -7,7 +7,8 @@ target 'TODO' do
 
   # Pods for TODO
   pod 'ANODA-Alister', :git => 'https://github.com/anodamobi/Alister.git', :branch => 'master', :commit => '7a5bd5a'
-    
+  pod 'UIImagePDF', :git=> 'git@github.com:anodamobi/UIImage-PDF.git', :branch => '0.9-beta1', :commit => '7d9dfbf'
+
   pod 'SnapKit'
   pod 'Hero'
   pod 'pop', '~> 1.0'

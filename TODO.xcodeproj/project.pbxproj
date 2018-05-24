@@ -13,6 +13,19 @@
 		215F7E3B201F4CA800C1DFB0 /* NewTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F7E3A201F4CA800C1DFB0 /* NewTaskVC.swift */; };
 		215F7E3D201F501900C1DFB0 /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F7E3C201F501900C1DFB0 /* NewTaskView.swift */; };
 		216F4D28200F6EBC00804BAD /* DebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216F4D27200F6EBC00804BAD /* DebugVC.swift */; };
+		2170134820B6B93A001315DB /* search.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170134620B6B93A001315DB /* search.pdf */; };
+		2170134920B6B93A001315DB /* burger.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170134720B6B93A001315DB /* burger.pdf */; };
+		2170134C20B6BC9A001315DB /* back.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170134A20B6BC9A001315DB /* back.pdf */; };
+		2170134D20B6BC9A001315DB /* navigationDots.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170134B20B6BC9A001315DB /* navigationDots.pdf */; };
+		2170135020B6C1DF001315DB /* background1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170134F20B6C1DF001315DB /* background1.pdf */; };
+		2170135220B6C256001315DB /* background2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170135120B6C256001315DB /* background2.pdf */; };
+		2170135420B6C6C3001315DB /* background3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170135320B6C6C3001315DB /* background3.pdf */; };
+		2170135720B6D405001315DB /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170135620B6D405001315DB /* BaseView.swift */; };
+		2170135920B6D804001315DB /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170135820B6D804001315DB /* NavigationView.swift */; };
+		2170135D20B6D8CA001315DB /* timer.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170135B20B6D8C9001315DB /* timer.pdf */; };
+		2170135E20B6D8CA001315DB /* checkbox.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170135C20B6D8CA001315DB /* checkbox.pdf */; };
+		2170136020B6EB95001315DB /* dots.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170135F20B6EB95001315DB /* dots.pdf */; };
+		2170136220B6EE87001315DB /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170136120B6EE87001315DB /* Double+Ext.swift */; };
 		21BE8B4E200E5C5C0059823E /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BE8B4D200E5C5C0059823E /* UIButton+Ext.swift */; };
 		21BE8B51200E6B3E0059823E /* TaskSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BE8B50200E6B3E0059823E /* TaskSectionHeader.swift */; };
 		21BE8B53200E6B770059823E /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BE8B52200E6B770059823E /* TaskCell.swift */; };
@@ -37,6 +50,19 @@
 		215F7E3A201F4CA800C1DFB0 /* NewTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskVC.swift; sourceTree = "<group>"; };
 		215F7E3C201F501900C1DFB0 /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
 		216F4D27200F6EBC00804BAD /* DebugVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugVC.swift; sourceTree = "<group>"; };
+		2170134620B6B93A001315DB /* search.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = search.pdf; sourceTree = "<group>"; };
+		2170134720B6B93A001315DB /* burger.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = burger.pdf; sourceTree = "<group>"; };
+		2170134A20B6BC9A001315DB /* back.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = back.pdf; sourceTree = "<group>"; };
+		2170134B20B6BC9A001315DB /* navigationDots.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = navigationDots.pdf; sourceTree = "<group>"; };
+		2170134F20B6C1DF001315DB /* background1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = background1.pdf; sourceTree = "<group>"; };
+		2170135120B6C256001315DB /* background2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = background2.pdf; sourceTree = "<group>"; };
+		2170135320B6C6C3001315DB /* background3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = background3.pdf; sourceTree = "<group>"; };
+		2170135620B6D405001315DB /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		2170135820B6D804001315DB /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		2170135B20B6D8C9001315DB /* timer.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = timer.pdf; sourceTree = "<group>"; };
+		2170135C20B6D8CA001315DB /* checkbox.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = checkbox.pdf; sourceTree = "<group>"; };
+		2170135F20B6EB95001315DB /* dots.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = dots.pdf; sourceTree = "<group>"; };
+		2170136120B6EE87001315DB /* Double+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
 		21BE8B4D200E5C5C0059823E /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		21BE8B50200E6B3E0059823E /* TaskSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSectionHeader.swift; sourceTree = "<group>"; };
 		21BE8B52200E6B770059823E /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
@@ -91,12 +117,71 @@
 			path = NewTask;
 			sourceTree = "<group>";
 		};
+		2170134320B6B84F001315DB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2170134420B6B857001315DB /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2170134420B6B857001315DB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				2170135A20B6D88D001315DB /* Cell */,
+				2170134E20B6C198001315DB /* Backgrounds */,
+				2170134520B6B85C001315DB /* Navigation Items */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		2170134520B6B85C001315DB /* Navigation Items */ = {
+			isa = PBXGroup;
+			children = (
+				2170134A20B6BC9A001315DB /* back.pdf */,
+				2170134B20B6BC9A001315DB /* navigationDots.pdf */,
+				2170134720B6B93A001315DB /* burger.pdf */,
+				2170134620B6B93A001315DB /* search.pdf */,
+			);
+			path = "Navigation Items";
+			sourceTree = "<group>";
+		};
+		2170134E20B6C198001315DB /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				2170135320B6C6C3001315DB /* background3.pdf */,
+				2170135120B6C256001315DB /* background2.pdf */,
+				2170134F20B6C1DF001315DB /* background1.pdf */,
+			);
+			path = Backgrounds;
+			sourceTree = "<group>";
+		};
+		2170135520B6D3EF001315DB /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				2170135620B6D405001315DB /* BaseView.swift */,
+				2170135820B6D804001315DB /* NavigationView.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		2170135A20B6D88D001315DB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2170135F20B6EB95001315DB /* dots.pdf */,
+				2170135C20B6D8CA001315DB /* checkbox.pdf */,
+				2170135B20B6D8C9001315DB /* timer.pdf */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		21BE8B4C200E5C0A0059823E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				21BE8B4D200E5C5C0059823E /* UIButton+Ext.swift */,
 				21BED69520B5DA9500B9F9BE /* UIFont+Ext.swift */,
 				21BED69720B5DFDA00B9F9BE /* UIColor+Ext.swift */,
+				2170136120B6EE87001315DB /* Double+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -140,6 +225,8 @@
 		B18D3304200E480400936B73 /* TODO */ = {
 			isa = PBXGroup;
 			children = (
+				2170135520B6D3EF001315DB /* ReusableViews */,
+				2170134320B6B84F001315DB /* Resources */,
 				B18D3317200E49BF00936B73 /* UserStories */,
 				21BE8B4C200E5C0A0059823E /* Extensions */,
 				B18D3305200E480400936B73 /* AppDelegate.swift */,
@@ -250,8 +337,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2170135D20B6D8CA001315DB /* timer.pdf in Resources */,
+				2170134D20B6BC9A001315DB /* navigationDots.pdf in Resources */,
+				2170136020B6EB95001315DB /* dots.pdf in Resources */,
+				2170135420B6C6C3001315DB /* background3.pdf in Resources */,
+				2170135220B6C256001315DB /* background2.pdf in Resources */,
+				2170135020B6C1DF001315DB /* background1.pdf in Resources */,
 				B18D3310200E480400936B73 /* LaunchScreen.storyboard in Resources */,
+				2170134920B6B93A001315DB /* burger.pdf in Resources */,
+				2170134820B6B93A001315DB /* search.pdf in Resources */,
+				2170135E20B6D8CA001315DB /* checkbox.pdf in Resources */,
 				B18D330D200E480400936B73 /* Assets.xcassets in Resources */,
+				2170134C20B6BC9A001315DB /* back.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +366,7 @@
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/UIImagePDF/UIImagePDF.framework",
 				"${BUILT_PRODUCTS_DIR}/libextobjc/libextobjc.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
@@ -278,6 +376,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImagePDF.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libextobjc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
@@ -313,6 +412,7 @@
 			files = (
 				B18D3321200E86E900936B73 /* ProjectTasksCell.swift in Sources */,
 				B18D3323200E882600936B73 /* ProjectView.swift in Sources */,
+				2170135920B6D804001315DB /* NavigationView.swift in Sources */,
 				215F7E3B201F4CA800C1DFB0 /* NewTaskVC.swift in Sources */,
 				B18D331D200E584200936B73 /* HomeVC.swift in Sources */,
 				21509924200E553F00131F74 /* ProjectTasksView.swift in Sources */,
@@ -321,12 +421,14 @@
 				21BED69620B5DA9500B9F9BE /* UIFont+Ext.swift in Sources */,
 				21509922200E532300131F74 /* ProjectTasksVC.swift in Sources */,
 				B11B807D20B59B9700A503A6 /* NewTaskAnimator.swift in Sources */,
+				2170136220B6EE87001315DB /* Double+Ext.swift in Sources */,
 				B18D3308200E480400936B73 /* ViewController.swift in Sources */,
 				B18D331F200E58FC00936B73 /* HomeView.swift in Sources */,
 				21BE8B53200E6B770059823E /* TaskCell.swift in Sources */,
 				215F7E3D201F501900C1DFB0 /* NewTaskView.swift in Sources */,
 				B18D3306200E480400936B73 /* AppDelegate.swift in Sources */,
 				21BED69820B5DFDA00B9F9BE /* UIColor+Ext.swift in Sources */,
+				2170135720B6D405001315DB /* BaseView.swift in Sources */,
 				21BE8B4E200E5C5C0059823E /* UIButton+Ext.swift in Sources */,
 				21BE8B51200E6B3E0059823E /* TaskSectionHeader.swift in Sources */,
 			);
