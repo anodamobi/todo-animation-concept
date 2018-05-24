@@ -29,6 +29,9 @@ class NewTaskView: BaseView {
         backgroundColor = UIColor.white
         
         navigationView.backgroundColor = UIColor.white
+        let cross = UIImage.originalSizeImage(withPDFNamed: "cross")
+        navigationView.leftButton.setImage(cross, for: .normal)
+        navigationView.title = "New Task"
         
         addSubview(detailsLabel)
         detailsLabel.text = "What tasks are you planning to perform?"

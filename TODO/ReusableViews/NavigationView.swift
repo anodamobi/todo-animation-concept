@@ -50,6 +50,7 @@ class NavigationView: UIView {
         addSubview(titleLabel)
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.heavyBody
+        titleLabel.textColor = UIColor.dark
         titleLabel.snp.makeConstraints { (make) in
             make.top.bottom.height.equalTo(leftButton)
             make.left.equalTo(leftButton.snp.right)

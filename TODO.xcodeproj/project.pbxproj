@@ -26,6 +26,13 @@
 		2170135E20B6D8CA001315DB /* checkbox.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170135C20B6D8CA001315DB /* checkbox.pdf */; };
 		2170136020B6EB95001315DB /* dots.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170135F20B6EB95001315DB /* dots.pdf */; };
 		2170136220B6EE87001315DB /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170136120B6EE87001315DB /* Double+Ext.swift */; };
+		2170136620B700D9001315DB /* today.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170136320B700D9001315DB /* today.pdf */; };
+		2170136720B700D9001315DB /* work.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170136420B700D9001315DB /* work.pdf */; };
+		2170136820B700D9001315DB /* personal.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170136520B700D9001315DB /* personal.pdf */; };
+		2170136A20B701DC001315DB /* cross.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170136920B701DC001315DB /* cross.pdf */; };
+		2170136E20B70256001315DB /* today_outline.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170136B20B70256001315DB /* today_outline.pdf */; };
+		2170136F20B70256001315DB /* work_outline.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170136C20B70256001315DB /* work_outline.pdf */; };
+		2170137020B70256001315DB /* personal_outline.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2170136D20B70256001315DB /* personal_outline.pdf */; };
 		21BE8B4E200E5C5C0059823E /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BE8B4D200E5C5C0059823E /* UIButton+Ext.swift */; };
 		21BE8B51200E6B3E0059823E /* TaskSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BE8B50200E6B3E0059823E /* TaskSectionHeader.swift */; };
 		21BE8B53200E6B770059823E /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BE8B52200E6B770059823E /* TaskCell.swift */; };
@@ -63,6 +70,13 @@
 		2170135C20B6D8CA001315DB /* checkbox.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = checkbox.pdf; sourceTree = "<group>"; };
 		2170135F20B6EB95001315DB /* dots.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = dots.pdf; sourceTree = "<group>"; };
 		2170136120B6EE87001315DB /* Double+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
+		2170136320B700D9001315DB /* today.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = today.pdf; sourceTree = "<group>"; };
+		2170136420B700D9001315DB /* work.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = work.pdf; sourceTree = "<group>"; };
+		2170136520B700D9001315DB /* personal.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = personal.pdf; sourceTree = "<group>"; };
+		2170136920B701DC001315DB /* cross.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = cross.pdf; sourceTree = "<group>"; };
+		2170136B20B70256001315DB /* today_outline.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = today_outline.pdf; sourceTree = "<group>"; };
+		2170136C20B70256001315DB /* work_outline.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = work_outline.pdf; sourceTree = "<group>"; };
+		2170136D20B70256001315DB /* personal_outline.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = personal_outline.pdf; sourceTree = "<group>"; };
 		21BE8B4D200E5C5C0059823E /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		21BE8B50200E6B3E0059823E /* TaskSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSectionHeader.swift; sourceTree = "<group>"; };
 		21BE8B52200E6B770059823E /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
@@ -138,6 +152,7 @@
 		2170134520B6B85C001315DB /* Navigation Items */ = {
 			isa = PBXGroup;
 			children = (
+				2170136920B701DC001315DB /* cross.pdf */,
 				2170134A20B6BC9A001315DB /* back.pdf */,
 				2170134B20B6BC9A001315DB /* navigationDots.pdf */,
 				2170134720B6B93A001315DB /* burger.pdf */,
@@ -168,6 +183,12 @@
 		2170135A20B6D88D001315DB /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				2170136D20B70256001315DB /* personal_outline.pdf */,
+				2170136B20B70256001315DB /* today_outline.pdf */,
+				2170136C20B70256001315DB /* work_outline.pdf */,
+				2170136520B700D9001315DB /* personal.pdf */,
+				2170136320B700D9001315DB /* today.pdf */,
+				2170136420B700D9001315DB /* work.pdf */,
 				2170135F20B6EB95001315DB /* dots.pdf */,
 				2170135C20B6D8CA001315DB /* checkbox.pdf */,
 				2170135B20B6D8C9001315DB /* timer.pdf */,
@@ -340,15 +361,22 @@
 				2170135D20B6D8CA001315DB /* timer.pdf in Resources */,
 				2170134D20B6BC9A001315DB /* navigationDots.pdf in Resources */,
 				2170136020B6EB95001315DB /* dots.pdf in Resources */,
+				2170136620B700D9001315DB /* today.pdf in Resources */,
 				2170135420B6C6C3001315DB /* background3.pdf in Resources */,
 				2170135220B6C256001315DB /* background2.pdf in Resources */,
 				2170135020B6C1DF001315DB /* background1.pdf in Resources */,
+				2170136720B700D9001315DB /* work.pdf in Resources */,
+				2170137020B70256001315DB /* personal_outline.pdf in Resources */,
+				2170136820B700D9001315DB /* personal.pdf in Resources */,
 				B18D3310200E480400936B73 /* LaunchScreen.storyboard in Resources */,
 				2170134920B6B93A001315DB /* burger.pdf in Resources */,
+				2170136A20B701DC001315DB /* cross.pdf in Resources */,
 				2170134820B6B93A001315DB /* search.pdf in Resources */,
 				2170135E20B6D8CA001315DB /* checkbox.pdf in Resources */,
 				B18D330D200E480400936B73 /* Assets.xcassets in Resources */,
 				2170134C20B6BC9A001315DB /* back.pdf in Resources */,
+				2170136F20B70256001315DB /* work_outline.pdf in Resources */,
+				2170136E20B70256001315DB /* today_outline.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

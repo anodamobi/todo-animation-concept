@@ -42,7 +42,6 @@ class ProjectView: UIView {
     private func setupLayout() {
         
         addSubview(projectImageView)
-        projectImageView.setImage(#imageLiteral(resourceName: "projectIcon"))
         projectImageView.snp.makeConstraints { (make) in
             make.size.equalTo(44)
             make.left.top.equalToSuperview().offset(16)
@@ -50,7 +49,6 @@ class ProjectView: UIView {
         
         addSubview(moreButton)
         moreButton.setImage(ProjectView.dotsImage, for: .normal)
-        moreButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 27, bottom: 0, right: 0)
         moreButton.snp.makeConstraints { (make) in
             make.size.equalTo(30)
             make.top.equalToSuperview().offset(16)
