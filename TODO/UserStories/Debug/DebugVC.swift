@@ -50,7 +50,8 @@ class DebugVC: UIViewController {
             switch indexPath.row {
             case 0:
                 let vc = HomeVC()
-                self.navigationController?.pushViewController(vc, animated: true)
+                self.present(vc, animated: true, completion: nil)
+//                self.navigationController?.pushViewController(vc, animated: true)
                 break
             case 1:
                 
