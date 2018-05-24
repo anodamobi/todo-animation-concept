@@ -14,16 +14,14 @@ import Hero
 struct ProjectTasksConstants {
     static let rowHeight: CGFloat = 44.0
     static let sectionHeaderHeight: CGFloat = 44.0
-    static let leftOffset: CGFloat = 40.0
+    static let margin: CGFloat = 20.0
     static let buttonSize: CGFloat = 44.0
 }
 
-class ProjectTasksView: UIView {
+class ProjectTasksView: BaseView {
     let projectView: ProjectView = ProjectView()
     let tableView: UITableView = UITableView()
     let newTaskButton: UIButton = UIButton()
-    let cancelButton: UIButton = UIButton()
-    let navigationView: UIView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,38 +32,26 @@ class ProjectTasksView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupLayout() {
+    override func setupLayout() {
+        super.setupLayout()
+        
         backgroundColor = UIColor.white
         
+        let back = UIImage.originalSizeImage(withPDFNamed: "back")
+        navigationView.leftButton.setImage(back, for: .normal)
+        let navigationDots = UIImage.originalSizeImage(withPDFNamed: "navigationDots")
+        navigationView.rightButton.setImage(navigationDots, for: .normal)
         navigationView.backgroundColor = UIColor.white
-        addSubview(navigationView)
-        navigationView.snp.makeConstraints { (make) in
-            make.height.equalTo(44)
-            make.width.equalToSuperview()
-            make.top.equalTo(safeAreaLayoutGuide.snp.top)
-            make.left.equalTo(safeAreaLayoutGuide.snp.left)
-            make.right.equalTo(safeAreaLayoutGuide.snp.right)
-        }
-        
-        navigationView.addSubview(cancelButton)
-        cancelButton.setTitle("Cancel", for: .normal)
-        cancelButton.setTitleColor(UIColor.black, for: .normal)
-        cancelButton.snp.makeConstraints { (make) in
-            make.left.top.bottom.equalToSuperview()
-            make.width.equalTo(44)
-        }
         
         addSubview(projectView)
         projectView.snp.makeConstraints { (make) in
             make.top.equalTo(navigationView.snp.bottom)
-            make.left.equalTo(safeAreaLayoutGuide.snp.left)
-            make.right.equalTo(safeAreaLayoutGuide.snp.right)
-            make.height.equalTo(135)
+            make.left.equalTo(safeAreaLayoutGuide.snp.left).offset(ProjectTasksConstants.margin)
+            make.right.equalTo(safeAreaLayoutGuide.snp.right).offset(-ProjectTasksConstants.margin)
+            make.height.equalTo(200)
         }
         
         addSubview(tableView)
-        let leftOffset = ProjectTasksConstants.rowHeight + ProjectTasksConstants.leftOffset
-        tableView.separatorInset = UIEdgeInsetsMake(0, leftOffset, 0, 0)
         tableView.rowHeight = ProjectTasksConstants.rowHeight
         tableView.sectionHeaderHeight = ProjectTasksConstants.sectionHeaderHeight
         tableView.snp.makeConstraints { (make) in

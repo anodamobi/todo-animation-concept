@@ -12,7 +12,7 @@ import ANODA_Alister
 class ProjectTasksCellViewModel: NSObject {
     
     var name: String!
-    var icon: UIImageView!
+    var iconName: String = ""
     var color: UIColor!
     var numberOfTasks: Int!
     var progress: Double!

@@ -26,6 +26,8 @@ class TaskCell: ANBaseTableViewCell {
     private let checkBoxButton: UIButton = UIButton()
     private let taskTitleLabel: UILabel = UILabel()
     private let timerImageView: UIImageView = UIImageView()
+    private static let checkBoxImage = UIImage(pdfNamed: "checkbox", atWidth: 20)
+    private static let timerImage = UIImage.originalSizeImage(withPDFNamed: "timer")
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -47,27 +49,31 @@ class TaskCell: ANBaseTableViewCell {
     }
     
     func setupLayout() {
+        
         contentView.addSubview(checkBoxButton)
-        //        checkBoxButton.setImage(UIImage(), for: .normal)
-        //        checkBoxButton.setImage(UIImage(), for: .selected)
+        checkBoxButton.setImage(TaskCell.checkBoxImage, for: .normal)
         checkBoxButton.snp.makeConstraints { (make) in
             make.size.equalTo(ProjectTasksConstants.rowHeight)
             make.top.equalToSuperview()
-            make.left.equalToSuperview().offset(ProjectTasksConstants.leftOffset)
+            make.left.equalToSuperview().offset(ProjectTasksConstants.margin * 2)
         }
         
         contentView.addSubview(taskTitleLabel)
+        taskTitleLabel.textColor = UIColor.dark
+        taskTitleLabel.font = UIFont.romanBody
         taskTitleLabel.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.left.equalTo(checkBoxButton.snp.right).offset(10)
         }
         
         contentView.addSubview(timerImageView)
+        timerImageView.setImage(TaskCell.timerImage)
         timerImageView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.left.equalTo(taskTitleLabel.snp.right).offset(10)
-            make.size.equalTo(20)
-            make.right.equalToSuperview().offset(-ProjectTasksConstants.leftOffset)
+            make.width.equalTo(18)
+            make.height.equalTo(20)
+            make.right.equalToSuperview().offset(-ProjectTasksConstants.margin * 2)
         }
     }
 }

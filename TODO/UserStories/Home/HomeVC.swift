@@ -24,9 +24,7 @@ class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = "TODO"
-        
+                
         controller = ANCollectionController(collectionView: contentView.collectionView)
         controller.attachStorage(storage)
         controller.configureCells { (config) in
@@ -38,23 +36,25 @@ class HomeVC: UIViewController {
         viewModel1.name = "Personal"
         viewModel1.numberOfTasks = 9
         viewModel1.progress = 0.83
+        viewModel1.iconName = "background1"
         
         let viewModel2 = ProjectTasksCellViewModel()
         viewModel2.color = UIColor.blue
         viewModel2.name = "Work"
         viewModel2.numberOfTasks = 12
         viewModel2.progress = 0.24
+        viewModel2.iconName = "background2"
         
         let viewModel3 = ProjectTasksCellViewModel()
         viewModel3.color = UIColor.green
         viewModel3.name = "Home"
         viewModel3.numberOfTasks = 7
         viewModel3.progress = 0.32
+        viewModel3.iconName = "background3"
         controller.configureItemSelectionBlock { [unowned self] (viewModel, indexPath) in
             guard let viewModel = viewModel as? ProjectTasksCellViewModel else { return }
             guard let cell = self.controller.collectionView.cellForItem(at: indexPath!) as? ProjectTasksCell else { return }
-            let convertedRect = self.controller.collectionView.convert(cell.frame,
-                                                                       to: self.view)
+            let convertedRect = self.controller.collectionView.convert(cell.frame, to: self.view)
             self.rect = convertedRect
             self.viewModel = viewModel
 //            cell.projectView.heroID = "proj" 
@@ -81,7 +81,7 @@ class HomeVC: UIViewController {
             change?.addItem(viewModel3)
         }
         
-        contentView.backgroundColor = viewModel1.color
+        contentView.backgroundImageView.setImage(UIImage.originalSizeImage(withPDFNamed: "background1"))
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(HomeVC.swipeLeft(_:)))
         swipeLeft.direction = .left
@@ -90,8 +90,8 @@ class HomeVC: UIViewController {
         swipeRight.direction = .right
         contentView.collectionView.addGestureRecognizer(swipeRight)
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
     }
     
     @objc func swipeLeft(_ gestureRecognizer : UISwipeGestureRecognizer) {
@@ -121,9 +121,11 @@ class HomeVC: UIViewController {
         if contentView.collectionView.cellForItem(at: indexPath) != nil {
             contentView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             if let viewModel = storage.object(at: indexPath) as? ProjectTasksCellViewModel {
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.contentView.backgroundColor = viewModel.color
-                })
+                
+                UIView.transition(with: self.contentView, duration: 0.25, options: [.curveLinear],
+                                  animations: {
+                    self.contentView.backgroundImageView.setImage(UIImage.originalSizeImage(withPDFNamed: viewModel.iconName))
+                }, completion: nil)
             }
         }
     }

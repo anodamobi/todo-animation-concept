@@ -39,4 +39,8 @@ extension UIFont {
     class var romanFootnote: UIFont? {
         return UIFont(name: UIFont.Name.avenirRoman, size: 11.0)
     }
+    
+    class var heavyBody: UIFont? {
+        return UIFont(name: UIFont.Name.avenirHeavy, size: 17.0)
+    }
 }

@@ -9,12 +9,9 @@
 import UIKit
 import SnapKit
 
-enum ProjectViewState {
-    case expanded
-    case collapsed
-}
-
 class ProjectView: UIView {
+    
+    private static let dotsImage = UIImage.originalSizeImage(withPDFNamed: "dots")
     
     let projectImageView = UIImageView()
     let moreButton = UIButton()
@@ -45,15 +42,15 @@ class ProjectView: UIView {
     private func setupLayout() {
         
         addSubview(projectImageView)
-        projectImageView.backgroundColor = UIColor.gray
+        projectImageView.setImage(#imageLiteral(resourceName: "projectIcon"))
         projectImageView.snp.makeConstraints { (make) in
-            make.size.equalTo(30)
+            make.size.equalTo(44)
             make.left.top.equalToSuperview().offset(16)
         }
         
         addSubview(moreButton)
-        moreButton.setTitle("♙", for: .normal)
-        moreButton.setTitleColor(UIColor.black, for: .normal)
+        moreButton.setImage(ProjectView.dotsImage, for: .normal)
+        moreButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 27, bottom: 0, right: 0)
         moreButton.snp.makeConstraints { (make) in
             make.size.equalTo(30)
             make.top.equalToSuperview().offset(16)
