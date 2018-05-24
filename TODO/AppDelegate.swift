@@ -3,7 +3,7 @@
 //  TODO
 //
 //  Created by Simon Kostenko on 1/16/18.
-//  Copyright © 2018 Simon Kostenko. All rights reserved.
+//  Copyright © 2018 ANODA. All rights reserved.
 //
 
 import UIKit
