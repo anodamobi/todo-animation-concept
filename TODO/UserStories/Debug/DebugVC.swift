@@ -3,7 +3,7 @@
 //  TODO
 //
 //  Created by Simon Kostenko on 1/16/18.
-//  Copyright © 2018 Simon Kostenko. All rights reserved.
+//  Copyright © 2018 ANODA. All rights reserved.
 //
 
 import UIKit
@@ -50,16 +50,10 @@ class DebugVC: UIViewController {
             switch indexPath.row {
             case 0:
                 let vc = HomeVC()
-                self.navigationController?.pushViewController(vc, animated: true)
+                self.present(vc, animated: true, completion: nil)
                 break
             case 1:
-                
-                let viewModel1 = ProjectTasksCellViewModel()
-                viewModel1.color = UIColor.red
-                viewModel1.name = "Personal"
-                viewModel1.numberOfTasks = 9
-                viewModel1.progress = 0.83
-                
+                let viewModel1 = ProjectTasksViewModel(project: .today)
                 let vc = UINavigationController(rootViewController: ProjectTasksVC(viewModel: viewModel1))
                 self.present(vc, animated: true, completion: nil)
                 break

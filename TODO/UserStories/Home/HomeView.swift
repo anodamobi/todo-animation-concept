@@ -3,14 +3,16 @@
 //  TODO
 //
 //  Created by Simon Kostenko on 1/16/18.
-//  Copyright © 2018 Simon Kostenko. All rights reserved.
+//  Copyright © 2018 ANODA. All rights reserved.
 //
 
 import UIKit
 import SnapKit
+import UIImagePDF
 
-class HomeView: UIView {
+class HomeView: BaseView {
     
+    let backgroundImageView: UIImageView = UIImageView()
     let avatarImageView = UIImageView()
     let helloLabel = UILabel()
     let todayInfoLabel = UILabel()
@@ -20,7 +22,6 @@ class HomeView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupLayout()
     }
     
@@ -28,34 +29,47 @@ class HomeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupLayout() {
+    override func setupLayout() {
+        super.setupLayout()
+        
+        insertSubview(backgroundImageView, at: 0)
+        backgroundImageView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        
+        let burger = UIImage.originalSizeImage(withPDFNamed: "burger")
+        navigationView.leftButton.setImage(burger, for: .normal)
+        let search = UIImage.originalSizeImage(withPDFNamed: "search")
+        navigationView.rightButton.setImage(search, for: .normal)
+        navigationView.title = "TODO"
+        navigationView.titleLabel.textColor = .white
         
         addSubview(avatarImageView)
-        avatarImageView.backgroundColor = UIColor.gray
-        avatarImageView.layer.cornerRadius = 15.0
+        avatarImageView.setImage(#imageLiteral(resourceName: "avatar"))
+        avatarImageView.layer.cornerRadius = 35.0
         avatarImageView.snp.makeConstraints { (make) in
-            make.size.equalTo(30)
-            make.left.equalToSuperview().offset(40)
-            if #available(iOS 11.0, *) {
-                make.top.equalTo(safeAreaLayoutGuide.snp.topMargin).offset(20)
-            } else {
-                make.top.equalToSuperview().offset(80)
-            }
+            make.size.equalTo(70)
+            make.left.equalToSuperview().offset(32)
+            make.top.equalTo(navigationView.snp.bottom).offset(37.0.verticalProportional)
         }
         
         addSubview(helloLabel)
-        helloLabel.text = "Hello, Jane"
+        helloLabel.text = "Hello, Megan."
+        helloLabel.font = UIFont.mediumTitle
+        helloLabel.textColor = .white
         helloLabel.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(40)
-            make.top.equalTo(avatarImageView.snp.bottom).offset(25)
+            make.left.equalToSuperview().offset(44)
+            make.top.equalTo(avatarImageView.snp.bottom).offset(34.0.verticalProportional)
         }
         
         addSubview(todayInfoLabel)
-        todayInfoLabel.numberOfLines = 2
+        todayInfoLabel.numberOfLines = 0
+        todayInfoLabel.font = UIFont.romanBody
+        todayInfoLabel.textColor = .white
         todayInfoLabel.text = "Looks like feel good.\nYou have 3 tasks to do today."
         todayInfoLabel.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(40)
-            make.top.equalTo(helloLabel.snp.bottom).offset(10)
+            make.left.equalTo(helloLabel)
+            make.top.equalTo(helloLabel.snp.bottom).offset(16.0.verticalProportional)
         }
         
         addSubview(collectionView)
@@ -65,15 +79,17 @@ class HomeView: UIView {
         collectionView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.width.equalToSuperview()
-            make.height.equalTo(UIScreen.main.bounds.height * 0.45)
-            make.bottom.equalToSuperview().offset(-UIScreen.main.bounds.height * 0.1)
+            make.height.equalTo(UIScreen.main.bounds.height * 0.40)
+            make.bottom.equalToSuperview().offset(-72.0.verticalProportional)
         }
         
         addSubview(todayDateLabel)
+        todayDateLabel.textColor = .white
+        todayDateLabel.font = UIFont.heavySubnote
         todayDateLabel.text = "TODAY: SEPTEMBER 12, 2017"
         todayDateLabel.snp.makeConstraints { (make) in
-            make.bottom.equalTo(collectionView.snp.top).offset(-8)
-            make.left.equalToSuperview().offset(40)
+            make.bottom.equalTo(collectionView.snp.top).offset(-8.0.verticalProportional)
+            make.left.equalTo(helloLabel)
         }
     }
     
@@ -90,7 +106,7 @@ class HomeView: UIView {
     static private func collectionItemSize() -> CGSize {
         
         let width = UIScreen.main.bounds.width - 80.0
-        let height = UIScreen.main.bounds.height * 0.45
+        let height = UIScreen.main.bounds.height * 0.399
         
         return CGSize(width: width, height: height)
     }

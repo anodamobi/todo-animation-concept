@@ -18,7 +18,7 @@ class NewTaskVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentView.cancelButton.addTargetClosure { [unowned self] _ in
+        contentView.navigationView.leftButton.addTargetClosure { [unowned self] _ in
             self.dismiss(animated: true, completion: nil)
         }
     }

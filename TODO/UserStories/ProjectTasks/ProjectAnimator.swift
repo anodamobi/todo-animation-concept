@@ -19,10 +19,10 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
     let originFrame: CGRect
     let duration: TimeInterval
     let presentationStyle: PresentationStyle
-    let projectViewModel: ProjectTasksCellViewModel
+    let projectViewModel: ProjectTasksViewModel
     
     init(duration: TimeInterval, presentationStyle: PresentationStyle,
-         originFrame: CGRect, projectViewModel: ProjectTasksCellViewModel) {
+         originFrame: CGRect, projectViewModel: ProjectTasksViewModel) {
         self.duration = duration
         self.presentationStyle = presentationStyle
         self.originFrame = originFrame
@@ -39,7 +39,12 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
         guard let toViewController = transitionContext.viewController(forKey: .to),
         let toView = transitionContext.viewController(forKey: .to)?.view,
         let fromView = transitionContext.viewController(forKey: .from)?.view,
-        let taskView = (presentationStyle == .present ? toView : fromView) as? ProjectTasksView else { return }
+        let taskView = (presentationStyle == .present ? toView : fromView) as? ProjectTasksView,
+        let navigationView = (fromView as? BaseView)?.navigationView  else { return }
+        
+        let navigationViewFrame = navigationView.superview?.convert(navigationView.frame, to: nil) ?? CGRect.zero
+        let width = presentationStyle == .present ? originFrame.width + ProjectTasksConstants.margin * 2 :
+                                                    taskView.projectView.bounds.width
         
         let finalFrame = transitionContext.finalFrame(for: toViewController)
         let containerView = transitionContext.containerView
@@ -48,8 +53,10 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
         if presentationStyle == .dismiss {
             containerView.addSubview(fromView)
         }
-        
-        let projectViewStartFrame = presentationStyle == .present ? originFrame :  CGRect(x: 0, y: 88, width: UIScreen.main.bounds.width, height: 135)
+
+        let projectViewStartFrame = presentationStyle == .present ? originFrame :  CGRect(x: ProjectTasksConstants.margin,
+                                                                                          y: navigationViewFrame.maxY,
+                                                                                          width: width, height: 200)
         let projectView = ProjectView(viewModel: projectViewModel)
         projectView.frame = projectViewStartFrame
         projectView.backgroundColor = UIColor.white
@@ -57,12 +64,20 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
         projectView.clipsToBounds = true
         
         let projectViewAnimation = POPBasicAnimation(propertyNamed: kPOPViewFrame)
-        let projectViewEndFrame = presentationStyle == .present ? CGRect(x: 0, y: 88, width: UIScreen.main.bounds.width, height: 135) : originFrame
+        let projectViewEndFrame = presentationStyle == .present ? CGRect(x: ProjectTasksConstants.margin,
+                                                                         y: navigationViewFrame.maxY,
+                                                                         width: width, height: 200) : originFrame
         projectViewAnimation?.toValue = NSValue(cgRect: projectViewEndFrame)
         projectViewAnimation?.duration = duration
         projectView.pop_add(projectViewAnimation, forKey: "ProjectViewAnimation")
         containerView.addSubview(projectView)
-    
+        
+        let moreButtonAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        moreButtonAnimation?.toValue = presentationStyle == .present ? 0.0 : 1.0
+        moreButtonAnimation?.fromValue = presentationStyle == .present ? 1.0 : 0.0
+        moreButtonAnimation?.duration = duration
+        projectView.moreButton.pop_add(moreButtonAnimation, forKey: "MoreButtonAnimation")
+
         taskView.projectView.isHidden = true
         taskView.layer.cornerRadius = 8.0
         taskView.clipsToBounds = true
@@ -109,16 +124,6 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
             toView.subviews.forEach { $0.isHidden = false }
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
-        
-
-//        let tbAnimation = POPBasicAnimation(propertyNamed: kPOPViewScaleXY)
-//        tbAnimation?.fromValue = NSValue.init(cgPoint: CGPoint.init(x: 0.1, y: 0.1))
-//        tbAnimation?.toValue = NSValue.init(cgPoint: CGPoint.init(x: 1, y: 1))
-//        tbAnimation?.duration = 1.5
-//        tbAnimation?.beginTime = CACurrentMediaTime() + 0.5
-//        taskView.tableView.pop_add(tbAnimation, forKey: "TBA")
-//
     }
-    
 }
 

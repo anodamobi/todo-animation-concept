@@ -35,9 +35,10 @@ class TaskSectionHeader: ANBaseTableHeaderView {
         backgroundView?.backgroundColor = UIColor.white
         
         addSubview(dateLabel)
-        dateLabel.font = UIFont.systemFont(ofSize: 13)
+        dateLabel.font = UIFont.romanSubnote
+        dateLabel.textColor = UIColor.dark.withAlphaComponent(0.7)
         dateLabel.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(ProjectTasksConstants.leftOffset)
+            make.left.equalToSuperview().offset(ProjectTasksConstants.margin * 2)
             make.bottom.equalToSuperview().offset(-15)
         }
     }

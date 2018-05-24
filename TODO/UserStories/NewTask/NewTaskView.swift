@@ -8,11 +8,9 @@
 
 import UIKit
 
-class NewTaskView: UIView {
+class NewTaskView: BaseView {
     
     private let detailsLabel: UILabel = UILabel()
-    let navigationView: UIView = UIView()
-    let cancelButton: UIButton = UIButton()
     let taskDetailsTextView: UITextView = UITextView()
     let tableView: UITableView = UITableView()
     let addNewTaskButton: UIButton = UIButton()
@@ -28,26 +26,15 @@ class NewTaskView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupLayout() {
+    override func setupLayout() {
+        super.setupLayout()
+        
         backgroundColor = UIColor.white
         
         navigationView.backgroundColor = UIColor.white
-        addSubview(navigationView)
-        navigationView.snp.makeConstraints { (make) in
-            make.height.equalTo(44)
-            make.width.equalToSuperview()
-            make.top.equalTo(safeAreaLayoutGuide.snp.top)
-            make.left.equalTo(safeAreaLayoutGuide.snp.left)
-            make.right.equalTo(safeAreaLayoutGuide.snp.right)
-        }
-        
-        navigationView.addSubview(cancelButton)
-        cancelButton.setTitle("Cancel", for: .normal)
-        cancelButton.setTitleColor(UIColor.black, for: .normal)
-        cancelButton.snp.makeConstraints { (make) in
-            make.left.top.bottom.equalToSuperview()
-            make.width.equalTo(44)
-        }
+        let cross = UIImage.originalSizeImage(withPDFNamed: "cross")
+        navigationView.leftButton.setImage(cross, for: .normal)
+        navigationView.title = "New Task"
         
         addSubview(detailsLabel)
         detailsLabel.text = "What tasks are you planning to perform?"
@@ -61,6 +48,7 @@ class NewTaskView: UIView {
         addSubview(taskDetailsTextView)
         taskDetailsTextView.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         taskDetailsTextView.backgroundColor = UIColor.cyan
+        taskDetailsTextView.keyboardAppearance = .alert
         taskDetailsTextView.snp.makeConstraints { (make) in
             make.left.right.equalTo(detailsLabel)
             make.top.equalTo(detailsLabel.snp.bottom).offset(4)

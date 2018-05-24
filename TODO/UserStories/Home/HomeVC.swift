@@ -3,7 +3,7 @@
 //  TODO
 //
 //  Created by Simon Kostenko on 1/16/18.
-//  Copyright © 2018 Simon Kostenko. All rights reserved.
+//  Copyright © 2018 ANODA. All rights reserved.
 //
 
 import UIKit
@@ -17,71 +17,38 @@ class HomeVC: UIViewController {
     let storage: ANStorage = ANStorage()
     var controller: ANCollectionController!
     var rect: CGRect = .zero
-    var viewModel: ProjectTasksCellViewModel?
+    var viewModel: ProjectTasksViewModel?
     override func loadView() {
         view = contentView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = "TODO"
-        
+                
         controller = ANCollectionController(collectionView: contentView.collectionView)
         controller.attachStorage(storage)
         controller.configureCells { (config) in
-            config?.registerCellClass(ProjectTasksCell.self, forModelClass: ProjectTasksCellViewModel.self)
+            config?.registerCellClass(ProjectTasksCell.self, forModelClass: ProjectTasksViewModel.self)
         }
-        
-        let viewModel1 = ProjectTasksCellViewModel()
-        viewModel1.color = UIColor.red
-        viewModel1.name = "Personal"
-        viewModel1.numberOfTasks = 9
-        viewModel1.progress = 0.83
-        
-        let viewModel2 = ProjectTasksCellViewModel()
-        viewModel2.color = UIColor.blue
-        viewModel2.name = "Work"
-        viewModel2.numberOfTasks = 12
-        viewModel2.progress = 0.24
-        
-        let viewModel3 = ProjectTasksCellViewModel()
-        viewModel3.color = UIColor.green
-        viewModel3.name = "Home"
-        viewModel3.numberOfTasks = 7
-        viewModel3.progress = 0.32
+
         controller.configureItemSelectionBlock { [unowned self] (viewModel, indexPath) in
-            guard let viewModel = viewModel as? ProjectTasksCellViewModel else { return }
+            guard let viewModel = viewModel as? ProjectTasksViewModel else { return }
             guard let cell = self.controller.collectionView.cellForItem(at: indexPath!) as? ProjectTasksCell else { return }
-            let convertedRect = self.controller.collectionView.convert(cell.frame,
-                                                                       to: self.view)
+            let convertedRect = self.controller.collectionView.convert(cell.frame, to: self.view)
             self.rect = convertedRect
             self.viewModel = viewModel
-//            cell.projectView.heroID = "proj" 
 
-            let vc = ProjectTasksVC(viewModel: viewModel) // UINavigationController.init(rootViewController: ProjectTasksVC())
-//            vc.isHeroEnabled = true
-//            vc.contentView.projectView.heroID = "proj"
-//            vc.contentView.projectView.heroModifiers = [HeroModifier.forceAnimate]
-//            vc.contentView.tableView.heroID = "tv"
-//            vc.contentView.tableView.heroModifiers = [HeroModifier.cascade(delta: 0.5, direction: CascadeDirection.bottomToTop, delayMatchedViews: true)]
-//            vc.contentView.heroModifiers = [HeroModifier.useNoSnapshot, ]
-//            vc.contentView.projectView.heroModifiers = [.useGlobalCoordinateSpace,
-//                                                        .size(CGSize.init(width: UIScreen.main.bounds.width, height: 135)),
-//                                                        .position(CGPoint.init(x: 0, y: 88))]
-            
-//            vc.modalPresentationStyle = .custom
+            let vc = ProjectTasksVC(viewModel: viewModel)
             vc.transitioningDelegate = self
             self.present(vc, animated: true, completion: nil)
         }
         
         storage.updateWithoutAnimationChange { (change) in
-            change?.addItem(viewModel1)
-            change?.addItem(viewModel2)
-            change?.addItem(viewModel3)
+            let items = Project.projects.map ({ ProjectTasksViewModel(project: $0) })
+            change?.addItems(items)
         }
         
-        contentView.backgroundColor = viewModel1.color
+        contentView.backgroundImageView.setImage(Project.today.background)
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(HomeVC.swipeLeft(_:)))
         swipeLeft.direction = .left
@@ -89,9 +56,6 @@ class HomeVC: UIViewController {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(HomeVC.swipeRight(_:)))
         swipeRight.direction = .right
         contentView.collectionView.addGestureRecognizer(swipeRight)
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
     }
     
     @objc func swipeLeft(_ gestureRecognizer : UISwipeGestureRecognizer) {
@@ -120,10 +84,12 @@ class HomeVC: UIViewController {
     private func scrollToProject(at indexPath: IndexPath) {
         if contentView.collectionView.cellForItem(at: indexPath) != nil {
             contentView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            if let viewModel = storage.object(at: indexPath) as? ProjectTasksCellViewModel {
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.contentView.backgroundColor = viewModel.color
-                })
+            if let viewModel = storage.object(at: indexPath) as? ProjectTasksViewModel {
+                
+                UIView.transition(with: self.contentView, duration: 0.25, options: [.curveLinear],
+                                  animations: {
+                    self.contentView.backgroundImageView.setImage(viewModel.background)
+                }, completion: nil)
             }
         }
     }

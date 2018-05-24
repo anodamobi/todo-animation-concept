@@ -18,7 +18,7 @@ class ProjectTasksVC: UIViewController {
     
     let transition = NewTaskAnimator()
     
-    init(viewModel: ProjectTasksCellViewModel) {
+    init(viewModel: ProjectTasksViewModel) {
         super.init(nibName: nil, bundle: nil)
         contentView.projectView.update(viewModel)
     }
@@ -41,7 +41,7 @@ class ProjectTasksVC: UIViewController {
         }
         controller.attachStorage(storage)
         
-        contentView.cancelButton.addTargetClosure { [unowned self] (_) in
+        contentView.navigationView.leftButton.addTargetClosure { [unowned self] (_) in
             self.dismiss(animated: true, completion: nil)
         }
         

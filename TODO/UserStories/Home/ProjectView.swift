@@ -9,12 +9,9 @@
 import UIKit
 import SnapKit
 
-enum ProjectViewState {
-    case expanded
-    case collapsed
-}
-
 class ProjectView: UIView {
+    
+    private static let dotsImage = UIImage.originalSizeImage(withPDFNamed: "dots")
     
     let projectImageView = UIImageView()
     let moreButton = UIButton()
@@ -23,7 +20,7 @@ class ProjectView: UIView {
     let progressView = UIProgressView()
     let progressLabel = UILabel()
     
-    convenience init(viewModel: ProjectTasksCellViewModel) {
+    convenience init(viewModel: ProjectTasksViewModel) {
         self.init(frame: .zero)
         update(viewModel)
     }
@@ -45,15 +42,13 @@ class ProjectView: UIView {
     private func setupLayout() {
         
         addSubview(projectImageView)
-        projectImageView.backgroundColor = UIColor.gray
         projectImageView.snp.makeConstraints { (make) in
-            make.size.equalTo(30)
+            make.size.equalTo(44)
             make.left.top.equalToSuperview().offset(16)
         }
         
         addSubview(moreButton)
-        moreButton.setTitle("♙", for: .normal)
-        moreButton.setTitleColor(UIColor.black, for: .normal)
+        moreButton.setImage(ProjectView.dotsImage, for: .normal)
         moreButton.snp.makeConstraints { (make) in
             make.size.equalTo(30)
             make.top.equalToSuperview().offset(16)
@@ -67,6 +62,8 @@ class ProjectView: UIView {
         }
         
         addSubview(progressLabel)
+        progressLabel.font = UIFont.romanFootnote
+        progressLabel.textColor = UIColor.dark
         progressLabel.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-16)
             make.centerY.equalTo(progressView)
@@ -74,25 +71,29 @@ class ProjectView: UIView {
         }
         
         addSubview(nameLabel)
+        nameLabel.font = UIFont.romanTitle
+        nameLabel.textColor = UIColor.dark
         nameLabel.snp.makeConstraints { (make) in
             make.left.equalTo(progressView)
             make.bottom.equalTo(progressView.snp.top).offset(-20)
         }
         
         addSubview(tasksLabel)
+        tasksLabel.font = UIFont.romanSubnote
+        tasksLabel.textColor = UIColor.dark
         tasksLabel.snp.makeConstraints { (make) in
             make.left.equalTo(nameLabel)
             make.bottom.equalTo(nameLabel.snp.top).offset(-8)
         }
     }
     
-    func update(_ viewModel: ProjectTasksCellViewModel) {
+    func update(_ viewModel: ProjectTasksViewModel) {
         nameLabel.text = viewModel.name
-        tasksLabel.text = "\(viewModel.numberOfTasks!) Tasks"
+        tasksLabel.text = "\(viewModel.numberOfTasks) Tasks"
         progressView.progress = Float(viewModel.progress)
-        progressView.progressTintColor = viewModel.color
+//        progressView.progressTintColor = viewModel.color
         progressLabel.text = "\(viewModel.progress * 100)%"
-        //        projectTasksView.projectImageView.image = viewModel.icon
+        projectImageView.setImage(viewModel.icon)
     }
     
 }
