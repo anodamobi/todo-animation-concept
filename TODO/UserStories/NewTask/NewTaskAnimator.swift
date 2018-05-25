@@ -55,6 +55,7 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         animatedAddTaskButton.backgroundColor = newTaskView.addNewTaskButton.backgroundColor
         animatedAddTaskButton.setTitle(newTaskView.addNewTaskButton.titleLabel?.text, for: .normal)
         animatedAddTaskButton.setTitleColor(newTaskView.addNewTaskButton.titleColor(for: .normal), for: .normal)
+        animatedAddTaskButton.titleLabel?.font = .romanTitle
         containerView.addSubview(animatedAddTaskButton)
         newTaskView.addNewTaskButton.isHidden = true
         projectView.newTaskButton.isHidden = true
@@ -123,6 +124,7 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         animatedAddTaskButton.backgroundColor = projectView.newTaskButton.backgroundColor
         animatedAddTaskButton.setTitle(projectView.newTaskButton.titleLabel?.text, for: .normal)
         animatedAddTaskButton.setTitleColor(UIColor.white, for: .normal)
+        animatedAddTaskButton.titleLabel?.font = .romanTitle
         containerView.addSubview(animatedAddTaskButton)
         
         UIView.animateKeyframes(withDuration: duration, delay: 0.0,

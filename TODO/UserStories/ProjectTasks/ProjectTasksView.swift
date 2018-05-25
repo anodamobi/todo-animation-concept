@@ -66,6 +66,7 @@ class ProjectTasksView: BaseView {
         newTaskButton.clipsToBounds = true
         newTaskButton.layer.cornerRadius = ProjectTasksConstants.buttonSize / 2.0
         newTaskButton.setTitle("＋", for: .normal)
+        newTaskButton.titleLabel?.font = .romanTitle
         newTaskButton.setTitleColor(UIColor.white, for: .normal)
         newTaskButton.snp.makeConstraints { (make) in
             make.size.equalTo(ProjectTasksConstants.buttonSize)

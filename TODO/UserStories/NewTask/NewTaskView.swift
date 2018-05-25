@@ -98,6 +98,7 @@ class NewTaskView: BaseView {
         
         addSubview(addNewTaskButton)
         addNewTaskButton.setTitle("＋", for: .normal)
+        addNewTaskButton.titleLabel?.font = .romanTitle
         addNewTaskButton.setTitleColor(UIColor.white, for: .normal)
         addNewTaskButton.snp.makeConstraints { (make) in
             make.width.centerX.equalToSuperview()
