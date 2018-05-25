@@ -13,5 +13,6 @@ target 'TODO' do
   pod 'SnapKit'
   pod 'Hero'
   pod 'pop', '~> 1.0'
+  pod 'R.swift'
 
 end

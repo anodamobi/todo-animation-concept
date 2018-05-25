@@ -43,15 +43,15 @@ class HomeView: BaseView {
             make.edges.equalToSuperview()
         }
         
-        let burger = UIImage.originalSizeImage(withPDFNamed: "burger")
-        navigationView.leftButton.setImage(burger, for: .normal)
-        let search = UIImage.originalSizeImage(withPDFNamed: "search")
-        navigationView.rightButton.setImage(search, for: .normal)
-        navigationView.title = "TODO"
+        let navigationAppearance = NavigationViewAppearance(title: Localizable.homeTitle(),
+                                                            leftItemAppearance: (navItemType: .burger, closure: nil),
+                                                            rightItemAppearance: (navItemType: .search, closure: nil))
+        navigationView.apply(appearance: navigationAppearance)
         navigationView.titleLabel.textColor = .white
+        navigationView.backgroundColor = .clear
         
         addSubview(avatarImageView)
-        avatarImageView.setImage(#imageLiteral(resourceName: "avatar"))
+        avatarImageView.setImage(R.image.avatar())
         avatarImageView.layer.cornerRadius = 35.0
         avatarImageView.snp.makeConstraints { (make) in
             make.size.equalTo(70)
@@ -60,7 +60,7 @@ class HomeView: BaseView {
         }
         
         addSubview(helloLabel)
-        helloLabel.text = "Hello, Megan."
+        helloLabel.text = Localizable.homeWelcomeMessage("Megan")
         helloLabel.font = UIFont.mediumTitle
         helloLabel.textColor = .white
         helloLabel.snp.makeConstraints { (make) in
@@ -72,7 +72,7 @@ class HomeView: BaseView {
         todayInfoLabel.numberOfLines = 0
         todayInfoLabel.font = UIFont.romanBody
         todayInfoLabel.textColor = .white
-        todayInfoLabel.text = "Looks like feel good.\nYou have 3 tasks to do today."
+        todayInfoLabel.text = Localizable.homeStatusMessage(Project.today.tasks.count)
         todayInfoLabel.snp.makeConstraints { (make) in
             make.left.equalTo(helloLabel)
             make.top.equalTo(helloLabel.snp.bottom).offset(16.0.verticalProportional)
@@ -92,12 +92,11 @@ class HomeView: BaseView {
         addSubview(todayDateLabel)
         todayDateLabel.textColor = .white
         todayDateLabel.font = UIFont.heavySubnote
-        todayDateLabel.text = "TODAY: SEPTEMBER 12, 2017"
+        todayDateLabel.text = Localizable.homeToday(Date().longDateFormatted.uppercased())
         todayDateLabel.snp.makeConstraints { (make) in
             make.bottom.equalTo(collectionView.snp.top).offset(-8.0.verticalProportional)
             make.left.equalTo(helloLabel)
         }
-        
         setupGestures()
     }
     

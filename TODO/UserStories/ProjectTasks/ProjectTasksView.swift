@@ -38,12 +38,6 @@ class ProjectTasksView: BaseView {
         
         backgroundColor = .white
         
-        let back = UIImage.originalSizeImage(withPDFNamed: "back")
-        navigationView.leftButton.setImage(back, for: .normal)
-        let navigationDots = UIImage.originalSizeImage(withPDFNamed: "navigationDots")
-        navigationView.rightButton.setImage(navigationDots, for: .normal)
-        navigationView.backgroundColor = .white
-        
         addSubview(projectView)
         projectView.snp.makeConstraints { (make) in
             make.top.equalTo(navigationView.snp.bottom)

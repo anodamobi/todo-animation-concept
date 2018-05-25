@@ -29,7 +29,6 @@ class ProjectTasksViewModel: NSObject {
         styleColor = project.styleColor
         super.init()
     }
-
 }
 
 class ProjectTasksCell: ANCollectionViewCell {
@@ -63,5 +62,4 @@ class ProjectTasksCell: ANCollectionViewCell {
             make.edges.equalToSuperview()
         }
     }
-    
 }

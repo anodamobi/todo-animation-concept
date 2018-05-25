@@ -42,9 +42,12 @@ class ProjectTasksVC: UIViewController {
         }
         controller.attachStorage(storage)
         
-        contentView.navigationView.leftButton.addTargetClosure { [unowned self] (_) in
+        let dismissClosure: UIButtonTargetClosure = { [unowned self] (_) in
             self.dismiss(animated: true, completion: nil)
         }
+        let navigationAppearance = NavigationViewAppearance(leftItemAppearance: (navItemType: .back, closure: dismissClosure),
+                                                            rightItemAppearance: (navItemType: .more, closure: nil))
+        contentView.navigationView.apply(appearance: navigationAppearance)
         
         contentView.newTaskButton.addTargetClosure { [unowned self] _ in
             let vc = NewTaskVC(project: self.project)

@@ -37,24 +37,26 @@ class NewTaskVC: UIViewController {
             config?.registerCellClass(ProjectCell.self, forModelClass: ProjectCellViewModel.self)
         }
         controller.attachStorage(storage)
+
+        let dismissClosure: UIButtonTargetClosure = { [unowned self] _ in
+            self.dismiss(animated: true, completion: nil)
+        }
         
         contentView.addNewTaskButton.backgroundColor = project.styleColor
-        contentView.addNewTaskButton.addTargetClosure { [unowned self] _ in
+        contentView.addNewTaskButton.addTargetClosure { [unowned self] button in
             guard let title = self.contentView.taskDetailsTextView.text, !title.isEmpty else { return }
             let task = Task(title: self.contentView.taskDetailsTextView.text)
             self.project.tasks = [task]
-            self.dismiss(animated: true, completion: nil)
+            dismissClosure(button)
         }
         
         storage.updateWithoutAnimationChange { (updater) in
             let viewModels = Project.projects.map { ProjectCellViewModel(project: $0) }
             updater?.addItems(viewModels)
         }
-        
-        contentView.navigationView.leftButton.addTargetClosure { [unowned self] _ in
-            self.dismiss(animated: true, completion: nil)
-        }
+    
+        let navigationAppearance = NavigationViewAppearance(title: Localizable.newTaskTitle(),
+                                                            leftItemAppearance: (navItemType: .cancel, closure: dismissClosure))
+        contentView.navigationView.apply(appearance: navigationAppearance)
     }
 }
-
-
