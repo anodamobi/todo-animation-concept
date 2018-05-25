@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2170140F20B71AD0001315DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217013D720B71AD0001315DB /* ViewController.swift */; };
-		2170141020B71AD0001315DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 217013DA20B71AD0001315DB /* Assets.xcassets */; };
 		2170141120B71AD0001315DB /* today_outline.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013DC20B71AD0001315DB /* today_outline.pdf */; };
 		2170141220B71AD0001315DB /* work.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013DD20B71AD0001315DB /* work.pdf */; };
 		2170141320B71AD0001315DB /* today.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013DE20B71AD0001315DB /* today.pdf */; };
@@ -54,7 +53,6 @@
 
 /* Begin PBXFileReference section */
 		217013D720B71AD0001315DB /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		217013DA20B71AD0001315DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		217013DC20B71AD0001315DB /* today_outline.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = today_outline.pdf; sourceTree = "<group>"; };
 		217013DD20B71AD0001315DB /* work.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = work.pdf; sourceTree = "<group>"; };
 		217013DE20B71AD0001315DB /* today.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = today.pdf; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 			children = (
 				217013D720B71AD0001315DB /* ViewController.swift */,
 				217013D820B71AD0001315DB /* Resources */,
-				217013EF20B71AD0001315DB /* Assets.xcassets */,
 				217013F020B71AD0001315DB /* Models */,
 				217013F220B71AD0001315DB /* Extensions */,
 				217013F720B71AD0001315DB /* UserStories */,
@@ -132,6 +129,7 @@
 		217013D820B71AD0001315DB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				217013EF20B71AD0001315DB /* Assets.xcassets */,
 				217013D920B71AD0001315DB /* Images */,
 			);
 			path = Resources;
@@ -140,7 +138,6 @@
 		217013D920B71AD0001315DB /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				217013DA20B71AD0001315DB /* Assets.xcassets */,
 				217013DB20B71AD0001315DB /* Cell */,
 				217013E520B71AD0001315DB /* Backgrounds */,
 				217013E920B71AD0001315DB /* Navigation Items */,
@@ -381,7 +378,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2170141C20B71AD0001315DB /* background2.pdf in Resources */,
-				2170141020B71AD0001315DB /* Assets.xcassets in Resources */,
 				2170141A20B71AD0001315DB /* background1.pdf in Resources */,
 				2170142220B71AD0001315DB /* Assets.xcassets in Resources */,
 				2170141120B71AD0001315DB /* today_outline.pdf in Resources */,
