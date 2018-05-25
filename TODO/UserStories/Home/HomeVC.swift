@@ -13,11 +13,10 @@ import Hero
 class HomeVC: UIViewController {
     
     let contentView = HomeView()
-    
     let storage: ANStorage = ANStorage()
     var controller: ANCollectionController!
     var rect: CGRect = .zero
-    var viewModel: ProjectTasksViewModel?
+
     override func loadView() {
         view = contentView
     }
@@ -33,12 +32,12 @@ class HomeVC: UIViewController {
 
         controller.configureItemSelectionBlock { [unowned self] (viewModel, indexPath) in
             guard let viewModel = viewModel as? ProjectTasksViewModel else { return }
-            guard let cell = self.controller.collectionView.cellForItem(at: indexPath!) as? ProjectTasksCell else { return }
+            guard let indexPath = indexPath else { return }
+            guard let cell = self.controller.collectionView.cellForItem(at: indexPath) as? ProjectTasksCell else { return }
             let convertedRect = self.controller.collectionView.convert(cell.frame, to: self.view)
             self.rect = convertedRect
-            self.viewModel = viewModel
 
-            let vc = ProjectTasksVC(viewModel: viewModel)
+            let vc = ProjectTasksVC(project: viewModel.project)
             vc.transitioningDelegate = self
             self.present(vc, animated: true, completion: nil)
         }
@@ -96,15 +95,14 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: UIViewControllerTransitioningDelegate {
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        guard let viewModel = viewModel else { return nil }
-        return ProjectTasksAnimator(duration: 0.75, presentationStyle: .present,
-                                    originFrame: rect, projectViewModel: viewModel)
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let project = (presented as? ProjectTasksVC)?.project else { return nil }
+        return ProjectTasksAnimator(duration: 0.75, presentationStyle: .present, originFrame: rect, project: project)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        guard let viewModel = viewModel else { return nil }
-        return ProjectTasksAnimator(duration: 0.75, presentationStyle: .dismiss,
-                                    originFrame: rect, projectViewModel: viewModel)
+        guard let project = (dismissed as? ProjectTasksVC)?.project else { return nil }
+        return ProjectTasksAnimator(duration: 0.75, presentationStyle: .dismiss, originFrame: rect, project: project)
     }
 }

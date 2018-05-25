@@ -16,12 +16,14 @@ class ProjectTasksViewModel: NSObject {
     var background: UIImage?
     var numberOfTasks: Int
     var progress: Double
+    let project: Project
     
     init(project: Project) {
+        self.project = project
         name = project.name
         icon = project.icon
         background = project.background
-        numberOfTasks = 0
+        numberOfTasks = project.tasks.count
         progress = project.progress
         super.init()
     }

@@ -16,17 +16,17 @@ enum PresentationStyle {
 
 class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POPAnimationDelegate {
     
-    let originFrame: CGRect
-    let duration: TimeInterval
-    let presentationStyle: PresentationStyle
-    let projectViewModel: ProjectTasksViewModel
+    private let originFrame: CGRect
+    private let duration: TimeInterval
+    private let presentationStyle: PresentationStyle
+    private let projectViewModel: ProjectTasksViewModel
     
     init(duration: TimeInterval, presentationStyle: PresentationStyle,
-         originFrame: CGRect, projectViewModel: ProjectTasksViewModel) {
+         originFrame: CGRect, project: Project) {
         self.duration = duration
         self.presentationStyle = presentationStyle
         self.originFrame = originFrame
-        self.projectViewModel = projectViewModel
+        self.projectViewModel = ProjectTasksViewModel(project: project)
         super.init()
     }
     

@@ -15,12 +15,13 @@ class ProjectTasksVC: UIViewController {
     let contentView: ProjectTasksView = ProjectTasksView()
     private var controller: ANTableController!
     private let storage: ANStorage = ANStorage()
+    let project: Project
     
     let transition = NewTaskAnimator()
     
-    init(viewModel: ProjectTasksViewModel) {
+    init(project: Project) {
+        self.project = project
         super.init(nibName: nil, bundle: nil)
-        contentView.projectView.update(viewModel)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,35 +51,19 @@ class ProjectTasksVC: UIViewController {
             vc.transitioningDelegate = self
             self.present(vc, animated: true, completion: nil)
         }
+        
+        let viewModel = ProjectTasksViewModel(project: project)
+        contentView.projectView.update(viewModel)
 
-        storage.updateWithoutAnimationChange { (updater) in
-            let vm =  TaskCellViewModel.init(title: "First", checkBoxClosure: { (_) in
-                
-            })
+        storage.updateWithoutAnimationChange { [unowned self] (updater) in
             
-            let vm1 = TaskCellViewModel.init(title: "First", checkBoxClosure: { (_) in
-                
-            })
-            
+            let viewModels = self.project.tasks.map { TaskCellViewModel(task: $0, checkBoxClosure: { _ in }) }
             let header = TaskSectionHeaderViewModel.init(dateString: "TODAY")
             
-            updater?.addItems([vm, vm1])
+            updater?.addItems(viewModels)
             updater?.updateSectionHeaderModel(header, forSectionIndex: 0)
         }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
-                                                           target: self,
-                                                           action: #selector(close))
-    }
-    
-    @objc func close() {
-        dismiss(animated: true, completion: nil)
-    }
-
 }
 
 extension ProjectTasksVC: UIViewControllerTransitioningDelegate {

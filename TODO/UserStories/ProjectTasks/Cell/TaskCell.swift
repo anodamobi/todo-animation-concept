@@ -13,10 +13,11 @@ import SnapKit
 class TaskCellViewModel: NSObject {
     let checkBoxClosure: UIButtonTargetClosure
     let taskTitle: String
-    let isCanBeExpired: Bool = false
+    var isCanBeExpired: Bool
     
-    init(title: String, checkBoxClosure: @escaping UIButtonTargetClosure) {
-        taskTitle = title
+    init(task: Task, checkBoxClosure: @escaping UIButtonTargetClosure) {
+        taskTitle = task.title
+        isCanBeExpired = task.endDate != nil
         self.checkBoxClosure = checkBoxClosure
         super.init()
     }
@@ -43,7 +44,7 @@ class TaskCell: ANBaseTableViewCell {
             fatalError("❌ viewModel for cell is incorrect")
         }
         
-        timerImageView.isHidden = viewModel.isCanBeExpired
+        timerImageView.isHidden = !viewModel.isCanBeExpired
         taskTitleLabel.text = viewModel.taskTitle
         checkBoxButton.addTargetClosure(closure: viewModel.checkBoxClosure)
     }
