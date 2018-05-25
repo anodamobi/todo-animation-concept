@@ -92,12 +92,11 @@ class HomeView: BaseView {
         addSubview(todayDateLabel)
         todayDateLabel.textColor = .white
         todayDateLabel.font = UIFont.heavySubnote
-        todayDateLabel.text = "TODAY: SEPTEMBER 12, 2017"
+        todayDateLabel.text = String(format: "home.today%@".localized, Date().longDateFormatted.uppercased())
         todayDateLabel.snp.makeConstraints { (make) in
             make.bottom.equalTo(collectionView.snp.top).offset(-8.0.verticalProportional)
             make.left.equalTo(helloLabel)
         }
-        
         setupGestures()
     }
     
