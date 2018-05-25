@@ -47,7 +47,7 @@ class HomeView: BaseView {
         navigationView.leftButton.setImage(burger, for: .normal)
         let search = UIImage.originalSizeImage(withPDFNamed: "search")
         navigationView.rightButton.setImage(search, for: .normal)
-        navigationView.title = "TODO"
+        navigationView.title = "home.title".localized
         navigationView.titleLabel.textColor = .white
         
         addSubview(avatarImageView)
@@ -60,7 +60,7 @@ class HomeView: BaseView {
         }
         
         addSubview(helloLabel)
-        helloLabel.text = "Hello, Megan."
+        helloLabel.text = String(format: "home.welcome-message%@".localized, "Megan")
         helloLabel.font = UIFont.mediumTitle
         helloLabel.textColor = .white
         helloLabel.snp.makeConstraints { (make) in
@@ -72,7 +72,7 @@ class HomeView: BaseView {
         todayInfoLabel.numberOfLines = 0
         todayInfoLabel.font = UIFont.romanBody
         todayInfoLabel.textColor = .white
-        todayInfoLabel.text = "Looks like feel good.\nYou have 3 tasks to do today."
+        todayInfoLabel.text = String(format: "home.status-message%d".localized, Project.today.tasks.count)
         todayInfoLabel.snp.makeConstraints { (make) in
             make.left.equalTo(helloLabel)
             make.top.equalTo(helloLabel.snp.bottom).offset(16.0.verticalProportional)

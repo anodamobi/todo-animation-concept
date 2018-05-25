@@ -89,7 +89,7 @@ class ProjectView: UIView {
     
     func update(_ viewModel: ProjectTasksViewModel) {
         nameLabel.text = viewModel.name
-        tasksLabel.text = "\(viewModel.numberOfTasks) Tasks"
+        tasksLabel.text = String.init(format: "project-tasks.%dtasks".localized, viewModel.numberOfTasks)
         progressView.progress = Float(viewModel.progress)
         progressView.progressTintColor = viewModel.styleColor
         progressLabel.text = "\(viewModel.progress * 100)%"

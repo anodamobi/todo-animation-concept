@@ -34,10 +34,10 @@ class NewTaskView: BaseView {
         navigationView.backgroundColor = UIColor.white
         let cross = UIImage.originalSizeImage(withPDFNamed: "cross")
         navigationView.leftButton.setImage(cross, for: .normal)
-        navigationView.title = "New Task"
+        navigationView.title = "new-task.title".localized
         
         addSubview(detailsLabel)
-        detailsLabel.text = "What tasks are you planning to perform?"
+        detailsLabel.text = "new-task.hint".localized
         detailsLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
         detailsLabel.snp.makeConstraints { (make) in
             make.left.equalTo(safeAreaLayoutGuide.snp.left).offset(20)

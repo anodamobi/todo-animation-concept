@@ -47,6 +47,8 @@
 		2170143720B71AD0001315DB /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170140D20B71AD0001315DB /* NavigationView.swift */; };
 		2170143820B71AD0001315DB /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170140E20B71AD0001315DB /* BaseView.swift */; };
 		218BEE9920B806720009397E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BEE9820B806720009397E /* Task.swift */; };
+		218BEE9B20B83A0D0009397E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 218BEE9A20B83A0D0009397E /* Localizable.strings */; };
+		218BEE9E20B83AD30009397E /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BEE9D20B83AD30009397E /* String+Ext.swift */; };
 		DF29FE5D6BE0B49B6DEA1AAD /* Pods_TODO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D5ADC8E769AF16D2F1E2C0 /* Pods_TODO.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +94,8 @@
 		2170140D20B71AD0001315DB /* NavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		2170140E20B71AD0001315DB /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		218BEE9820B806720009397E /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		218BEE9A20B83A0D0009397E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		218BEE9D20B83AD30009397E /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		A3D5ADC8E769AF16D2F1E2C0 /* Pods_TODO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TODO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18D3302200E480400936B73 /* TODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E8F5D4692AF052E6924A50 /* Pods-TODO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TODO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TODO/Pods-TODO.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 			children = (
 				217013EF20B71AD0001315DB /* Assets.xcassets */,
 				217013D920B71AD0001315DB /* Images */,
+				218BEE9C20B83A4F0009397E /* Localization */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 				217013F420B71AD0001315DB /* Double+Ext.swift */,
 				217013F520B71AD0001315DB /* UIButton+Ext.swift */,
 				217013F620B71AD0001315DB /* UIColor+Ext.swift */,
+				218BEE9D20B83AD30009397E /* String+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -276,6 +282,14 @@
 				2170140B20B71AD0001315DB /* Info.plist */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		218BEE9C20B83A4F0009397E /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				218BEE9A20B83A0D0009397E /* Localizable.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		433CFAFECF1E4253A4EDE9B3 /* Pods */ = {
@@ -390,6 +404,7 @@
 				2170141E20B71AD0001315DB /* cross.pdf in Resources */,
 				2170141B20B71AD0001315DB /* background3.pdf in Resources */,
 				2170141820B71AD0001315DB /* personal.pdf in Resources */,
+				218BEE9B20B83A0D0009397E /* Localizable.strings in Resources */,
 				2170142020B71AD0001315DB /* burger.pdf in Resources */,
 				2170142120B71AD0001315DB /* back.pdf in Resources */,
 			);
@@ -459,6 +474,7 @@
 				2170142C20B71AD0001315DB /* NewTaskVC.swift in Sources */,
 				218BEE9920B806720009397E /* Task.swift in Sources */,
 				2170142420B71AD0001315DB /* UIFont+Ext.swift in Sources */,
+				218BEE9E20B83AD30009397E /* String+Ext.swift in Sources */,
 				2170143020B71AD0001315DB /* TaskCell.swift in Sources */,
 				2170142D20B71AD0001315DB /* NewTaskAnimator.swift in Sources */,
 				2170143720B71AD0001315DB /* NavigationView.swift in Sources */,
