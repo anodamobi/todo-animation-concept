@@ -9,7 +9,8 @@
 import UIKit
 
 private struct NewTaskConstants {
-    static let taskDetailsHeight: CGFloat = 120.0
+    static let rowHeight: CGFloat = 44.0
+    static let taskDetailsHeight: CGFloat = 80.0
     static let newTaskButtonHeight: CGFloat = 54.0
 }
 
@@ -66,18 +67,20 @@ class NewTaskView: BaseView {
         navigationView.title = "New Task"
         
         addSubview(detailsLabel)
+        detailsLabel.textColor = UIColor.dark
+        detailsLabel.font = UIFont.romanSubnote
         detailsLabel.text = "What tasks are you planning to perform?"
-        detailsLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
         detailsLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(safeAreaLayoutGuide.snp.left).offset(20)
+            make.left.equalTo(safeAreaLayoutGuide.snp.left).offset(45)
             make.right.equalTo(safeAreaLayoutGuide.snp.right).offset(-20)
             make.top.equalTo(navigationView.snp.bottom).offset(20)
         }
         
         addSubview(taskDetailsTextView)
-        taskDetailsTextView.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-        taskDetailsTextView.backgroundColor = UIColor.cyan
-        taskDetailsTextView.keyboardAppearance = .alert
+        taskDetailsTextView.font = UIFont.mediumTitle
+        taskDetailsTextView.textColor = UIColor.dark
+        taskDetailsTextView.backgroundColor = UIColor.clear
+        taskDetailsTextView.keyboardAppearance = .dark
         taskDetailsTextView.snp.makeConstraints { (make) in
             make.left.right.equalTo(detailsLabel)
             make.top.equalTo(detailsLabel.snp.bottom).offset(4)
@@ -85,9 +88,10 @@ class NewTaskView: BaseView {
         }
         
         addSubview(tableView)
-        tableView.keyboardDismissMode = .onDrag
+        tableView.rowHeight = NewTaskConstants.rowHeight
+        tableView.separatorInset = UIEdgeInsetsMake(0, 30, 0, 0)
         tableView.snp.makeConstraints { (make) in
-            make.left.right.equalTo(detailsLabel)
+            make.centerX.width.equalToSuperview()
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
             make.top.equalTo(taskDetailsTextView.snp.bottom).offset(20)
         }

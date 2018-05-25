@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import ANODA_Alister
 
 class NewTaskVC: UIViewController {
 
     let contentView: NewTaskView = NewTaskView()
+    private var controller: ANTableController!
+    private let storage: ANStorage = ANStorage()
     let project: Project
     
     override func loadView() {
@@ -29,7 +32,18 @@ class NewTaskVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        controller = ANTableController(tableView: contentView.tableView)
+        controller.configureCells { (config) in
+            config?.registerCellClass(ProjectCell.self, forModelClass: ProjectCellViewModel.self)
+        }
+        controller.attachStorage(storage)
+        
         contentView.addNewTaskButton.backgroundColor = project.styleColor
+        
+        storage.updateWithoutAnimationChange { (updater) in
+            let viewModels = Project.projects.map { ProjectCellViewModel(project: $0) }
+            updater?.addItems(viewModels)
+        }
         
         contentView.navigationView.leftButton.addTargetClosure { [unowned self] _ in
             self.dismiss(animated: true, completion: nil)

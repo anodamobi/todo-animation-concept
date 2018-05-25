@@ -62,7 +62,7 @@ enum Project {
         }
     }
     
-    var outlineIcon: UIImage? {
+    var outlineIcon: UIImage {
         switch self {
         case .today:
             return Project.outlineTodayIcon

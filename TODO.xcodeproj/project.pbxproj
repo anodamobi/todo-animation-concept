@@ -48,6 +48,7 @@
 		2170143720B71AD0001315DB /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170140D20B71AD0001315DB /* NavigationView.swift */; };
 		2170143820B71AD0001315DB /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170140E20B71AD0001315DB /* BaseView.swift */; };
 		218BEE9920B806720009397E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BEE9820B806720009397E /* Task.swift */; };
+		B182098020B847EF00AF0D03 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182097F20B847EF00AF0D03 /* ProjectCell.swift */; };
 		DF29FE5D6BE0B49B6DEA1AAD /* Pods_TODO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D5ADC8E769AF16D2F1E2C0 /* Pods_TODO.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		2170140E20B71AD0001315DB /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		218BEE9820B806720009397E /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		A3D5ADC8E769AF16D2F1E2C0 /* Pods_TODO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TODO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B182097F20B847EF00AF0D03 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		B18D3302200E480400936B73 /* TODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E8F5D4692AF052E6924A50 /* Pods-TODO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TODO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TODO/Pods-TODO.debug.xcconfig"; sourceTree = "<group>"; };
 		DEC9FAC1FFB941C936222E9A /* Pods-TODO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TODO.release.xcconfig"; path = "Pods/Target Support Files/Pods-TODO/Pods-TODO.release.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 		217013FD20B71AD0001315DB /* NewTask */ = {
 			isa = PBXGroup;
 			children = (
+				B182097E20B847CB00AF0D03 /* Cell */,
 				217013FE20B71AD0001315DB /* NewTaskVC.swift */,
 				217013FF20B71AD0001315DB /* NewTaskAnimator.swift */,
 				2170140020B71AD0001315DB /* NewTaskView.swift */,
@@ -288,6 +291,14 @@
 				DEC9FAC1FFB941C936222E9A /* Pods-TODO.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B182097E20B847CB00AF0D03 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B182097F20B847EF00AF0D03 /* ProjectCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		B18D32F9200E480300936B73 = {
@@ -475,6 +486,7 @@
 				2170142E20B71AD0001315DB /* NewTaskView.swift in Sources */,
 				2170142720B71AD0001315DB /* UIColor+Ext.swift in Sources */,
 				2170142520B71AD0001315DB /* Double+Ext.swift in Sources */,
+				B182098020B847EF00AF0D03 /* ProjectCell.swift in Sources */,
 				2170142920B71AD0001315DB /* ProjectView.swift in Sources */,
 				2170142320B71AD0001315DB /* Project.swift in Sources */,
 				2170142F20B71AD0001315DB /* TaskSectionHeader.swift in Sources */,
