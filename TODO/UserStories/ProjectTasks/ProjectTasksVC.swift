@@ -64,6 +64,16 @@ class ProjectTasksVC: UIViewController {
             updater?.updateSectionHeaderModel(header, forSectionIndex: 0)
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        storage.update { (updater) in
+            guard let items = self.storage.items(inSection: 0), self.project.tasks.count != items.count else { return }
+            if let task = self.project.tasks.last {
+                updater?.addItem(TaskCellViewModel(task: task, checkBoxClosure: { _ in }))
+            }
+        }
+    }
 }
 
 extension ProjectTasksVC: UIViewControllerTransitioningDelegate {

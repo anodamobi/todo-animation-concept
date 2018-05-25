@@ -84,6 +84,16 @@ enum Project {
                 return Task.workTasks
             }
         }
+        set {
+            switch self {
+            case .today:
+                Task.todayTasks.append(contentsOf: newValue)
+            case .work:
+                Task.workTasks.append(contentsOf: newValue)
+            case .personal:
+                Task.personalTasks.append(contentsOf: newValue)
+            }
+        }
     }
     
     var styleColor: UIColor {
