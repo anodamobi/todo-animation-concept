@@ -12,10 +12,15 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     let duration = 0.6
     var presenting = true
-    var originFrame = CGRect.zero
+    private var keyboardRect: CGRect?
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        presenting ? animatePresentingTransition(using: transitionContext) : animateDismissingTransition(using: transitionContext)
+        return
     }
     
     override init() {
@@ -28,17 +33,14 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         NotificationCenter.default.removeObserver(self)
     }
     
-    @objc func willShow(_ notification: Notification) {
-        rect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+    @objc private func willShow(_ notification: Notification) {
+        keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
     }
-    
-    private var rect: CGRect?
     
     private func animateDismissingTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-        
-        let newTaskView = transitionContext.view(forKey: .from)! as! NewTaskView
-        let projectView = transitionContext.view(forKey: .to)! as! ProjectTasksView
+        guard let newTaskView = transitionContext.view(forKey: .from) as? NewTaskView else { return }
+        guard let projectView = transitionContext.view(forKey: .to) as? ProjectTasksView else { return }
         
         newTaskView.taskDetailsTextView.resignFirstResponder()
         
@@ -52,56 +54,44 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let animatedAddTaskButton = UIButton()
         animatedAddTaskButton.frame = newTaskView.addNewTaskButton.frame
         animatedAddTaskButton.clipsToBounds = true
-        animatedAddTaskButton.backgroundColor = UIColor(red: 0.36, green: 0.55, blue: 0.89, alpha: 1.00)
-        animatedAddTaskButton.setTitle("＋", for: .normal)
-        animatedAddTaskButton.setTitleColor(UIColor.white, for: .normal)
+        animatedAddTaskButton.backgroundColor = newTaskView.addNewTaskButton.backgroundColor
+        animatedAddTaskButton.setTitle(newTaskView.addNewTaskButton.titleLabel?.text, for: .normal)
+        animatedAddTaskButton.setTitleColor(newTaskView.addNewTaskButton.titleColor(for: .normal), for: .normal)
+        animatedAddTaskButton.titleLabel?.font = .romanTitle
         containerView.addSubview(animatedAddTaskButton)
         newTaskView.addNewTaskButton.isHidden = true
         projectView.newTaskButton.isHidden = true
 
-        UIView.animateKeyframes(withDuration: duration, delay: 0.0,
-                                animations: {
+        UIView.animateKeyframes(withDuration: duration, delay: 0.0, animations: {
                                     
-                                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.3,
-                                                       animations: {
-                                                        newTaskView.alpha = 0.0
-                                                        newTaskView.center.y += 40.0
-                                    }
-                                    )
-                                    
-                                    UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.75,
-                                                       animations: {
-                                                        dismissView.frame.origin.y = UIScreen.main.bounds.height
-                                    }
-                                    )
-        },
-                                completion: { _ in
-                                    projectView.newTaskButton.isHidden = false
-                                    animatedAddTaskButton.removeFromSuperview()
-                                    dismissView.removeFromSuperview()
-                                    transitionContext.completeTransition(true)
-                                    
-        }
-        )
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.3, animations: {
+                newTaskView.alpha = 0.0
+                newTaskView.center.y += 40.0
+            })
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.75, animations: {
+                dismissView.frame.origin.y = UIScreen.main.bounds.height
+            })
+        }, completion: { _ in
+            projectView.newTaskButton.isHidden = false
+            animatedAddTaskButton.removeFromSuperview()
+            dismissView.removeFromSuperview()
+            transitionContext.completeTransition(true)
+        })
         
-        UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.init(rawValue: 7), animations: {
+        UIView.animate(withDuration: duration / 2, delay: 0, options: UIViewAnimationOptions.init(rawValue: 7), animations: {
             animatedAddTaskButton.frame.size.width = projectView.newTaskButton.frame.width
             animatedAddTaskButton.center.x = projectView.newTaskButton.center.x
             animatedAddTaskButton.frame.origin.y = projectView.newTaskButton.frame.origin.y
         })
-        let round = CABasicAnimation(keyPath: "cornerRadius")
-        round.fromValue = 0.0
-        round.toValue = projectView.newTaskButton.layer.cornerRadius
-        round.duration = 0.3
-        animatedAddTaskButton.layer.add(round, forKey: nil)
-        animatedAddTaskButton.layer.cornerRadius = projectView.newTaskButton.layer.cornerRadius
+        animateCornerRadius(for: animatedAddTaskButton)
     }
     
     private func animatePresentingTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-        
-        let newTaskView = transitionContext.view(forKey: .to)! as! NewTaskView
-        let finalFrame = transitionContext.finalFrame(for: transitionContext.viewController(forKey: .to)!)
+        guard let newTaskView = transitionContext.view(forKey: .to) as? NewTaskView else { return }
+        guard let toVC = transitionContext.viewController(forKey: .to) else { return }
+        let finalFrame = transitionContext.finalFrame(for: toVC)
         newTaskView.frame = finalFrame
         
         newTaskView.taskDetailsTextView.becomeFirstResponder()
@@ -114,58 +104,55 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         newTaskView.alpha = 0.0
         newTaskView.center.y += 40.0
         
-        let projectView = transitionContext.view(forKey: .from) as! ProjectTasksView
+        guard let projectView = transitionContext.view(forKey: .from) as? ProjectTasksView else { return }
         projectView.newTaskButton.isHidden = true
         let animatedAddTaskButton = UIButton()
         animatedAddTaskButton.frame = projectView.newTaskButton.frame
         animatedAddTaskButton.clipsToBounds = true
         animatedAddTaskButton.layer.cornerRadius = animatedAddTaskButton.frame.width / 2.0
-        animatedAddTaskButton.backgroundColor = UIColor(red: 0.36, green: 0.55, blue: 0.89, alpha: 1.00)
-        animatedAddTaskButton.setTitle("＋", for: .normal)
+        animatedAddTaskButton.backgroundColor = projectView.newTaskButton.backgroundColor
+        animatedAddTaskButton.setTitle(projectView.newTaskButton.titleLabel?.text, for: .normal)
         animatedAddTaskButton.setTitleColor(UIColor.white, for: .normal)
+        animatedAddTaskButton.titleLabel?.font = .romanTitle
         containerView.addSubview(animatedAddTaskButton)
         
-        UIView.animateKeyframes(withDuration: duration, delay: 0.0,
-                                animations: {
+        UIView.animateKeyframes(withDuration: duration, delay: 0.0, animations: {
                                     
-                                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.75,
-                                                       animations: {
-                                                        dismissView.frame.origin = CGPoint.init(x: 0, y: -30)
-                                    }
-                                    )
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.75, animations: {
+                dismissView.frame.origin = CGPoint.init(x: 0, y: -30)
+            })
                                     
-                                    UIView.addKeyframe(withRelativeStartTime: 0.7, relativeDuration: 0.3,
-                                                       animations: {
-                                                        newTaskView.alpha = 1.0
-                                                        newTaskView.center.y -= 40.0
-                                    }
-                                    )
-        },
-                                completion: { _ in
-                                    newTaskView.addNewTaskButton.isHidden = false
-                                    projectView.newTaskButton.isHidden = false
-                                    animatedAddTaskButton.removeFromSuperview()
-                                    dismissView.removeFromSuperview()
-                                    transitionContext.completeTransition(true)
-                                    
-        }
-        )
-        UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.init(rawValue: 7), animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.7, relativeDuration: 0.3, animations: {
+                newTaskView.alpha = 1.0
+                newTaskView.center.y -= 40.0
+            })
+        }, completion: { _ in
+            newTaskView.addNewTaskButton.isHidden = false
+            projectView.newTaskButton.isHidden = false
+            animatedAddTaskButton.removeFromSuperview()
+            dismissView.removeFromSuperview()
+            transitionContext.completeTransition(true)
+        })
+        
+        UIView.animate(withDuration: duration / 2, delay: 0, options: UIViewAnimationOptions.init(rawValue: 7), animations: {
             animatedAddTaskButton.frame.size.width = UIScreen.main.bounds.width
             animatedAddTaskButton.center.x = UIScreen.main.bounds.width / 2.0
-            animatedAddTaskButton.frame.origin.y = self.rect!.origin.y - 44
+            if let keyboardRect = self.keyboardRect {
+                animatedAddTaskButton.frame.origin.y = keyboardRect.origin.y - animatedAddTaskButton.frame.height
+            }
         })
+        animateCornerRadius(for: animatedAddTaskButton)
+    }
+
+    // MARK: - Private Methods
+    
+    private func animateCornerRadius(for animatedAddTaskButton: UIButton) {
         let round = CABasicAnimation(keyPath: "cornerRadius")
         round.fromValue = animatedAddTaskButton.layer.cornerRadius
-        round.toValue = 0.0
-        round.duration = 0.3
+        round.toValue = presenting ? 0.0 : animatedAddTaskButton.frame.width / 2.0
+        round.duration = duration / 2
         animatedAddTaskButton.layer.add(round, forKey: nil)
-        animatedAddTaskButton.layer.cornerRadius = 0.0
-    }
-    
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        presenting ? animatePresentingTransition(using: transitionContext) : animateDismissingTransition(using: transitionContext)
-        return
+        animatedAddTaskButton.layer.cornerRadius = presenting ? 0.0 : animatedAddTaskButton.frame.width / 2.0
     }
     
     private func dismissView() -> UIView {

@@ -13,10 +13,11 @@ import SnapKit
 class TaskCellViewModel: NSObject {
     let checkBoxClosure: UIButtonTargetClosure
     let taskTitle: String
-    let isCanBeExpired: Bool = false
+    var isCanBeExpired: Bool
     
-    init(title: String, checkBoxClosure: @escaping UIButtonTargetClosure) {
-        taskTitle = title
+    init(task: Task, checkBoxClosure: @escaping UIButtonTargetClosure) {
+        taskTitle = task.title
+        isCanBeExpired = task.endDate != nil
         self.checkBoxClosure = checkBoxClosure
         super.init()
     }
@@ -26,8 +27,8 @@ class TaskCell: ANBaseTableViewCell {
     private let checkBoxButton: UIButton = UIButton()
     private let taskTitleLabel: UILabel = UILabel()
     private let timerImageView: UIImageView = UIImageView()
-    private static let checkBoxImage = UIImage(pdfNamed: "checkbox", atWidth: 20)
-    private static let timerImage = UIImage.originalSizeImage(withPDFNamed: "timer")
+    private static let checkBoxImage = UIImage(pdfNamed: R.file.checkboxPdf.name, atWidth: 20)
+    private static let timerImage = UIImage.originalSizeImage(withPDFNamed: R.file.timerPdf.name)
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,18 +41,20 @@ class TaskCell: ANBaseTableViewCell {
     
     override func update(withModel model: Any!) {
         guard let viewModel = model as? TaskCellViewModel else {
-            fatalError("❌ viewModel for cell is incorrect")
+            assert(false, "❌ viewModel for cell is incorrect")
+            return
         }
         
-        timerImageView.isHidden = viewModel.isCanBeExpired
+        timerImageView.isHidden = !viewModel.isCanBeExpired
         taskTitleLabel.text = viewModel.taskTitle
         checkBoxButton.addTargetClosure(closure: viewModel.checkBoxClosure)
     }
     
-    func setupLayout() {
+    private func setupLayout() {
         
         contentView.addSubview(checkBoxButton)
         checkBoxButton.setImage(TaskCell.checkBoxImage, for: .normal)
+        checkBoxButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -ProjectTasksConstants.margin, bottom: 0, right: 0)
         checkBoxButton.snp.makeConstraints { (make) in
             make.size.equalTo(ProjectTasksConstants.rowHeight)
             make.top.equalToSuperview()
@@ -73,7 +76,7 @@ class TaskCell: ANBaseTableViewCell {
             make.left.equalTo(taskTitleLabel.snp.right).offset(10)
             make.width.equalTo(18)
             make.height.equalTo(20)
-            make.right.equalToSuperview().offset(-ProjectTasksConstants.margin * 2)
+            make.right.equalToSuperview().offset(-ProjectTasksConstants.margin)
         }
     }
 }

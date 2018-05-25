@@ -15,12 +15,13 @@ class ProjectTasksVC: UIViewController {
     let contentView: ProjectTasksView = ProjectTasksView()
     private var controller: ANTableController!
     private let storage: ANStorage = ANStorage()
+    let project: Project
     
     let transition = NewTaskAnimator()
     
-    init(viewModel: ProjectTasksViewModel) {
+    init(project: Project) {
+        self.project = project
         super.init(nibName: nil, bundle: nil)
-        contentView.projectView.update(viewModel)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,44 +42,41 @@ class ProjectTasksVC: UIViewController {
         }
         controller.attachStorage(storage)
         
-        contentView.navigationView.leftButton.addTargetClosure { [unowned self] (_) in
+        let dismissClosure: UIButtonTargetClosure = { [unowned self] (_) in
             self.dismiss(animated: true, completion: nil)
         }
+        let navigationAppearance = NavigationViewAppearance(leftItemAppearance: (navItemType: .back, closure: dismissClosure),
+                                                            rightItemAppearance: (navItemType: .more, closure: nil))
+        contentView.navigationView.apply(appearance: navigationAppearance)
         
         contentView.newTaskButton.addTargetClosure { [unowned self] _ in
-            let vc = NewTaskVC()
+            let vc = NewTaskVC(project: self.project)
             vc.transitioningDelegate = self
             self.present(vc, animated: true, completion: nil)
         }
-
-        storage.updateWithoutAnimationChange { (updater) in
-            let vm =  TaskCellViewModel.init(title: "First", checkBoxClosure: { (_) in
-                
-            })
+        
+        contentView.newTaskButton.backgroundColor = project.styleColor
+        storage.updateWithoutAnimationChange { [unowned self] (updater) in
             
-            let vm1 = TaskCellViewModel.init(title: "First", checkBoxClosure: { (_) in
-                
-            })
+            let viewModels = self.project.tasks.map { TaskCellViewModel(task: $0, checkBoxClosure: { _ in }) }
+            let header = TaskSectionHeaderViewModel.init(dateString: Localizable.projectTasksToday())
             
-            let header = TaskSectionHeaderViewModel.init(dateString: "TODAY")
-            
-            updater?.addItems([vm, vm1])
+            updater?.addItems(viewModels)
             updater?.updateSectionHeaderModel(header, forSectionIndex: 0)
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
-                                                           target: self,
-                                                           action: #selector(close))
+        let viewModel = ProjectTasksViewModel(project: project)
+        contentView.projectView.update(viewModel)
+        storage.update { (updater) in
+            guard let items = self.storage.items(inSection: 0), self.project.tasks.count != items.count else { return }
+            if let task = self.project.tasks.last {
+                updater?.addItem(TaskCellViewModel(task: task, checkBoxClosure: { _ in }))
+            }
+        }
     }
-    
-    @objc func close() {
-        dismiss(animated: true, completion: nil)
-    }
-
 }
 
 extension ProjectTasksVC: UIViewControllerTransitioningDelegate {

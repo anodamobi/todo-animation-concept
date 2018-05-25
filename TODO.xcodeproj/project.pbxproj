@@ -7,95 +7,105 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2170140F20B71AD0001315DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217013D720B71AD0001315DB /* ViewController.swift */; };
-		2170141020B71AD0001315DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 217013DA20B71AD0001315DB /* Assets.xcassets */; };
-		2170141120B71AD0001315DB /* today_outline.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013DC20B71AD0001315DB /* today_outline.pdf */; };
-		2170141220B71AD0001315DB /* work.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013DD20B71AD0001315DB /* work.pdf */; };
-		2170141320B71AD0001315DB /* today.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013DE20B71AD0001315DB /* today.pdf */; };
-		2170141420B71AD0001315DB /* dots.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013DF20B71AD0001315DB /* dots.pdf */; };
-		2170141520B71AD0001315DB /* timer.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013E020B71AD0001315DB /* timer.pdf */; };
-		2170141620B71AD0001315DB /* personal_outline.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013E120B71AD0001315DB /* personal_outline.pdf */; };
-		2170141720B71AD0001315DB /* checkbox.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013E220B71AD0001315DB /* checkbox.pdf */; };
-		2170141820B71AD0001315DB /* personal.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013E320B71AD0001315DB /* personal.pdf */; };
-		2170141920B71AD0001315DB /* work_outline.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013E420B71AD0001315DB /* work_outline.pdf */; };
-		2170141A20B71AD0001315DB /* background1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013E620B71AD0001315DB /* background1.pdf */; };
-		2170141B20B71AD0001315DB /* background3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013E720B71AD0001315DB /* background3.pdf */; };
-		2170141C20B71AD0001315DB /* background2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013E820B71AD0001315DB /* background2.pdf */; };
-		2170141D20B71AD0001315DB /* search.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013EA20B71AD0001315DB /* search.pdf */; };
-		2170141E20B71AD0001315DB /* cross.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013EB20B71AD0001315DB /* cross.pdf */; };
-		2170141F20B71AD0001315DB /* navigationDots.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013EC20B71AD0001315DB /* navigationDots.pdf */; };
-		2170142020B71AD0001315DB /* burger.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013ED20B71AD0001315DB /* burger.pdf */; };
-		2170142120B71AD0001315DB /* back.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013EE20B71AD0001315DB /* back.pdf */; };
-		2170142220B71AD0001315DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 217013EF20B71AD0001315DB /* Assets.xcassets */; };
-		2170142320B71AD0001315DB /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217013F120B71AD0001315DB /* Project.swift */; };
-		2170142420B71AD0001315DB /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217013F320B71AD0001315DB /* UIFont+Ext.swift */; };
-		2170142520B71AD0001315DB /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217013F420B71AD0001315DB /* Double+Ext.swift */; };
-		2170142620B71AD0001315DB /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217013F520B71AD0001315DB /* UIButton+Ext.swift */; };
-		2170142720B71AD0001315DB /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217013F620B71AD0001315DB /* UIColor+Ext.swift */; };
-		2170142820B71AD0001315DB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217013F920B71AD0001315DB /* HomeView.swift */; };
-		2170142920B71AD0001315DB /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217013FA20B71AD0001315DB /* ProjectView.swift */; };
-		2170142A20B71AD0001315DB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217013FB20B71AD0001315DB /* HomeVC.swift */; };
-		2170142B20B71AD0001315DB /* ProjectTasksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217013FC20B71AD0001315DB /* ProjectTasksCell.swift */; };
-		2170142C20B71AD0001315DB /* NewTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217013FE20B71AD0001315DB /* NewTaskVC.swift */; };
-		2170142D20B71AD0001315DB /* NewTaskAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217013FF20B71AD0001315DB /* NewTaskAnimator.swift */; };
-		2170142E20B71AD0001315DB /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170140020B71AD0001315DB /* NewTaskView.swift */; };
-		2170142F20B71AD0001315DB /* TaskSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170140320B71AD0001315DB /* TaskSectionHeader.swift */; };
-		2170143020B71AD0001315DB /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170140420B71AD0001315DB /* TaskCell.swift */; };
-		2170143120B71AD0001315DB /* ProjectAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170140520B71AD0001315DB /* ProjectAnimator.swift */; };
-		2170143220B71AD0001315DB /* ProjectTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170140620B71AD0001315DB /* ProjectTasksView.swift */; };
-		2170143320B71AD0001315DB /* ProjectTasksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170140720B71AD0001315DB /* ProjectTasksVC.swift */; };
-		2170143420B71AD0001315DB /* DebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170140920B71AD0001315DB /* DebugVC.swift */; };
-		2170143520B71AD0001315DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170140A20B71AD0001315DB /* AppDelegate.swift */; };
-		2170143620B71AD0001315DB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2170140B20B71AD0001315DB /* Info.plist */; };
-		2170143720B71AD0001315DB /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170140D20B71AD0001315DB /* NavigationView.swift */; };
-		2170143820B71AD0001315DB /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170140E20B71AD0001315DB /* BaseView.swift */; };
+		B163428520B8660F00155DF7 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163428420B8660F00155DF7 /* R.generated.swift */; };
+		B18209C220B8647300AF0D03 /* today_outline.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182098520B8647300AF0D03 /* today_outline.pdf */; };
+		B18209C320B8647300AF0D03 /* work.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182098620B8647300AF0D03 /* work.pdf */; };
+		B18209C420B8647300AF0D03 /* today.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182098720B8647300AF0D03 /* today.pdf */; };
+		B18209C520B8647300AF0D03 /* dots.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182098820B8647300AF0D03 /* dots.pdf */; };
+		B18209C620B8647300AF0D03 /* timer.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182098920B8647300AF0D03 /* timer.pdf */; };
+		B18209C720B8647300AF0D03 /* personal_outline.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182098A20B8647300AF0D03 /* personal_outline.pdf */; };
+		B18209C820B8647300AF0D03 /* checkbox.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182098B20B8647300AF0D03 /* checkbox.pdf */; };
+		B18209C920B8647300AF0D03 /* personal.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182098C20B8647300AF0D03 /* personal.pdf */; };
+		B18209CA20B8647300AF0D03 /* work_outline.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182098D20B8647300AF0D03 /* work_outline.pdf */; };
+		B18209CB20B8647300AF0D03 /* background1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182098F20B8647300AF0D03 /* background1.pdf */; };
+		B18209CC20B8647300AF0D03 /* background3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182099020B8647300AF0D03 /* background3.pdf */; };
+		B18209CD20B8647300AF0D03 /* background2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182099120B8647300AF0D03 /* background2.pdf */; };
+		B18209CE20B8647300AF0D03 /* search.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182099320B8647300AF0D03 /* search.pdf */; };
+		B18209CF20B8647300AF0D03 /* cross.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182099420B8647300AF0D03 /* cross.pdf */; };
+		B18209D020B8647300AF0D03 /* navigationDots.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182099520B8647300AF0D03 /* navigationDots.pdf */; };
+		B18209D120B8647300AF0D03 /* burger.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182099620B8647300AF0D03 /* burger.pdf */; };
+		B18209D220B8647300AF0D03 /* back.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182099720B8647300AF0D03 /* back.pdf */; };
+		B18209D320B8647300AF0D03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B182099820B8647300AF0D03 /* Assets.xcassets */; };
+		B18209D420B8647300AF0D03 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B182099A20B8647300AF0D03 /* Localizable.strings */; };
+		B18209D520B8647300AF0D03 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182099C20B8647300AF0D03 /* Project.swift */; };
+		B18209D620B8647300AF0D03 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182099D20B8647300AF0D03 /* Task.swift */; };
+		B18209D720B8647300AF0D03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182099F20B8647300AF0D03 /* Constants.swift */; };
+		B18209D820B8647300AF0D03 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209A020B8647300AF0D03 /* UIFont+Ext.swift */; };
+		B18209D920B8647300AF0D03 /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209A120B8647300AF0D03 /* Double+Ext.swift */; };
+		B18209DA20B8647300AF0D03 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209A220B8647300AF0D03 /* Date+Ext.swift */; };
+		B18209DB20B8647300AF0D03 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209A320B8647300AF0D03 /* UIButton+Ext.swift */; };
+		B18209DC20B8647300AF0D03 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209A420B8647300AF0D03 /* UIColor+Ext.swift */; };
+		B18209DD20B8647300AF0D03 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209A720B8647300AF0D03 /* HomeView.swift */; };
+		B18209DE20B8647300AF0D03 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209A820B8647300AF0D03 /* ProjectView.swift */; };
+		B18209DF20B8647300AF0D03 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209A920B8647300AF0D03 /* HomeVC.swift */; };
+		B18209E020B8647300AF0D03 /* ProjectTasksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209AA20B8647300AF0D03 /* ProjectTasksCell.swift */; };
+		B18209E120B8647300AF0D03 /* NewTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209AC20B8647300AF0D03 /* NewTaskVC.swift */; };
+		B18209E220B8647300AF0D03 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209AE20B8647300AF0D03 /* ProjectCell.swift */; };
+		B18209E320B8647300AF0D03 /* NewTaskAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209AF20B8647300AF0D03 /* NewTaskAnimator.swift */; };
+		B18209E420B8647300AF0D03 /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209B020B8647300AF0D03 /* NewTaskView.swift */; };
+		B18209E520B8647300AF0D03 /* TaskSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209B320B8647300AF0D03 /* TaskSectionHeader.swift */; };
+		B18209E620B8647300AF0D03 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209B420B8647300AF0D03 /* TaskCell.swift */; };
+		B18209E720B8647300AF0D03 /* ProjectAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209B520B8647300AF0D03 /* ProjectAnimator.swift */; };
+		B18209E820B8647300AF0D03 /* ProjectTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209B620B8647300AF0D03 /* ProjectTasksView.swift */; };
+		B18209E920B8647300AF0D03 /* ProjectTasksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209B720B8647300AF0D03 /* ProjectTasksVC.swift */; };
+		B18209EA20B8647300AF0D03 /* DebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209B920B8647300AF0D03 /* DebugVC.swift */; };
+		B18209EB20B8647300AF0D03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209BB20B8647300AF0D03 /* AppDelegate.swift */; };
+		B18209EC20B8647300AF0D03 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B18209BC20B8647300AF0D03 /* Info.plist */; };
+		B18209ED20B8647300AF0D03 /* NavigationView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209BF20B8647300AF0D03 /* NavigationView+Style.swift */; };
+		B18209EE20B8647300AF0D03 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209C020B8647300AF0D03 /* NavigationView.swift */; };
+		B18209EF20B8647300AF0D03 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209C120B8647300AF0D03 /* BaseView.swift */; };
 		DF29FE5D6BE0B49B6DEA1AAD /* Pods_TODO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D5ADC8E769AF16D2F1E2C0 /* Pods_TODO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		217013D720B71AD0001315DB /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		217013DA20B71AD0001315DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		217013DC20B71AD0001315DB /* today_outline.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = today_outline.pdf; sourceTree = "<group>"; };
-		217013DD20B71AD0001315DB /* work.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = work.pdf; sourceTree = "<group>"; };
-		217013DE20B71AD0001315DB /* today.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = today.pdf; sourceTree = "<group>"; };
-		217013DF20B71AD0001315DB /* dots.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = dots.pdf; sourceTree = "<group>"; };
-		217013E020B71AD0001315DB /* timer.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = timer.pdf; sourceTree = "<group>"; };
-		217013E120B71AD0001315DB /* personal_outline.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = personal_outline.pdf; sourceTree = "<group>"; };
-		217013E220B71AD0001315DB /* checkbox.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = checkbox.pdf; sourceTree = "<group>"; };
-		217013E320B71AD0001315DB /* personal.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = personal.pdf; sourceTree = "<group>"; };
-		217013E420B71AD0001315DB /* work_outline.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = work_outline.pdf; sourceTree = "<group>"; };
-		217013E620B71AD0001315DB /* background1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = background1.pdf; sourceTree = "<group>"; };
-		217013E720B71AD0001315DB /* background3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = background3.pdf; sourceTree = "<group>"; };
-		217013E820B71AD0001315DB /* background2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = background2.pdf; sourceTree = "<group>"; };
-		217013EA20B71AD0001315DB /* search.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = search.pdf; sourceTree = "<group>"; };
-		217013EB20B71AD0001315DB /* cross.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = cross.pdf; sourceTree = "<group>"; };
-		217013EC20B71AD0001315DB /* navigationDots.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = navigationDots.pdf; sourceTree = "<group>"; };
-		217013ED20B71AD0001315DB /* burger.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = burger.pdf; sourceTree = "<group>"; };
-		217013EE20B71AD0001315DB /* back.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = back.pdf; sourceTree = "<group>"; };
-		217013EF20B71AD0001315DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		217013F120B71AD0001315DB /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		217013F320B71AD0001315DB /* UIFont+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
-		217013F420B71AD0001315DB /* Double+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
-		217013F520B71AD0001315DB /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
-		217013F620B71AD0001315DB /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
-		217013F920B71AD0001315DB /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		217013FA20B71AD0001315DB /* ProjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
-		217013FB20B71AD0001315DB /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		217013FC20B71AD0001315DB /* ProjectTasksCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTasksCell.swift; sourceTree = "<group>"; };
-		217013FE20B71AD0001315DB /* NewTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTaskVC.swift; sourceTree = "<group>"; };
-		217013FF20B71AD0001315DB /* NewTaskAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTaskAnimator.swift; sourceTree = "<group>"; };
-		2170140020B71AD0001315DB /* NewTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
-		2170140320B71AD0001315DB /* TaskSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskSectionHeader.swift; sourceTree = "<group>"; };
-		2170140420B71AD0001315DB /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
-		2170140520B71AD0001315DB /* ProjectAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectAnimator.swift; sourceTree = "<group>"; };
-		2170140620B71AD0001315DB /* ProjectTasksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTasksView.swift; sourceTree = "<group>"; };
-		2170140720B71AD0001315DB /* ProjectTasksVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTasksVC.swift; sourceTree = "<group>"; };
-		2170140920B71AD0001315DB /* DebugVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugVC.swift; sourceTree = "<group>"; };
-		2170140A20B71AD0001315DB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2170140B20B71AD0001315DB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2170140D20B71AD0001315DB /* NavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
-		2170140E20B71AD0001315DB /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		A3D5ADC8E769AF16D2F1E2C0 /* Pods_TODO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TODO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B163428420B8660F00155DF7 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		B182098520B8647300AF0D03 /* today_outline.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = today_outline.pdf; sourceTree = "<group>"; };
+		B182098620B8647300AF0D03 /* work.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = work.pdf; sourceTree = "<group>"; };
+		B182098720B8647300AF0D03 /* today.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = today.pdf; sourceTree = "<group>"; };
+		B182098820B8647300AF0D03 /* dots.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = dots.pdf; sourceTree = "<group>"; };
+		B182098920B8647300AF0D03 /* timer.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = timer.pdf; sourceTree = "<group>"; };
+		B182098A20B8647300AF0D03 /* personal_outline.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = personal_outline.pdf; sourceTree = "<group>"; };
+		B182098B20B8647300AF0D03 /* checkbox.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = checkbox.pdf; sourceTree = "<group>"; };
+		B182098C20B8647300AF0D03 /* personal.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = personal.pdf; sourceTree = "<group>"; };
+		B182098D20B8647300AF0D03 /* work_outline.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = work_outline.pdf; sourceTree = "<group>"; };
+		B182098F20B8647300AF0D03 /* background1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = background1.pdf; sourceTree = "<group>"; };
+		B182099020B8647300AF0D03 /* background3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = background3.pdf; sourceTree = "<group>"; };
+		B182099120B8647300AF0D03 /* background2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = background2.pdf; sourceTree = "<group>"; };
+		B182099320B8647300AF0D03 /* search.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = search.pdf; sourceTree = "<group>"; };
+		B182099420B8647300AF0D03 /* cross.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = cross.pdf; sourceTree = "<group>"; };
+		B182099520B8647300AF0D03 /* navigationDots.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = navigationDots.pdf; sourceTree = "<group>"; };
+		B182099620B8647300AF0D03 /* burger.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = burger.pdf; sourceTree = "<group>"; };
+		B182099720B8647300AF0D03 /* back.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = back.pdf; sourceTree = "<group>"; };
+		B182099820B8647300AF0D03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B182099A20B8647300AF0D03 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		B182099C20B8647300AF0D03 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		B182099D20B8647300AF0D03 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		B182099F20B8647300AF0D03 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B18209A020B8647300AF0D03 /* UIFont+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
+		B18209A120B8647300AF0D03 /* Double+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
+		B18209A220B8647300AF0D03 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		B18209A320B8647300AF0D03 /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
+		B18209A420B8647300AF0D03 /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		B18209A720B8647300AF0D03 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B18209A820B8647300AF0D03 /* ProjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
+		B18209A920B8647300AF0D03 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		B18209AA20B8647300AF0D03 /* ProjectTasksCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTasksCell.swift; sourceTree = "<group>"; };
+		B18209AC20B8647300AF0D03 /* NewTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTaskVC.swift; sourceTree = "<group>"; };
+		B18209AE20B8647300AF0D03 /* ProjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
+		B18209AF20B8647300AF0D03 /* NewTaskAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTaskAnimator.swift; sourceTree = "<group>"; };
+		B18209B020B8647300AF0D03 /* NewTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
+		B18209B320B8647300AF0D03 /* TaskSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskSectionHeader.swift; sourceTree = "<group>"; };
+		B18209B420B8647300AF0D03 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		B18209B520B8647300AF0D03 /* ProjectAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectAnimator.swift; sourceTree = "<group>"; };
+		B18209B620B8647300AF0D03 /* ProjectTasksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTasksView.swift; sourceTree = "<group>"; };
+		B18209B720B8647300AF0D03 /* ProjectTasksVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTasksVC.swift; sourceTree = "<group>"; };
+		B18209B920B8647300AF0D03 /* DebugVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugVC.swift; sourceTree = "<group>"; };
+		B18209BB20B8647300AF0D03 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B18209BC20B8647300AF0D03 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B18209BF20B8647300AF0D03 /* NavigationView+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NavigationView+Style.swift"; sourceTree = "<group>"; };
+		B18209C020B8647300AF0D03 /* NavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		B18209C120B8647300AF0D03 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		B18D3302200E480400936B73 /* TODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E8F5D4692AF052E6924A50 /* Pods-TODO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TODO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TODO/Pods-TODO.debug.xcconfig"; sourceTree = "<group>"; };
 		DEC9FAC1FFB941C936222E9A /* Pods-TODO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TODO.release.xcconfig"; path = "Pods/Target Support Files/Pods-TODO/Pods-TODO.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,175 +123,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		217013D620B71AD0001315DB /* TODO */ = {
-			isa = PBXGroup;
-			children = (
-				217013D720B71AD0001315DB /* ViewController.swift */,
-				217013D820B71AD0001315DB /* Resources */,
-				217013EF20B71AD0001315DB /* Assets.xcassets */,
-				217013F020B71AD0001315DB /* Models */,
-				217013F220B71AD0001315DB /* Extensions */,
-				217013F720B71AD0001315DB /* UserStories */,
-				2170143920B71ADD001315DB /* Application */,
-				2170140C20B71AD0001315DB /* ReusableViews */,
-			);
-			path = TODO;
-			sourceTree = "<group>";
-		};
-		217013D820B71AD0001315DB /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				217013D920B71AD0001315DB /* Images */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		217013D920B71AD0001315DB /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				217013DA20B71AD0001315DB /* Assets.xcassets */,
-				217013DB20B71AD0001315DB /* Cell */,
-				217013E520B71AD0001315DB /* Backgrounds */,
-				217013E920B71AD0001315DB /* Navigation Items */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
-		217013DB20B71AD0001315DB /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				217013DC20B71AD0001315DB /* today_outline.pdf */,
-				217013DD20B71AD0001315DB /* work.pdf */,
-				217013DE20B71AD0001315DB /* today.pdf */,
-				217013DF20B71AD0001315DB /* dots.pdf */,
-				217013E020B71AD0001315DB /* timer.pdf */,
-				217013E120B71AD0001315DB /* personal_outline.pdf */,
-				217013E220B71AD0001315DB /* checkbox.pdf */,
-				217013E320B71AD0001315DB /* personal.pdf */,
-				217013E420B71AD0001315DB /* work_outline.pdf */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		217013E520B71AD0001315DB /* Backgrounds */ = {
-			isa = PBXGroup;
-			children = (
-				217013E620B71AD0001315DB /* background1.pdf */,
-				217013E720B71AD0001315DB /* background3.pdf */,
-				217013E820B71AD0001315DB /* background2.pdf */,
-			);
-			path = Backgrounds;
-			sourceTree = "<group>";
-		};
-		217013E920B71AD0001315DB /* Navigation Items */ = {
-			isa = PBXGroup;
-			children = (
-				217013EA20B71AD0001315DB /* search.pdf */,
-				217013EB20B71AD0001315DB /* cross.pdf */,
-				217013EC20B71AD0001315DB /* navigationDots.pdf */,
-				217013ED20B71AD0001315DB /* burger.pdf */,
-				217013EE20B71AD0001315DB /* back.pdf */,
-			);
-			path = "Navigation Items";
-			sourceTree = "<group>";
-		};
-		217013F020B71AD0001315DB /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				217013F120B71AD0001315DB /* Project.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		217013F220B71AD0001315DB /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				217013F320B71AD0001315DB /* UIFont+Ext.swift */,
-				217013F420B71AD0001315DB /* Double+Ext.swift */,
-				217013F520B71AD0001315DB /* UIButton+Ext.swift */,
-				217013F620B71AD0001315DB /* UIColor+Ext.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		217013F720B71AD0001315DB /* UserStories */ = {
-			isa = PBXGroup;
-			children = (
-				217013F820B71AD0001315DB /* Home */,
-				217013FD20B71AD0001315DB /* NewTask */,
-				2170140120B71AD0001315DB /* ProjectTasks */,
-				2170140820B71AD0001315DB /* Debug */,
-			);
-			path = UserStories;
-			sourceTree = "<group>";
-		};
-		217013F820B71AD0001315DB /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				217013F920B71AD0001315DB /* HomeView.swift */,
-				217013FA20B71AD0001315DB /* ProjectView.swift */,
-				217013FB20B71AD0001315DB /* HomeVC.swift */,
-				217013FC20B71AD0001315DB /* ProjectTasksCell.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		217013FD20B71AD0001315DB /* NewTask */ = {
-			isa = PBXGroup;
-			children = (
-				217013FE20B71AD0001315DB /* NewTaskVC.swift */,
-				217013FF20B71AD0001315DB /* NewTaskAnimator.swift */,
-				2170140020B71AD0001315DB /* NewTaskView.swift */,
-			);
-			path = NewTask;
-			sourceTree = "<group>";
-		};
-		2170140120B71AD0001315DB /* ProjectTasks */ = {
-			isa = PBXGroup;
-			children = (
-				2170140220B71AD0001315DB /* Cell */,
-				2170140520B71AD0001315DB /* ProjectAnimator.swift */,
-				2170140620B71AD0001315DB /* ProjectTasksView.swift */,
-				2170140720B71AD0001315DB /* ProjectTasksVC.swift */,
-			);
-			path = ProjectTasks;
-			sourceTree = "<group>";
-		};
-		2170140220B71AD0001315DB /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				2170140320B71AD0001315DB /* TaskSectionHeader.swift */,
-				2170140420B71AD0001315DB /* TaskCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		2170140820B71AD0001315DB /* Debug */ = {
-			isa = PBXGroup;
-			children = (
-				2170140920B71AD0001315DB /* DebugVC.swift */,
-			);
-			path = Debug;
-			sourceTree = "<group>";
-		};
-		2170140C20B71AD0001315DB /* ReusableViews */ = {
-			isa = PBXGroup;
-			children = (
-				2170140D20B71AD0001315DB /* NavigationView.swift */,
-				2170140E20B71AD0001315DB /* BaseView.swift */,
-			);
-			path = ReusableViews;
-			sourceTree = "<group>";
-		};
-		2170143920B71ADD001315DB /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				2170140A20B71AD0001315DB /* AppDelegate.swift */,
-				2170140B20B71AD0001315DB /* Info.plist */,
-			);
-			path = Application;
-			sourceTree = "<group>";
-		};
 		433CFAFECF1E4253A4EDE9B3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,10 +132,208 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B182098120B8647300AF0D03 /* TODO */ = {
+			isa = PBXGroup;
+			children = (
+				B182098220B8647300AF0D03 /* Resources */,
+				B182099B20B8647300AF0D03 /* Models */,
+				B182099E20B8647300AF0D03 /* Extensions */,
+				B18209A520B8647300AF0D03 /* UserStories */,
+				B18209BA20B8647300AF0D03 /* Application */,
+				B18209BD20B8647300AF0D03 /* ReusableViews */,
+			);
+			path = TODO;
+			sourceTree = "<group>";
+		};
+		B182098220B8647300AF0D03 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B182098320B8647300AF0D03 /* Images */,
+				B182099820B8647300AF0D03 /* Assets.xcassets */,
+				B182099920B8647300AF0D03 /* Localization */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B182098320B8647300AF0D03 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B182098420B8647300AF0D03 /* Cell */,
+				B182098E20B8647300AF0D03 /* Backgrounds */,
+				B182099220B8647300AF0D03 /* Navigation Items */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		B182098420B8647300AF0D03 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B182098520B8647300AF0D03 /* today_outline.pdf */,
+				B182098620B8647300AF0D03 /* work.pdf */,
+				B182098720B8647300AF0D03 /* today.pdf */,
+				B182098820B8647300AF0D03 /* dots.pdf */,
+				B182098920B8647300AF0D03 /* timer.pdf */,
+				B182098A20B8647300AF0D03 /* personal_outline.pdf */,
+				B182098B20B8647300AF0D03 /* checkbox.pdf */,
+				B182098C20B8647300AF0D03 /* personal.pdf */,
+				B182098D20B8647300AF0D03 /* work_outline.pdf */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B182098E20B8647300AF0D03 /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				B182098F20B8647300AF0D03 /* background1.pdf */,
+				B182099020B8647300AF0D03 /* background3.pdf */,
+				B182099120B8647300AF0D03 /* background2.pdf */,
+			);
+			path = Backgrounds;
+			sourceTree = "<group>";
+		};
+		B182099220B8647300AF0D03 /* Navigation Items */ = {
+			isa = PBXGroup;
+			children = (
+				B182099320B8647300AF0D03 /* search.pdf */,
+				B182099420B8647300AF0D03 /* cross.pdf */,
+				B182099520B8647300AF0D03 /* navigationDots.pdf */,
+				B182099620B8647300AF0D03 /* burger.pdf */,
+				B182099720B8647300AF0D03 /* back.pdf */,
+			);
+			path = "Navigation Items";
+			sourceTree = "<group>";
+		};
+		B182099920B8647300AF0D03 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				B182099A20B8647300AF0D03 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		B182099B20B8647300AF0D03 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B182099C20B8647300AF0D03 /* Project.swift */,
+				B182099D20B8647300AF0D03 /* Task.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B182099E20B8647300AF0D03 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B182099F20B8647300AF0D03 /* Constants.swift */,
+				B18209A020B8647300AF0D03 /* UIFont+Ext.swift */,
+				B18209A120B8647300AF0D03 /* Double+Ext.swift */,
+				B18209A220B8647300AF0D03 /* Date+Ext.swift */,
+				B18209A320B8647300AF0D03 /* UIButton+Ext.swift */,
+				B18209A420B8647300AF0D03 /* UIColor+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B18209A520B8647300AF0D03 /* UserStories */ = {
+			isa = PBXGroup;
+			children = (
+				B18209A620B8647300AF0D03 /* Home */,
+				B18209AB20B8647300AF0D03 /* NewTask */,
+				B18209B120B8647300AF0D03 /* ProjectTasks */,
+				B18209B820B8647300AF0D03 /* Debug */,
+			);
+			path = UserStories;
+			sourceTree = "<group>";
+		};
+		B18209A620B8647300AF0D03 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B18209A720B8647300AF0D03 /* HomeView.swift */,
+				B18209A920B8647300AF0D03 /* HomeVC.swift */,
+				B18209AA20B8647300AF0D03 /* ProjectTasksCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B18209AB20B8647300AF0D03 /* NewTask */ = {
+			isa = PBXGroup;
+			children = (
+				B18209AD20B8647300AF0D03 /* Cell */,
+				B18209AC20B8647300AF0D03 /* NewTaskVC.swift */,
+				B18209AF20B8647300AF0D03 /* NewTaskAnimator.swift */,
+				B18209B020B8647300AF0D03 /* NewTaskView.swift */,
+			);
+			path = NewTask;
+			sourceTree = "<group>";
+		};
+		B18209AD20B8647300AF0D03 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B18209AE20B8647300AF0D03 /* ProjectCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B18209B120B8647300AF0D03 /* ProjectTasks */ = {
+			isa = PBXGroup;
+			children = (
+				B18209B220B8647300AF0D03 /* Cell */,
+				B18209B520B8647300AF0D03 /* ProjectAnimator.swift */,
+				B18209B620B8647300AF0D03 /* ProjectTasksView.swift */,
+				B18209B720B8647300AF0D03 /* ProjectTasksVC.swift */,
+			);
+			path = ProjectTasks;
+			sourceTree = "<group>";
+		};
+		B18209B220B8647300AF0D03 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B18209B320B8647300AF0D03 /* TaskSectionHeader.swift */,
+				B18209B420B8647300AF0D03 /* TaskCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B18209B820B8647300AF0D03 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				B18209B920B8647300AF0D03 /* DebugVC.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		B18209BA20B8647300AF0D03 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B163428420B8660F00155DF7 /* R.generated.swift */,
+				B18209BB20B8647300AF0D03 /* AppDelegate.swift */,
+				B18209BC20B8647300AF0D03 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		B18209BD20B8647300AF0D03 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				B18209BE20B8647300AF0D03 /* NavigationView */,
+				B18209C120B8647300AF0D03 /* BaseView.swift */,
+				B18209A820B8647300AF0D03 /* ProjectView.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		B18209BE20B8647300AF0D03 /* NavigationView */ = {
+			isa = PBXGroup;
+			children = (
+				B18209BF20B8647300AF0D03 /* NavigationView+Style.swift */,
+				B18209C020B8647300AF0D03 /* NavigationView.swift */,
+			);
+			path = NavigationView;
+			sourceTree = "<group>";
+		};
 		B18D32F9200E480300936B73 = {
 			isa = PBXGroup;
 			children = (
-				217013D620B71AD0001315DB /* TODO */,
+				B182098120B8647300AF0D03 /* TODO */,
 				B18D3303200E480400936B73 /* Products */,
 				433CFAFECF1E4253A4EDE9B3 /* Pods */,
 				DF2F8DFF517C8128E9EE39B6 /* Frameworks */,
@@ -325,6 +364,7 @@
 			buildConfigurationList = B18D3314200E480400936B73 /* Build configuration list for PBXNativeTarget "TODO" */;
 			buildPhases = (
 				91DA76162B0359CD65B05B71 /* [CP] Check Pods Manifest.lock */,
+				218BEEA120B844B50009397E /* R.swift */,
 				B18D32FE200E480400936B73 /* Sources */,
 				B18D32FF200E480400936B73 /* Frameworks */,
 				B18D3300200E480400936B73 /* Resources */,
@@ -346,8 +386,8 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = "Simon Kostenko";
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = ANODA;
 				TargetAttributes = {
 					B18D3301200E480400936B73 = {
 						CreatedOnToolsVersion = 9.2;
@@ -378,32 +418,46 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2170141C20B71AD0001315DB /* background2.pdf in Resources */,
-				2170141020B71AD0001315DB /* Assets.xcassets in Resources */,
-				2170141A20B71AD0001315DB /* background1.pdf in Resources */,
-				2170142220B71AD0001315DB /* Assets.xcassets in Resources */,
-				2170141120B71AD0001315DB /* today_outline.pdf in Resources */,
-				2170141F20B71AD0001315DB /* navigationDots.pdf in Resources */,
-				2170141D20B71AD0001315DB /* search.pdf in Resources */,
-				2170141920B71AD0001315DB /* work_outline.pdf in Resources */,
-				2170143620B71AD0001315DB /* Info.plist in Resources */,
-				2170141520B71AD0001315DB /* timer.pdf in Resources */,
-				2170141720B71AD0001315DB /* checkbox.pdf in Resources */,
-				2170141320B71AD0001315DB /* today.pdf in Resources */,
-				2170141620B71AD0001315DB /* personal_outline.pdf in Resources */,
-				2170141220B71AD0001315DB /* work.pdf in Resources */,
-				2170141420B71AD0001315DB /* dots.pdf in Resources */,
-				2170141E20B71AD0001315DB /* cross.pdf in Resources */,
-				2170141B20B71AD0001315DB /* background3.pdf in Resources */,
-				2170141820B71AD0001315DB /* personal.pdf in Resources */,
-				2170142020B71AD0001315DB /* burger.pdf in Resources */,
-				2170142120B71AD0001315DB /* back.pdf in Resources */,
+				B18209C920B8647300AF0D03 /* personal.pdf in Resources */,
+				B18209CD20B8647300AF0D03 /* background2.pdf in Resources */,
+				B18209CE20B8647300AF0D03 /* search.pdf in Resources */,
+				B18209D020B8647300AF0D03 /* navigationDots.pdf in Resources */,
+				B18209CF20B8647300AF0D03 /* cross.pdf in Resources */,
+				B18209CC20B8647300AF0D03 /* background3.pdf in Resources */,
+				B18209C620B8647300AF0D03 /* timer.pdf in Resources */,
+				B18209C220B8647300AF0D03 /* today_outline.pdf in Resources */,
+				B18209EC20B8647300AF0D03 /* Info.plist in Resources */,
+				B18209C820B8647300AF0D03 /* checkbox.pdf in Resources */,
+				B18209D120B8647300AF0D03 /* burger.pdf in Resources */,
+				B18209CB20B8647300AF0D03 /* background1.pdf in Resources */,
+				B18209D220B8647300AF0D03 /* back.pdf in Resources */,
+				B18209C320B8647300AF0D03 /* work.pdf in Resources */,
+				B18209C520B8647300AF0D03 /* dots.pdf in Resources */,
+				B18209C420B8647300AF0D03 /* today.pdf in Resources */,
+				B18209CA20B8647300AF0D03 /* work_outline.pdf in Resources */,
+				B18209D420B8647300AF0D03 /* Localizable.strings in Resources */,
+				B18209D320B8647300AF0D03 /* Assets.xcassets in Resources */,
+				B18209C720B8647300AF0D03 /* personal_outline.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		218BEEA120B844B50009397E /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = R.swift;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
+		};
 		58B73F30FA256E6AF8489C64 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -414,6 +468,7 @@
 				"${BUILT_PRODUCTS_DIR}/ANODA-Alister/ANODA_Alister.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/UIImagePDF/UIImagePDF.framework",
 				"${BUILT_PRODUCTS_DIR}/libextobjc/libextobjc.framework",
@@ -424,6 +479,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ANODA_Alister.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImagePDF.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libextobjc.framework",
@@ -459,28 +515,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2170142620B71AD0001315DB /* UIButton+Ext.swift in Sources */,
-				2170142820B71AD0001315DB /* HomeView.swift in Sources */,
-				2170143120B71AD0001315DB /* ProjectAnimator.swift in Sources */,
-				2170142C20B71AD0001315DB /* NewTaskVC.swift in Sources */,
-				2170142420B71AD0001315DB /* UIFont+Ext.swift in Sources */,
-				2170143020B71AD0001315DB /* TaskCell.swift in Sources */,
-				2170142D20B71AD0001315DB /* NewTaskAnimator.swift in Sources */,
-				2170143720B71AD0001315DB /* NavigationView.swift in Sources */,
-				2170142A20B71AD0001315DB /* HomeVC.swift in Sources */,
-				2170143820B71AD0001315DB /* BaseView.swift in Sources */,
-				2170143520B71AD0001315DB /* AppDelegate.swift in Sources */,
-				2170142B20B71AD0001315DB /* ProjectTasksCell.swift in Sources */,
-				2170143420B71AD0001315DB /* DebugVC.swift in Sources */,
-				2170143220B71AD0001315DB /* ProjectTasksView.swift in Sources */,
-				2170140F20B71AD0001315DB /* ViewController.swift in Sources */,
-				2170142E20B71AD0001315DB /* NewTaskView.swift in Sources */,
-				2170142720B71AD0001315DB /* UIColor+Ext.swift in Sources */,
-				2170142520B71AD0001315DB /* Double+Ext.swift in Sources */,
-				2170142920B71AD0001315DB /* ProjectView.swift in Sources */,
-				2170142320B71AD0001315DB /* Project.swift in Sources */,
-				2170142F20B71AD0001315DB /* TaskSectionHeader.swift in Sources */,
-				2170143320B71AD0001315DB /* ProjectTasksVC.swift in Sources */,
+				B18209DD20B8647300AF0D03 /* HomeView.swift in Sources */,
+				B18209EF20B8647300AF0D03 /* BaseView.swift in Sources */,
+				B18209D820B8647300AF0D03 /* UIFont+Ext.swift in Sources */,
+				B18209DE20B8647300AF0D03 /* ProjectView.swift in Sources */,
+				B18209E220B8647300AF0D03 /* ProjectCell.swift in Sources */,
+				B18209ED20B8647300AF0D03 /* NavigationView+Style.swift in Sources */,
+				B18209E420B8647300AF0D03 /* NewTaskView.swift in Sources */,
+				B18209E820B8647300AF0D03 /* ProjectTasksView.swift in Sources */,
+				B18209D620B8647300AF0D03 /* Task.swift in Sources */,
+				B18209DB20B8647300AF0D03 /* UIButton+Ext.swift in Sources */,
+				B18209E920B8647300AF0D03 /* ProjectTasksVC.swift in Sources */,
+				B18209D520B8647300AF0D03 /* Project.swift in Sources */,
+				B18209EA20B8647300AF0D03 /* DebugVC.swift in Sources */,
+				B18209E320B8647300AF0D03 /* NewTaskAnimator.swift in Sources */,
+				B18209E020B8647300AF0D03 /* ProjectTasksCell.swift in Sources */,
+				B18209E720B8647300AF0D03 /* ProjectAnimator.swift in Sources */,
+				B18209DA20B8647300AF0D03 /* Date+Ext.swift in Sources */,
+				B18209DC20B8647300AF0D03 /* UIColor+Ext.swift in Sources */,
+				B18209D720B8647300AF0D03 /* Constants.swift in Sources */,
+				B18209E520B8647300AF0D03 /* TaskSectionHeader.swift in Sources */,
+				B163428520B8660F00155DF7 /* R.generated.swift in Sources */,
+				B18209E120B8647300AF0D03 /* NewTaskVC.swift in Sources */,
+				B18209DF20B8647300AF0D03 /* HomeVC.swift in Sources */,
+				B18209E620B8647300AF0D03 /* TaskCell.swift in Sources */,
+				B18209EE20B8647300AF0D03 /* NavigationView.swift in Sources */,
+				B18209D920B8647300AF0D03 /* Double+Ext.swift in Sources */,
+				B18209EB20B8647300AF0D03 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +562,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -508,6 +570,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -558,6 +621,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -565,6 +629,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

@@ -15,7 +15,8 @@ struct ProjectTasksConstants {
     static let rowHeight: CGFloat = 44.0
     static let sectionHeaderHeight: CGFloat = 44.0
     static let margin: CGFloat = 20.0
-    static let buttonSize: CGFloat = 44.0
+    static let buttonSize: CGFloat = 54.0
+    static let projectViewHeight: Int = 200
 }
 
 class ProjectTasksView: BaseView {
@@ -35,20 +36,14 @@ class ProjectTasksView: BaseView {
     override func setupLayout() {
         super.setupLayout()
         
-        backgroundColor = UIColor.white
-        
-        let back = UIImage.originalSizeImage(withPDFNamed: "back")
-        navigationView.leftButton.setImage(back, for: .normal)
-        let navigationDots = UIImage.originalSizeImage(withPDFNamed: "navigationDots")
-        navigationView.rightButton.setImage(navigationDots, for: .normal)
-        navigationView.backgroundColor = UIColor.white
+        backgroundColor = .white
         
         addSubview(projectView)
         projectView.snp.makeConstraints { (make) in
             make.top.equalTo(navigationView.snp.bottom)
             make.left.equalTo(safeAreaLayoutGuide.snp.left).offset(ProjectTasksConstants.margin)
             make.right.equalTo(safeAreaLayoutGuide.snp.right).offset(-ProjectTasksConstants.margin)
-            make.height.equalTo(200)
+            make.height.equalTo(ProjectTasksConstants.projectViewHeight)
         }
         
         addSubview(tableView)
@@ -64,13 +59,13 @@ class ProjectTasksView: BaseView {
         insertSubview(newTaskButton, aboveSubview: tableView)
         newTaskButton.clipsToBounds = true
         newTaskButton.layer.cornerRadius = ProjectTasksConstants.buttonSize / 2.0
-        newTaskButton.backgroundColor = UIColor(red: 0.36, green: 0.55, blue: 0.89, alpha: 1.00)
         newTaskButton.setTitle("＋", for: .normal)
+        newTaskButton.titleLabel?.font = .romanTitle
         newTaskButton.setTitleColor(UIColor.white, for: .normal)
         newTaskButton.snp.makeConstraints { (make) in
             make.size.equalTo(ProjectTasksConstants.buttonSize)
             make.right.equalToSuperview().offset(-22)
-            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-100)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-80.0.verticalProportional)
         }
     }
 }

@@ -16,17 +16,17 @@ enum PresentationStyle {
 
 class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POPAnimationDelegate {
     
-    let originFrame: CGRect
-    let duration: TimeInterval
-    let presentationStyle: PresentationStyle
-    let projectViewModel: ProjectTasksViewModel
+    private let originFrame: CGRect
+    private let duration: TimeInterval
+    private let presentationStyle: PresentationStyle
+    private let projectViewModel: ProjectTasksViewModel
     
     init(duration: TimeInterval, presentationStyle: PresentationStyle,
-         originFrame: CGRect, projectViewModel: ProjectTasksViewModel) {
+         originFrame: CGRect, project: Project) {
         self.duration = duration
         self.presentationStyle = presentationStyle
         self.originFrame = originFrame
-        self.projectViewModel = projectViewModel
+        self.projectViewModel = ProjectTasksViewModel(project: project)
         super.init()
     }
     
@@ -45,6 +45,7 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
         let navigationViewFrame = navigationView.superview?.convert(navigationView.frame, to: nil) ?? CGRect.zero
         let width = presentationStyle == .present ? originFrame.width + ProjectTasksConstants.margin * 2 :
                                                     taskView.projectView.bounds.width
+        let height = CGFloat(ProjectTasksConstants.projectViewHeight)
         
         let finalFrame = transitionContext.finalFrame(for: toViewController)
         let containerView = transitionContext.containerView
@@ -54,9 +55,9 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
             containerView.addSubview(fromView)
         }
 
-        let projectViewStartFrame = presentationStyle == .present ? originFrame :  CGRect(x: ProjectTasksConstants.margin,
-                                                                                          y: navigationViewFrame.maxY,
-                                                                                          width: width, height: 200)
+        let projectViewStartFrame = presentationStyle == .present ? originFrame : CGRect(x: ProjectTasksConstants.margin,
+                                                                                         y: navigationViewFrame.maxY,
+                                                                                         width: width, height: height)
         let projectView = ProjectView(viewModel: projectViewModel)
         projectView.frame = projectViewStartFrame
         projectView.backgroundColor = UIColor.white
@@ -66,7 +67,7 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
         let projectViewAnimation = POPBasicAnimation(propertyNamed: kPOPViewFrame)
         let projectViewEndFrame = presentationStyle == .present ? CGRect(x: ProjectTasksConstants.margin,
                                                                          y: navigationViewFrame.maxY,
-                                                                         width: width, height: 200) : originFrame
+                                                                         width: width, height: height) : originFrame
         projectViewAnimation?.toValue = NSValue(cgRect: projectViewEndFrame)
         projectViewAnimation?.duration = duration
         projectView.pop_add(projectViewAnimation, forKey: "ProjectViewAnimation")
@@ -121,6 +122,7 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
         containerViewAnimation?.completionBlock = { (_, _) in
             projectView.removeFromSuperview()
             taskView.subviews.forEach { $0.isHidden = false }
+            taskView.projectView.moreButton.isHidden = true
             toView.subviews.forEach { $0.isHidden = false }
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }

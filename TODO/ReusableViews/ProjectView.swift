@@ -11,7 +11,7 @@ import SnapKit
 
 class ProjectView: UIView {
     
-    private static let dotsImage = UIImage.originalSizeImage(withPDFNamed: "dots")
+    private static let dotsImage = UIImage.originalSizeImage(withPDFNamed: R.file.dotsPdf.name)
     
     let projectImageView = UIImageView()
     let moreButton = UIButton()
@@ -32,11 +32,6 @@ class ProjectView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func updateConstraints() {
-        
-        super.updateConstraints()
     }
     
     private func setupLayout() {
@@ -89,9 +84,9 @@ class ProjectView: UIView {
     
     func update(_ viewModel: ProjectTasksViewModel) {
         nameLabel.text = viewModel.name
-        tasksLabel.text = "\(viewModel.numberOfTasks) Tasks"
+        tasksLabel.text = Localizable.projectTasksTasks(viewModel.numberOfTasks)
         progressView.progress = Float(viewModel.progress)
-//        progressView.progressTintColor = viewModel.color
+        progressView.progressTintColor = viewModel.styleColor
         progressLabel.text = "\(viewModel.progress * 100)%"
         projectImageView.setImage(viewModel.icon)
     }

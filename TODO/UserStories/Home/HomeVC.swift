@@ -8,16 +8,14 @@
 
 import UIKit
 import ANODA_Alister
-import Hero
 
 class HomeVC: UIViewController {
     
     let contentView = HomeView()
-    
     let storage: ANStorage = ANStorage()
     var controller: ANCollectionController!
-    var rect: CGRect = .zero
-    var viewModel: ProjectTasksViewModel?
+    var projectCellRect: CGRect = .zero
+
     override func loadView() {
         view = contentView
     }
@@ -33,78 +31,44 @@ class HomeVC: UIViewController {
 
         controller.configureItemSelectionBlock { [unowned self] (viewModel, indexPath) in
             guard let viewModel = viewModel as? ProjectTasksViewModel else { return }
-            guard let cell = self.controller.collectionView.cellForItem(at: indexPath!) as? ProjectTasksCell else { return }
-            let convertedRect = self.controller.collectionView.convert(cell.frame, to: self.view)
-            self.rect = convertedRect
-            self.viewModel = viewModel
+            guard let indexPath = indexPath else { return }
+            guard let cell = self.controller.collectionView.cellForItem(at: indexPath) as? ProjectTasksCell else { return }
+            self.projectCellRect = self.controller.collectionView.convert(cell.frame, to: self.view)
 
-            let vc = ProjectTasksVC(viewModel: viewModel)
+            let vc = ProjectTasksVC(project: viewModel.project)
             vc.transitioningDelegate = self
             self.present(vc, animated: true, completion: nil)
         }
         
+        contentView.backgroundImageView.setImage(Project.today.background)
+        contentView.appearanceChangingClosure = { [unowned self] indexPath in
+            if let viewModel = self.storage.object(at: indexPath) as? ProjectTasksViewModel {
+                UIView.transition(with: self.contentView, duration: 0.25, options: [.curveLinear], animations: {
+                    self.contentView.backgroundImageView.setImage(viewModel.background)
+                })
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         storage.updateWithoutAnimationChange { (change) in
+            change?.removeAllItemsAndSections()
             let items = Project.projects.map ({ ProjectTasksViewModel(project: $0) })
             change?.addItems(items)
-        }
-        
-        contentView.backgroundImageView.setImage(Project.today.background)
-        
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(HomeVC.swipeLeft(_:)))
-        swipeLeft.direction = .left
-        contentView.collectionView.addGestureRecognizer(swipeLeft)
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(HomeVC.swipeRight(_:)))
-        swipeRight.direction = .right
-        contentView.collectionView.addGestureRecognizer(swipeRight)
-    }
-    
-    @objc func swipeLeft(_ gestureRecognizer : UISwipeGestureRecognizer) {
-        print("swipeLeft")
-        if let indexPath = currentProjectIndexPath() {
-            let nextIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
-            scrollToProject(at: nextIndexPath)
-        }
-    }
-    
-    @objc func swipeRight(_ gestureRecognizer : UISwipeGestureRecognizer) {
-        print("swipeRight")
-        if let indexPath = currentProjectIndexPath() {
-            let nextIndexPath = IndexPath(row: indexPath.row - 1, section: indexPath.section)
-            scrollToProject(at: nextIndexPath)
-        }
-    }
-    
-    private func currentProjectIndexPath() -> IndexPath? {
-        let x = contentView.collectionView.contentOffset.x + contentView.collectionView.frame.width / 2
-        let y = contentView.collectionView.frame.height / 2
-        
-        return contentView.collectionView.indexPathForItem(at: CGPoint(x: x, y: y))
-    }
-    
-    private func scrollToProject(at indexPath: IndexPath) {
-        if contentView.collectionView.cellForItem(at: indexPath) != nil {
-            contentView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            if let viewModel = storage.object(at: indexPath) as? ProjectTasksViewModel {
-                
-                UIView.transition(with: self.contentView, duration: 0.25, options: [.curveLinear],
-                                  animations: {
-                    self.contentView.backgroundImageView.setImage(viewModel.background)
-                }, completion: nil)
-            }
         }
     }
 }
 
 extension HomeVC: UIViewControllerTransitioningDelegate {
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        guard let viewModel = viewModel else { return nil }
-        return ProjectTasksAnimator(duration: 0.75, presentationStyle: .present,
-                                    originFrame: rect, projectViewModel: viewModel)
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let project = (presented as? ProjectTasksVC)?.project else { return nil }
+        return ProjectTasksAnimator(duration: 0.75, presentationStyle: .present, originFrame: projectCellRect, project: project)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        guard let viewModel = viewModel else { return nil }
-        return ProjectTasksAnimator(duration: 0.75, presentationStyle: .dismiss,
-                                    originFrame: rect, projectViewModel: viewModel)
+        guard let project = (dismissed as? ProjectTasksVC)?.project else { return nil }
+        return ProjectTasksAnimator(duration: 0.75, presentationStyle: .dismiss, originFrame: projectCellRect, project: project)
     }
 }

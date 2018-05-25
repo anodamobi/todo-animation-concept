@@ -49,6 +49,9 @@ PODS:
   - libextobjc/UmbrellaHeader (0.4.1)
   - Masonry (1.1.0)
   - pop (1.0.10)
+  - R.swift (4.0.0):
+    - R.swift.Library (~> 4.0.0)
+  - R.swift.Library (4.0.0)
   - SnapKit (4.0.0)
   - UIImagePDF (0.9-beta1)
 
@@ -56,6 +59,7 @@ DEPENDENCIES:
   - ANODA-Alister (from `https://github.com/anodamobi/Alister.git`, commit `7a5bd5a`, branch `master`)
   - Hero
   - pop (~> 1.0)
+  - R.swift
   - SnapKit
   - "UIImagePDF (from `git@github.com:anodamobi/UIImage-PDF.git`, commit `7d9dfbf`, branch `0.9-beta1`)"
 
@@ -65,6 +69,8 @@ SPEC REPOS:
     - libextobjc
     - Masonry
     - pop
+    - R.swift
+    - R.swift.Library
     - SnapKit
 
 EXTERNAL SOURCES:
@@ -91,9 +97,11 @@ SPEC CHECKSUMS:
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
+  R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
+  R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   UIImagePDF: 7cae10d97e503ae042a3ebbfa53d19e4bca4daf9
 
-PODFILE CHECKSUM: 9df44c57d409a2ddb4c45f7d66298f74b97164ab
+PODFILE CHECKSUM: 5b335b28f30cf398077a611861d11881c3909c0f
 
 COCOAPODS: 1.5.0
