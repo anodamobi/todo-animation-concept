@@ -33,6 +33,9 @@ class NavigationView: UIView {
     }
     
     private func setupLayout() {
+        
+        backgroundColor = .white
+        
         addSubview(leftButton)
         leftButton.snp.makeConstraints { (make) in
             make.size.equalTo(44)
@@ -55,6 +58,22 @@ class NavigationView: UIView {
             make.top.bottom.height.equalTo(leftButton)
             make.left.equalTo(leftButton.snp.right)
             make.right.equalTo(rightButton.snp.left)
+        }
+    }
+    
+    func apply(appearance: NavigationViewAppearance) {
+        titleLabel.text = appearance.title
+        if let leftNavAppearance = appearance.leftItemAppearance {
+            leftButton.setImage(leftNavAppearance.navItemType.icon, for: .normal)
+            if let closure = leftNavAppearance.closure {
+                leftButton.addTargetClosure(closure: closure)
+            }
+        }
+        if let rightNavAppearance = appearance.rightItemAppearance {
+            rightButton.setImage(rightNavAppearance.navItemType.icon, for: .normal)
+            if let closure = rightNavAppearance.closure {
+                rightButton.addTargetClosure(closure: closure)
+            }
         }
     }
 }

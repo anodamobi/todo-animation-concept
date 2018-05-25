@@ -31,11 +31,6 @@ class NewTaskView: BaseView {
         
         backgroundColor = UIColor.white
         
-        navigationView.backgroundColor = UIColor.white
-        let cross = UIImage.originalSizeImage(withPDFNamed: R.file.crossPdf.name)
-        navigationView.leftButton.setImage(cross, for: .normal)
-        navigationView.title = Localizable.newTaskTitle()
-        
         addSubview(detailsLabel)
         detailsLabel.text = Localizable.newTaskHint()
         detailsLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)

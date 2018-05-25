@@ -43,12 +43,12 @@ class HomeView: BaseView {
             make.edges.equalToSuperview()
         }
         
-        let burger = UIImage.originalSizeImage(withPDFNamed: R.file.burgerPdf.name)
-        navigationView.leftButton.setImage(burger, for: .normal)
-        let search = UIImage.originalSizeImage(withPDFNamed: R.file.searchPdf.name)
-        navigationView.rightButton.setImage(search, for: .normal)
-        navigationView.title = Localizable.homeTitle()
+        let navigationAppearance = NavigationViewAppearance(title: Localizable.homeTitle(),
+                                                            leftItemAppearance: (navItemType: .burger, closure: nil),
+                                                            rightItemAppearance: (navItemType: .search, closure: nil))
+        navigationView.apply(appearance: navigationAppearance)
         navigationView.titleLabel.textColor = .white
+        navigationView.backgroundColor = .clear
         
         addSubview(avatarImageView)
         avatarImageView.setImage(R.image.avatar())

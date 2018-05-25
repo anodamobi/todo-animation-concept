@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		213F650320B8607000DCE8E0 /* NavigationView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F650220B8607000DCE8E0 /* NavigationView+Style.swift */; };
 		2170141120B71AD0001315DB /* today_outline.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013DC20B71AD0001315DB /* today_outline.pdf */; };
 		2170141220B71AD0001315DB /* work.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013DD20B71AD0001315DB /* work.pdf */; };
 		2170141320B71AD0001315DB /* today.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013DE20B71AD0001315DB /* today.pdf */; };
@@ -55,6 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		213F650220B8607000DCE8E0 /* NavigationView+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationView+Style.swift"; sourceTree = "<group>"; };
 		217013DC20B71AD0001315DB /* today_outline.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = today_outline.pdf; sourceTree = "<group>"; };
 		217013DD20B71AD0001315DB /* work.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = work.pdf; sourceTree = "<group>"; };
 		217013DE20B71AD0001315DB /* today.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = today.pdf; sourceTree = "<group>"; };
@@ -118,6 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		213F650120B8605B00DCE8E0 /* NavigationView */ = {
+			isa = PBXGroup;
+			children = (
+				2170140D20B71AD0001315DB /* NavigationView.swift */,
+				213F650220B8607000DCE8E0 /* NavigationView+Style.swift */,
+			);
+			path = NavigationView;
+			sourceTree = "<group>";
+		};
 		217013D620B71AD0001315DB /* TODO */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,7 +285,7 @@
 		2170140C20B71AD0001315DB /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
-				2170140D20B71AD0001315DB /* NavigationView.swift */,
+				213F650120B8605B00DCE8E0 /* NavigationView */,
 				2170140E20B71AD0001315DB /* BaseView.swift */,
 			);
 			path = ReusableViews;
@@ -511,6 +522,7 @@
 				2170143220B71AD0001315DB /* ProjectTasksView.swift in Sources */,
 				2170142E20B71AD0001315DB /* NewTaskView.swift in Sources */,
 				2170142720B71AD0001315DB /* UIColor+Ext.swift in Sources */,
+				213F650320B8607000DCE8E0 /* NavigationView+Style.swift in Sources */,
 				2170142520B71AD0001315DB /* Double+Ext.swift in Sources */,
 				2170142920B71AD0001315DB /* ProjectView.swift in Sources */,
 				2170142320B71AD0001315DB /* Project.swift in Sources */,

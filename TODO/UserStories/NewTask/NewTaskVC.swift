@@ -18,9 +18,14 @@ class NewTaskVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentView.navigationView.leftButton.addTargetClosure { [unowned self] _ in
+        
+        let dismissClosure: UIButtonTargetClosure = { [unowned self] _ in
             self.dismiss(animated: true, completion: nil)
         }
+    
+        let navigationAppearance = NavigationViewAppearance(title: Localizable.newTaskTitle(),
+                                                            leftItemAppearance: (navItemType: .cancel, closure: dismissClosure))
+        contentView.navigationView.apply(appearance: navigationAppearance)
     }
 }
 
