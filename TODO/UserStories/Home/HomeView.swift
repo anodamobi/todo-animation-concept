@@ -22,7 +22,7 @@ class HomeView: BaseView {
     let helloLabel = UILabel()
     let todayInfoLabel = UILabel()
     let todayDateLabel = UILabel()
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionLayout())
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: CollectionViewLayout.flowLayout)
     
     var appearanceChangingClosure: ((IndexPath) -> Void)?
     
@@ -85,7 +85,7 @@ class HomeView: BaseView {
         collectionView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.width.equalToSuperview()
-            make.height.equalTo(UIScreen.main.bounds.height * 0.40)
+            make.height.equalTo(UIScreen.main.bounds.height * 0.401)
             make.bottom.equalToSuperview().offset(-72.0.verticalProportional)
         }
         
@@ -138,25 +138,5 @@ class HomeView: BaseView {
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             appearanceChangingClosure?(indexPath)
         }
-    }
-    
-    //MARK: - Collection View Layout -
-    
-    static private func collectionLayout() -> UICollectionViewFlowLayout {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0.0, left: 40.0, bottom: 0.0, right: 40.0)
-        layout.minimumLineSpacing = 20.0
-        layout.itemSize = collectionItemSize()
-        
-        return layout
-    }
-    
-    static private func collectionItemSize() -> CGSize {
-        
-        let width = UIScreen.main.bounds.width - 80.0
-        let height = UIScreen.main.bounds.height * 0.399
-        
-        return CGSize(width: width, height: height)
     }
 }
