@@ -8,12 +8,19 @@
 
 import UIKit
 
+private struct NewTaskConstants {
+    static let taskDetailsHeight: CGFloat = 120.0
+    static let newTaskButtonHeight: CGFloat = 54.0
+}
+
 class NewTaskView: BaseView {
     
     private let detailsLabel: UILabel = UILabel()
     let taskDetailsTextView: UITextView = UITextView()
     let tableView: UITableView = UITableView()
     let addNewTaskButton: UIButton = UIButton()
+    
+    private var keyboardRect: CGRect?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,6 +31,17 @@ class NewTaskView: BaseView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc private func willShow(_ notification: Notification) {
+        keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        addNewTaskButton.snp.updateConstraints { (make) in
+            make.bottom.equalToSuperview().offset(-keyboardRect!.size.height)
+        }
     }
     
     override func setupLayout() {
@@ -52,7 +70,7 @@ class NewTaskView: BaseView {
         taskDetailsTextView.snp.makeConstraints { (make) in
             make.left.right.equalTo(detailsLabel)
             make.top.equalTo(detailsLabel.snp.bottom).offset(4)
-            make.height.equalTo(120)
+            make.height.equalTo(NewTaskConstants.taskDetailsHeight)
         }
         
         addSubview(tableView)
@@ -64,26 +82,12 @@ class NewTaskView: BaseView {
         }
         
         addSubview(addNewTaskButton)
-        addNewTaskButton.backgroundColor = UIColor(red: 0.36, green: 0.55, blue: 0.89, alpha: 1.00)
         addNewTaskButton.setTitle("＋", for: .normal)
         addNewTaskButton.setTitleColor(UIColor.white, for: .normal)
         addNewTaskButton.snp.makeConstraints { (make) in
             make.width.centerX.equalToSuperview()
-            make.height.equalTo(44)
+            make.height.equalTo(NewTaskConstants.newTaskButtonHeight)
             make.bottom.equalToSuperview()
         }
     }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    @objc func willShow(_ notification: Notification) {
-        keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-        addNewTaskButton.snp.updateConstraints { (make) in
-            make.bottom.equalToSuperview().offset(-keyboardRect!.size.height)
-        }
-    }
-    
-    private var keyboardRect: CGRect?
 }

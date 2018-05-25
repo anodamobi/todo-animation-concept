@@ -207,8 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				217013F820B71AD0001315DB /* Home */,
-				217013FD20B71AD0001315DB /* NewTask */,
 				2170140120B71AD0001315DB /* ProjectTasks */,
+				217013FD20B71AD0001315DB /* NewTask */,
 				2170140820B71AD0001315DB /* Debug */,
 			);
 			path = UserStories;

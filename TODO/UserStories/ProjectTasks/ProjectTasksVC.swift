@@ -47,7 +47,7 @@ class ProjectTasksVC: UIViewController {
         }
         
         contentView.newTaskButton.addTargetClosure { [unowned self] _ in
-            let vc = NewTaskVC()
+            let vc = NewTaskVC(project: self.project)
             vc.transitioningDelegate = self
             self.present(vc, animated: true, completion: nil)
         }

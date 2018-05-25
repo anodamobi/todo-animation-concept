@@ -52,9 +52,9 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let animatedAddTaskButton = UIButton()
         animatedAddTaskButton.frame = newTaskView.addNewTaskButton.frame
         animatedAddTaskButton.clipsToBounds = true
-        animatedAddTaskButton.backgroundColor = UIColor(red: 0.36, green: 0.55, blue: 0.89, alpha: 1.00)
-        animatedAddTaskButton.setTitle("＋", for: .normal)
-        animatedAddTaskButton.setTitleColor(UIColor.white, for: .normal)
+        animatedAddTaskButton.backgroundColor = newTaskView.addNewTaskButton.backgroundColor
+        animatedAddTaskButton.setTitle(newTaskView.addNewTaskButton.titleLabel?.text, for: .normal)
+        animatedAddTaskButton.setTitleColor(newTaskView.addNewTaskButton.titleColor(for: .normal), for: .normal)
         containerView.addSubview(animatedAddTaskButton)
         newTaskView.addNewTaskButton.isHidden = true
         projectView.newTaskButton.isHidden = true
@@ -120,8 +120,8 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         animatedAddTaskButton.frame = projectView.newTaskButton.frame
         animatedAddTaskButton.clipsToBounds = true
         animatedAddTaskButton.layer.cornerRadius = animatedAddTaskButton.frame.width / 2.0
-        animatedAddTaskButton.backgroundColor = UIColor(red: 0.36, green: 0.55, blue: 0.89, alpha: 1.00)
-        animatedAddTaskButton.setTitle("＋", for: .normal)
+        animatedAddTaskButton.backgroundColor = projectView.newTaskButton.backgroundColor
+        animatedAddTaskButton.setTitle(projectView.newTaskButton.titleLabel?.text, for: .normal)
         animatedAddTaskButton.setTitleColor(UIColor.white, for: .normal)
         containerView.addSubview(animatedAddTaskButton)
         
@@ -153,7 +153,7 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.init(rawValue: 7), animations: {
             animatedAddTaskButton.frame.size.width = UIScreen.main.bounds.width
             animatedAddTaskButton.center.x = UIScreen.main.bounds.width / 2.0
-            animatedAddTaskButton.frame.origin.y = self.rect!.origin.y - 44
+            animatedAddTaskButton.frame.origin.y = self.rect!.origin.y - animatedAddTaskButton.frame.height
         })
         let round = CABasicAnimation(keyPath: "cornerRadius")
         round.fromValue = animatedAddTaskButton.layer.cornerRadius

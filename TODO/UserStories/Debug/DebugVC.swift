@@ -54,9 +54,6 @@ class DebugVC: UIViewController {
             case 1:
                 let vc = UINavigationController(rootViewController: ProjectTasksVC(project: .today))
                 self.present(vc, animated: true, completion: nil)
-            case 2:
-                let vc = UINavigationController(rootViewController: NewTaskVC())
-                self.present(vc, animated: true, completion: nil)
             default:
                 break
             }
