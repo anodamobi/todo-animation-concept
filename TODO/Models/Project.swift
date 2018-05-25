@@ -21,6 +21,10 @@ enum Project {
     private static let personalIcon: UIImage = UIImage.originalSizeImage(withPDFNamed: "personal")
     private static let workIcon: UIImage = UIImage.originalSizeImage(withPDFNamed: "work")
     
+    private static let outlineTodayIcon: UIImage = UIImage.originalSizeImage(withPDFNamed: "today_outline")
+    private static let outlinePersonalIcon: UIImage = UIImage.originalSizeImage(withPDFNamed: "personal_outline")
+    private static let outlineWorkIcon: UIImage = UIImage.originalSizeImage(withPDFNamed: "work_outline")
+    
     var name: String {
         return "\(self)".capitalized
     }
@@ -55,6 +59,30 @@ enum Project {
             return Project.personalIcon
         case .work:
             return Project.workIcon
+        }
+    }
+    
+    var outlineIcon: UIImage? {
+        switch self {
+        case .today:
+            return Project.outlineTodayIcon
+        case .personal:
+            return Project.outlinePersonalIcon
+        case .work:
+            return Project.outlineWorkIcon
+        }
+    }
+    
+    var tasks: [Task] {
+        get {
+            switch self {
+            case .today:
+                return Task.todayTasks
+            case .personal:
+                return Task.personalTasks
+            case .work:
+                return Task.workTasks
+            }
         }
     }
     

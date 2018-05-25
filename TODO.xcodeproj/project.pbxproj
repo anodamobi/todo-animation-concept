@@ -48,6 +48,7 @@
 		2170143520B71AD0001315DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170140A20B71AD0001315DB /* AppDelegate.swift */; };
 		2170143720B71AD0001315DB /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170140D20B71AD0001315DB /* NavigationView.swift */; };
 		2170143820B71AD0001315DB /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170140E20B71AD0001315DB /* BaseView.swift */; };
+		218BEE9920B806720009397E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BEE9820B806720009397E /* Task.swift */; };
 		DF29FE5D6BE0B49B6DEA1AAD /* Pods_TODO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D5ADC8E769AF16D2F1E2C0 /* Pods_TODO.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,7 @@
 		2170140B20B71AD0001315DB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2170140D20B71AD0001315DB /* NavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		2170140E20B71AD0001315DB /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		218BEE9820B806720009397E /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		A3D5ADC8E769AF16D2F1E2C0 /* Pods_TODO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TODO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18D3302200E480400936B73 /* TODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E8F5D4692AF052E6924A50 /* Pods-TODO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TODO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TODO/Pods-TODO.debug.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				217013F120B71AD0001315DB /* Project.swift */,
+				218BEE9820B806720009397E /* Task.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				2170142820B71AD0001315DB /* HomeView.swift in Sources */,
 				2170143120B71AD0001315DB /* ProjectAnimator.swift in Sources */,
 				2170142C20B71AD0001315DB /* NewTaskVC.swift in Sources */,
+				218BEE9920B806720009397E /* Task.swift in Sources */,
 				2170142420B71AD0001315DB /* UIFont+Ext.swift in Sources */,
 				2170143020B71AD0001315DB /* TaskCell.swift in Sources */,
 				2170142D20B71AD0001315DB /* NewTaskAnimator.swift in Sources */,
