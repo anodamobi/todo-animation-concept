@@ -15,4 +15,6 @@ target 'TODO' do
   pod 'pop', '~> 1.0'
   pod 'R.swift'
 
+  pod 'Fabric'
+  pod 'Crashlytics'
 end

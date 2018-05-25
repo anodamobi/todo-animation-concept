@@ -369,6 +369,7 @@
 				B18D32FF200E480400936B73 /* Frameworks */,
 				B18D3300200E480400936B73 /* Resources */,
 				58B73F30FA256E6AF8489C64 /* [CP] Embed Pods Frameworks */,
+				21DC3D7320B8856C00E14F91 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -457,6 +458,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
+		};
+		21DC3D7320B8856C00E14F91 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" ea7dfb6a1f6555e29edb99c288c71f9fdf6a47a3 4de479224437f54a39b5b0b63aeae21514ba7ae247eeeacd0251d76bcb6b0813";
 		};
 		58B73F30FA256E6AF8489C64 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -669,7 +684,7 @@
 				DEVELOPMENT_TEAM = 7VYW9J77NX;
 				INFOPLIST_FILE = TODO/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ANODA.TODO;
+				PRODUCT_BUNDLE_IDENTIFIER = mobi.anoda.todo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -686,7 +701,7 @@
 				DEVELOPMENT_TEAM = 7VYW9J77NX;
 				INFOPLIST_FILE = TODO/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ANODA.TODO;
+				PRODUCT_BUNDLE_IDENTIFIER = mobi.anoda.todo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
