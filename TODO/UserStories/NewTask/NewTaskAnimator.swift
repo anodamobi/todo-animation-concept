@@ -12,7 +12,7 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     let duration = 0.6
     var presenting = true
-    var originFrame = CGRect.zero
+    private var keyboardRect: CGRect?
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
@@ -37,13 +37,10 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
     }
     
-    private var keyboardRect: CGRect?
-    
     private func animateDismissingTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-        
-        let newTaskView = transitionContext.view(forKey: .from)! as! NewTaskView
-        let projectView = transitionContext.view(forKey: .to)! as! ProjectTasksView
+        guard let newTaskView = transitionContext.view(forKey: .from) as? NewTaskView else { return }
+        guard let projectView = transitionContext.view(forKey: .to) as? ProjectTasksView else { return }
         
         newTaskView.taskDetailsTextView.resignFirstResponder()
         
@@ -92,9 +89,9 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     private func animatePresentingTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-        
-        let newTaskView = transitionContext.view(forKey: .to)! as! NewTaskView
-        let finalFrame = transitionContext.finalFrame(for: transitionContext.viewController(forKey: .to)!)
+        guard let newTaskView = transitionContext.view(forKey: .to) as? NewTaskView else { return }
+        guard let toVC = transitionContext.viewController(forKey: .to) else { return }
+        let finalFrame = transitionContext.finalFrame(for: toVC)
         newTaskView.frame = finalFrame
         
         newTaskView.taskDetailsTextView.becomeFirstResponder()
@@ -107,7 +104,7 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         newTaskView.alpha = 0.0
         newTaskView.center.y += 40.0
         
-        let projectView = transitionContext.view(forKey: .from) as! ProjectTasksView
+        guard let projectView = transitionContext.view(forKey: .from) as? ProjectTasksView else { return }
         projectView.newTaskButton.isHidden = true
         let animatedAddTaskButton = UIButton()
         animatedAddTaskButton.frame = projectView.newTaskButton.frame
@@ -140,7 +137,9 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         UIView.animate(withDuration: duration / 2, delay: 0, options: UIViewAnimationOptions.init(rawValue: 7), animations: {
             animatedAddTaskButton.frame.size.width = UIScreen.main.bounds.width
             animatedAddTaskButton.center.x = UIScreen.main.bounds.width / 2.0
-            animatedAddTaskButton.frame.origin.y = self.keyboardRect!.origin.y - animatedAddTaskButton.frame.height
+            if let keyboardRect = self.keyboardRect {
+                animatedAddTaskButton.frame.origin.y = keyboardRect.origin.y - animatedAddTaskButton.frame.height
+            }
         })
         animateCornerRadius(for: animatedAddTaskButton)
     }
