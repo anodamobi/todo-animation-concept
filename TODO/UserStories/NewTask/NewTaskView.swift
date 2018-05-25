@@ -39,9 +39,20 @@ class NewTaskView: BaseView {
     
     @objc private func willShow(_ notification: Notification) {
         keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-        addNewTaskButton.snp.updateConstraints { (make) in
-            make.bottom.equalToSuperview().offset(-keyboardRect!.size.height)
+        setNeedsUpdateConstraints()
+    }
+    
+    override func updateConstraints() {
+        addNewTaskButton.snp.remakeConstraints { (make) in
+            make.width.centerX.equalToSuperview()
+            make.height.equalTo(NewTaskConstants.newTaskButtonHeight)
+            if let keyboardHeight = keyboardRect?.size.height {
+                make.bottom.equalToSuperview().offset(-keyboardHeight)
+            } else {
+                make.bottom.equalToSuperview()
+            }
         }
+        super.updateConstraints()
     }
     
     override func setupLayout() {
@@ -87,7 +98,11 @@ class NewTaskView: BaseView {
         addNewTaskButton.snp.makeConstraints { (make) in
             make.width.centerX.equalToSuperview()
             make.height.equalTo(NewTaskConstants.newTaskButtonHeight)
-            make.bottom.equalToSuperview()
+            if let keyboardHeight = keyboardRect?.size.height {
+                make.bottom.equalToSuperview().offset(-keyboardHeight)
+            } else {
+                make.bottom.equalToSuperview()
+            }
         }
     }
 }
