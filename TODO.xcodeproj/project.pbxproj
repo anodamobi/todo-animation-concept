@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2170140F20B71AD0001315DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217013D720B71AD0001315DB /* ViewController.swift */; };
 		2170141120B71AD0001315DB /* today_outline.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013DC20B71AD0001315DB /* today_outline.pdf */; };
 		2170141220B71AD0001315DB /* work.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013DD20B71AD0001315DB /* work.pdf */; };
 		2170141320B71AD0001315DB /* today.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 217013DE20B71AD0001315DB /* today.pdf */; };
@@ -52,7 +51,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		217013D720B71AD0001315DB /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		217013DC20B71AD0001315DB /* today_outline.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = today_outline.pdf; sourceTree = "<group>"; };
 		217013DD20B71AD0001315DB /* work.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = work.pdf; sourceTree = "<group>"; };
 		217013DE20B71AD0001315DB /* today.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = today.pdf; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 		217013D620B71AD0001315DB /* TODO */ = {
 			isa = PBXGroup;
 			children = (
-				217013D720B71AD0001315DB /* ViewController.swift */,
 				217013D820B71AD0001315DB /* Resources */,
 				217013F020B71AD0001315DB /* Models */,
 				217013F220B71AD0001315DB /* Extensions */,
@@ -471,7 +468,6 @@
 				2170142B20B71AD0001315DB /* ProjectTasksCell.swift in Sources */,
 				2170143420B71AD0001315DB /* DebugVC.swift in Sources */,
 				2170143220B71AD0001315DB /* ProjectTasksView.swift in Sources */,
-				2170140F20B71AD0001315DB /* ViewController.swift in Sources */,
 				2170142E20B71AD0001315DB /* NewTaskView.swift in Sources */,
 				2170142720B71AD0001315DB /* UIColor+Ext.swift in Sources */,
 				2170142520B71AD0001315DB /* Double+Ext.swift in Sources */,
