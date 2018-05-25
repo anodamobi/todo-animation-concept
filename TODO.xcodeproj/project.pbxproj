@@ -51,6 +51,7 @@
 		218BEE9E20B83AD30009397E /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BEE9D20B83AD30009397E /* String+Ext.swift */; };
 		218BEEA020B83E330009397E /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BEE9F20B83E330009397E /* Date+Ext.swift */; };
 		218BEEA320B8453A0009397E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BEEA220B8453A0009397E /* R.generated.swift */; };
+		218BEEA520B8483F0009397E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BEEA420B8483F0009397E /* Constants.swift */; };
 		DF29FE5D6BE0B49B6DEA1AAD /* Pods_TODO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D5ADC8E769AF16D2F1E2C0 /* Pods_TODO.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		218BEE9D20B83AD30009397E /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		218BEE9F20B83E330009397E /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		218BEEA220B8453A0009397E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		218BEEA420B8483F0009397E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A3D5ADC8E769AF16D2F1E2C0 /* Pods_TODO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TODO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18D3302200E480400936B73 /* TODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E8F5D4692AF052E6924A50 /* Pods-TODO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TODO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TODO/Pods-TODO.debug.xcconfig"; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				217013F620B71AD0001315DB /* UIColor+Ext.swift */,
 				218BEE9D20B83AD30009397E /* String+Ext.swift */,
 				218BEE9F20B83E330009397E /* Date+Ext.swift */,
+				218BEEA420B8483F0009397E /* Constants.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				218BEEA020B83E330009397E /* Date+Ext.swift in Sources */,
 				2170142C20B71AD0001315DB /* NewTaskVC.swift in Sources */,
 				218BEE9920B806720009397E /* Task.swift in Sources */,
+				218BEEA520B8483F0009397E /* Constants.swift in Sources */,
 				2170142420B71AD0001315DB /* UIFont+Ext.swift in Sources */,
 				218BEE9E20B83AD30009397E /* String+Ext.swift in Sources */,
 				2170143020B71AD0001315DB /* TaskCell.swift in Sources */,
