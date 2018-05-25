@@ -34,11 +34,6 @@ class ProjectView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func updateConstraints() {
-        
-        super.updateConstraints()
-    }
-    
     private func setupLayout() {
         
         addSubview(projectImageView)

@@ -14,6 +14,7 @@
 
     ///Project Tasks
 "project-tasks.tasks" = "%d tasks";
+"project-tasks.today" = "TODAY";
 
     ///New Task
 "new-task.title" = "New Task";

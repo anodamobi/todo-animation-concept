@@ -61,7 +61,7 @@ class ProjectTasksVC: UIViewController {
         storage.updateWithoutAnimationChange { [unowned self] (updater) in
             
             let viewModels = self.project.tasks.map { TaskCellViewModel(task: $0, checkBoxClosure: { _ in }) }
-            let header = TaskSectionHeaderViewModel.init(dateString: "TODAY")
+            let header = TaskSectionHeaderViewModel.init(dateString: Localizable.projectTasksToday())
             
             updater?.addItems(viewModels)
             updater?.updateSectionHeaderModel(header, forSectionIndex: 0)
