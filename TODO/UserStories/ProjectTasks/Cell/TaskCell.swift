@@ -41,7 +41,8 @@ class TaskCell: ANBaseTableViewCell {
     
     override func update(withModel model: Any!) {
         guard let viewModel = model as? TaskCellViewModel else {
-            fatalError("❌ viewModel for cell is incorrect")
+            assert(false, "❌ viewModel for cell is incorrect")
+            return
         }
         
         timerImageView.isHidden = !viewModel.isCanBeExpired
@@ -49,10 +50,11 @@ class TaskCell: ANBaseTableViewCell {
         checkBoxButton.addTargetClosure(closure: viewModel.checkBoxClosure)
     }
     
-    func setupLayout() {
+    private func setupLayout() {
         
         contentView.addSubview(checkBoxButton)
         checkBoxButton.setImage(TaskCell.checkBoxImage, for: .normal)
+        checkBoxButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -ProjectTasksConstants.margin, bottom: 0, right: 0)
         checkBoxButton.snp.makeConstraints { (make) in
             make.size.equalTo(ProjectTasksConstants.rowHeight)
             make.top.equalToSuperview()
@@ -74,7 +76,7 @@ class TaskCell: ANBaseTableViewCell {
             make.left.equalTo(taskTitleLabel.snp.right).offset(10)
             make.width.equalTo(18)
             make.height.equalTo(20)
-            make.right.equalToSuperview().offset(-ProjectTasksConstants.margin * 2)
+            make.right.equalToSuperview().offset(-ProjectTasksConstants.margin)
         }
     }
 }
