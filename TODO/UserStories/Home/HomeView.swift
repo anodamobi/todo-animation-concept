@@ -10,15 +10,21 @@ import UIKit
 import SnapKit
 import UIImagePDF
 
+private enum SwipeDirection {
+    case left
+    case right
+}
+
 class HomeView: BaseView {
     
     let backgroundImageView: UIImageView = UIImageView()
     let avatarImageView = UIImageView()
     let helloLabel = UILabel()
     let todayInfoLabel = UILabel()
-    
     let todayDateLabel = UILabel()
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionLayout())
+    
+    var appearanceChangingClosure: ((IndexPath) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -91,7 +97,51 @@ class HomeView: BaseView {
             make.bottom.equalTo(collectionView.snp.top).offset(-8.0.verticalProportional)
             make.left.equalTo(helloLabel)
         }
+        
+        setupGestures()
     }
+    
+    //MARK: - Gestures -
+    
+    private func setupGestures() {
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft(_:)))
+        swipeLeft.direction = .left
+        collectionView.addGestureRecognizer(swipeLeft)
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeRight(_:)))
+        swipeRight.direction = .right
+        collectionView.addGestureRecognizer(swipeRight)
+    }
+    
+    @objc private func swipeLeft(_ gestureRecognizer: UISwipeGestureRecognizer) {
+        swipeTo(.left)
+    }
+    
+    @objc private func swipeRight(_ gestureRecognizer: UISwipeGestureRecognizer) {
+        swipeTo(.right)
+    }
+    
+    private func swipeTo(_ direction: SwipeDirection) {
+        if let indexPath = currentProjectIndexPath() {
+            let row = indexPath.row + ( direction == .left ? 1 : -1 )
+            let nextIndexPath = IndexPath(row: row, section: indexPath.section)
+            scrollToProject(at: nextIndexPath)
+        }
+    }
+    
+    private func currentProjectIndexPath() -> IndexPath? {
+        let x = collectionView.contentOffset.x + collectionView.frame.width / 2
+        let y = collectionView.frame.height / 2
+        return collectionView.indexPathForItem(at: CGPoint(x: x, y: y))
+    }
+    
+    private func scrollToProject(at indexPath: IndexPath) {
+        if collectionView.cellForItem(at: indexPath) != nil {
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            appearanceChangingClosure?(indexPath)
+        }
+    }
+    
+    //MARK: - Collection View Layout -
     
     static private func collectionLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
