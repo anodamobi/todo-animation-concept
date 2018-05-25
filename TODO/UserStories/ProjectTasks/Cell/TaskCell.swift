@@ -27,8 +27,8 @@ class TaskCell: ANBaseTableViewCell {
     private let checkBoxButton: UIButton = UIButton()
     private let taskTitleLabel: UILabel = UILabel()
     private let timerImageView: UIImageView = UIImageView()
-    private static let checkBoxImage = UIImage(pdfNamed: "checkbox", atWidth: 20)
-    private static let timerImage = UIImage.originalSizeImage(withPDFNamed: "timer")
+    private static let checkBoxImage = UIImage(pdfNamed: R.file.checkboxPdf.name, atWidth: 20)
+    private static let timerImage = UIImage.originalSizeImage(withPDFNamed: R.file.timerPdf.name)
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

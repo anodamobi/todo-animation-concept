@@ -9,11 +9,11 @@
     ///Home
 "home.title" = "TODO";
 "home.welcome-message%@" = "Hello, %@";
-"home.status-message%d" = "Looks like feel good.\nYou have %d tasks to do today.";
+"home.status-message" = "Looks like feel good.\nYou have %d tasks to do today.";
 "home.today%@" = "TODAY: %@";
 
     ///Project Tasks
-"project-tasks.%dtasks" = "%d tasks";
+"project-tasks.tasks" = "%d tasks";
 
     ///New Task
 "new-task.title" = "New Task";

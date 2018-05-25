@@ -13,17 +13,17 @@ enum Project {
     case work
     case personal
     
-    private static let todayBackground: UIImage = UIImage.originalSizeImage(withPDFNamed: "background1")
-    private static let personalBackground: UIImage = UIImage.originalSizeImage(withPDFNamed: "background2")
-    private static let workBackground: UIImage = UIImage.originalSizeImage(withPDFNamed: "background3")
+    private static let todayBackground: UIImage = UIImage.originalSizeImage(withPDFNamed: R.file.background1Pdf.name)
+    private static let personalBackground: UIImage = UIImage.originalSizeImage(withPDFNamed: R.file.background2Pdf.name)
+    private static let workBackground: UIImage = UIImage.originalSizeImage(withPDFNamed: R.file.background3Pdf.name)
     
-    private static let todayIcon: UIImage = UIImage.originalSizeImage(withPDFNamed: "today")
-    private static let personalIcon: UIImage = UIImage.originalSizeImage(withPDFNamed: "personal")
-    private static let workIcon: UIImage = UIImage.originalSizeImage(withPDFNamed: "work")
+    private static let todayIcon: UIImage = UIImage.originalSizeImage(withPDFNamed: R.file.todayPdf.name)
+    private static let personalIcon: UIImage = UIImage.originalSizeImage(withPDFNamed: R.file.personalPdf.name)
+    private static let workIcon: UIImage = UIImage.originalSizeImage(withPDFNamed: R.file.workPdf.name)
     
-    private static let outlineTodayIcon: UIImage = UIImage.originalSizeImage(withPDFNamed: "today_outline")
-    private static let outlinePersonalIcon: UIImage = UIImage.originalSizeImage(withPDFNamed: "personal_outline")
-    private static let outlineWorkIcon: UIImage = UIImage.originalSizeImage(withPDFNamed: "work_outline")
+    private static let outlineTodayIcon: UIImage = UIImage.originalSizeImage(withPDFNamed: R.file.today_outlinePdf.name)
+    private static let outlinePersonalIcon: UIImage = UIImage.originalSizeImage(withPDFNamed: R.file.personal_outlinePdf.name)
+    private static let outlineWorkIcon: UIImage = UIImage.originalSizeImage(withPDFNamed: R.file.work_outlinePdf.name)
     
     var name: String {
         return "\(self)".capitalized

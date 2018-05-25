@@ -38,9 +38,9 @@ class ProjectTasksView: BaseView {
         
         backgroundColor = .white
         
-        let back = UIImage.originalSizeImage(withPDFNamed: "back")
+        let back = UIImage.originalSizeImage(withPDFNamed: R.file.backPdf.name)
         navigationView.leftButton.setImage(back, for: .normal)
-        let navigationDots = UIImage.originalSizeImage(withPDFNamed: "navigationDots")
+        let navigationDots = UIImage.originalSizeImage(withPDFNamed: R.file.navigationDotsPdf.name)
         navigationView.rightButton.setImage(navigationDots, for: .normal)
         navigationView.backgroundColor = .white
         
