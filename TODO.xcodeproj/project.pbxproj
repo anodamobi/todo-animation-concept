@@ -50,6 +50,7 @@
 		218BEE9B20B83A0D0009397E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 218BEE9A20B83A0D0009397E /* Localizable.strings */; };
 		218BEE9E20B83AD30009397E /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BEE9D20B83AD30009397E /* String+Ext.swift */; };
 		218BEEA020B83E330009397E /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BEE9F20B83E330009397E /* Date+Ext.swift */; };
+		218BEEA320B8453A0009397E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BEEA220B8453A0009397E /* R.generated.swift */; };
 		DF29FE5D6BE0B49B6DEA1AAD /* Pods_TODO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D5ADC8E769AF16D2F1E2C0 /* Pods_TODO.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		218BEE9A20B83A0D0009397E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		218BEE9D20B83AD30009397E /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		218BEE9F20B83E330009397E /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		218BEEA220B8453A0009397E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		A3D5ADC8E769AF16D2F1E2C0 /* Pods_TODO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TODO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18D3302200E480400936B73 /* TODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E8F5D4692AF052E6924A50 /* Pods-TODO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TODO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TODO/Pods-TODO.debug.xcconfig"; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 		2170143920B71ADD001315DB /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				218BEEA220B8453A0009397E /* R.generated.swift */,
 				2170140A20B71AD0001315DB /* AppDelegate.swift */,
 				2170140B20B71AD0001315DB /* Info.plist */,
 			);
@@ -338,6 +341,7 @@
 			buildConfigurationList = B18D3314200E480400936B73 /* Build configuration list for PBXNativeTarget "TODO" */;
 			buildPhases = (
 				91DA76162B0359CD65B05B71 /* [CP] Check Pods Manifest.lock */,
+				218BEEA120B844B50009397E /* R.swift */,
 				B18D32FE200E480400936B73 /* Sources */,
 				B18D32FF200E480400936B73 /* Frameworks */,
 				B18D3300200E480400936B73 /* Resources */,
@@ -416,6 +420,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		218BEEA120B844B50009397E /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = R.swift;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
+		};
 		58B73F30FA256E6AF8489C64 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -426,6 +444,7 @@
 				"${BUILT_PRODUCTS_DIR}/ANODA-Alister/ANODA_Alister.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/UIImagePDF/UIImagePDF.framework",
 				"${BUILT_PRODUCTS_DIR}/libextobjc/libextobjc.framework",
@@ -436,6 +455,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ANODA_Alister.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImagePDF.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libextobjc.framework",
@@ -473,6 +493,7 @@
 			files = (
 				2170142620B71AD0001315DB /* UIButton+Ext.swift in Sources */,
 				2170142820B71AD0001315DB /* HomeView.swift in Sources */,
+				218BEEA320B8453A0009397E /* R.generated.swift in Sources */,
 				2170143120B71AD0001315DB /* ProjectAnimator.swift in Sources */,
 				218BEEA020B83E330009397E /* Date+Ext.swift in Sources */,
 				2170142C20B71AD0001315DB /* NewTaskVC.swift in Sources */,
