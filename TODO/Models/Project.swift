@@ -32,11 +32,11 @@ enum Project {
     var progress: Double {
         switch self {
         case .personal:
-            return 0.83
+            return 0.89
         case .work:
             return 0.24
         case .today:
-            return 0.32
+            return 0.52
         }
     }
     
@@ -83,6 +83,17 @@ enum Project {
             case .work:
                 return Task.workTasks
             }
+        }
+    }
+    
+    var styleColor: UIColor {
+        switch self {
+        case .today:
+            return UIColor.darkSkyBlue
+        case .personal:
+            return UIColor.fadedRed
+        case .work:
+            return UIColor.bluishPurple
         }
     }
     

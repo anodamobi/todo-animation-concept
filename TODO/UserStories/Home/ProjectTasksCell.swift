@@ -16,6 +16,7 @@ class ProjectTasksViewModel: NSObject {
     var background: UIImage?
     var numberOfTasks: Int
     var progress: Double
+    var styleColor: UIColor
     let project: Project
     
     init(project: Project) {
@@ -25,6 +26,7 @@ class ProjectTasksViewModel: NSObject {
         background = project.background
         numberOfTasks = project.tasks.count
         progress = project.progress
+        styleColor = project.styleColor
         super.init()
     }
 

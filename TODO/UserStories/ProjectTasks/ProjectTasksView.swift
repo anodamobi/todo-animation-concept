@@ -65,7 +65,6 @@ class ProjectTasksView: BaseView {
         insertSubview(newTaskButton, aboveSubview: tableView)
         newTaskButton.clipsToBounds = true
         newTaskButton.layer.cornerRadius = ProjectTasksConstants.buttonSize / 2.0
-        newTaskButton.backgroundColor = UIColor(red: 0.36, green: 0.55, blue: 0.89, alpha: 1.00)
         newTaskButton.setTitle("＋", for: .normal)
         newTaskButton.setTitleColor(UIColor.white, for: .normal)
         newTaskButton.snp.makeConstraints { (make) in

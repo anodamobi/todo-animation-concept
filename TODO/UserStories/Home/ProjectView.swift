@@ -91,7 +91,7 @@ class ProjectView: UIView {
         nameLabel.text = viewModel.name
         tasksLabel.text = "\(viewModel.numberOfTasks) Tasks"
         progressView.progress = Float(viewModel.progress)
-//        progressView.progressTintColor = viewModel.color
+        progressView.progressTintColor = viewModel.styleColor
         progressLabel.text = "\(viewModel.progress * 100)%"
         projectImageView.setImage(viewModel.icon)
     }

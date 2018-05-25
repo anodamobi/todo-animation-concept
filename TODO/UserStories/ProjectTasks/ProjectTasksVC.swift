@@ -54,7 +54,7 @@ class ProjectTasksVC: UIViewController {
         
         let viewModel = ProjectTasksViewModel(project: project)
         contentView.projectView.update(viewModel)
-
+        contentView.newTaskButton.backgroundColor = project.styleColor
         storage.updateWithoutAnimationChange { [unowned self] (updater) in
             
             let viewModels = self.project.tasks.map { TaskCellViewModel(task: $0, checkBoxClosure: { _ in }) }
