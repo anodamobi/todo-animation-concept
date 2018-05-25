@@ -40,11 +40,6 @@ class HomeVC: UIViewController {
             self.present(vc, animated: true, completion: nil)
         }
         
-        storage.updateWithoutAnimationChange { (change) in
-            let items = Project.projects.map ({ ProjectTasksViewModel(project: $0) })
-            change?.addItems(items)
-        }
-        
         contentView.backgroundImageView.setImage(Project.today.background)
         contentView.appearanceChangingClosure = { [unowned self] indexPath in
             if let viewModel = self.storage.object(at: indexPath) as? ProjectTasksViewModel {
@@ -52,6 +47,15 @@ class HomeVC: UIViewController {
                     self.contentView.backgroundImageView.setImage(viewModel.background)
                 })
             }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        storage.updateWithoutAnimationChange { (change) in
+            change?.removeAllItemsAndSections()
+            let items = Project.projects.map ({ ProjectTasksViewModel(project: $0) })
+            change?.addItems(items)
         }
     }
 }

@@ -55,8 +55,6 @@ class ProjectTasksVC: UIViewController {
             self.present(vc, animated: true, completion: nil)
         }
         
-        let viewModel = ProjectTasksViewModel(project: project)
-        contentView.projectView.update(viewModel)
         contentView.newTaskButton.backgroundColor = project.styleColor
         storage.updateWithoutAnimationChange { [unowned self] (updater) in
             
@@ -70,6 +68,8 @@ class ProjectTasksVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let viewModel = ProjectTasksViewModel(project: project)
+        contentView.projectView.update(viewModel)
         storage.update { (updater) in
             guard let items = self.storage.items(inSection: 0), self.project.tasks.count != items.count else { return }
             if let task = self.project.tasks.last {
