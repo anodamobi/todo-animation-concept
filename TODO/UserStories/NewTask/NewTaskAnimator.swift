@@ -18,6 +18,11 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         return duration
     }
     
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        presenting ? animatePresentingTransition(using: transitionContext) : animateDismissingTransition(using: transitionContext)
+        return
+    }
+    
     override init() {
         super.init()
         NotificationCenter.default.addObserver(self, selector: #selector(willShow(_:)), name: NSNotification.Name.UIKeyboardWillShow,
@@ -28,11 +33,11 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         NotificationCenter.default.removeObserver(self)
     }
     
-    @objc func willShow(_ notification: Notification) {
-        rect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+    @objc private func willShow(_ notification: Notification) {
+        keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
     }
     
-    private var rect: CGRect?
+    private var keyboardRect: CGRect?
     
     private func animateDismissingTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
@@ -85,17 +90,12 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         }
         )
         
-        UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.init(rawValue: 7), animations: {
+        UIView.animate(withDuration: duration / 2, delay: 0, options: UIViewAnimationOptions.init(rawValue: 7), animations: {
             animatedAddTaskButton.frame.size.width = projectView.newTaskButton.frame.width
             animatedAddTaskButton.center.x = projectView.newTaskButton.center.x
             animatedAddTaskButton.frame.origin.y = projectView.newTaskButton.frame.origin.y
         })
-        let round = CABasicAnimation(keyPath: "cornerRadius")
-        round.fromValue = 0.0
-        round.toValue = projectView.newTaskButton.layer.cornerRadius
-        round.duration = 0.3
-        animatedAddTaskButton.layer.add(round, forKey: nil)
-        animatedAddTaskButton.layer.cornerRadius = projectView.newTaskButton.layer.cornerRadius
+        animateCornerRadius(for: animatedAddTaskButton)
     }
     
     private func animatePresentingTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -152,22 +152,23 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                                     
         }
         )
-        UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.init(rawValue: 7), animations: {
+        UIView.animate(withDuration: duration / 2, delay: 0, options: UIViewAnimationOptions.init(rawValue: 7), animations: {
             animatedAddTaskButton.frame.size.width = UIScreen.main.bounds.width
             animatedAddTaskButton.center.x = UIScreen.main.bounds.width / 2.0
-            animatedAddTaskButton.frame.origin.y = self.rect!.origin.y - animatedAddTaskButton.frame.height
+            animatedAddTaskButton.frame.origin.y = self.keyboardRect!.origin.y - animatedAddTaskButton.frame.height
         })
+        animateCornerRadius(for: animatedAddTaskButton)
+    }
+
+    // MARK: - Private Methods
+    
+    private func animateCornerRadius(for animatedAddTaskButton: UIButton) {
         let round = CABasicAnimation(keyPath: "cornerRadius")
         round.fromValue = animatedAddTaskButton.layer.cornerRadius
-        round.toValue = 0.0
-        round.duration = 0.3
+        round.toValue = presenting ? 0.0 : animatedAddTaskButton.frame.width / 2.0
+        round.duration = duration / 2
         animatedAddTaskButton.layer.add(round, forKey: nil)
-        animatedAddTaskButton.layer.cornerRadius = 0.0
-    }
-    
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        presenting ? animatePresentingTransition(using: transitionContext) : animateDismissingTransition(using: transitionContext)
-        return
+        animatedAddTaskButton.layer.cornerRadius = presenting ? 0.0 : animatedAddTaskButton.frame.width / 2.0
     }
     
     private func dismissView() -> UIView {
