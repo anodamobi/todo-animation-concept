@@ -34,6 +34,15 @@ class ProjectView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func update(_ viewModel: ProjectTasksViewModel) {
+        nameLabel.text = viewModel.name
+        tasksLabel.text = Localizable.projectTasksTasks(viewModel.numberOfTasks)
+        progressView.progress = Float(viewModel.progress)
+        progressView.progressTintColor = viewModel.styleColor
+        progressLabel.text = "\(viewModel.progress * 100)%"
+        projectImageView.setImage(viewModel.icon)
+    }
+    
     private func setupLayout() {
         
         addSubview(projectImageView)
@@ -81,14 +90,4 @@ class ProjectView: UIView {
             make.bottom.equalTo(nameLabel.snp.top).offset(-8)
         }
     }
-    
-    func update(_ viewModel: ProjectTasksViewModel) {
-        nameLabel.text = viewModel.name
-        tasksLabel.text = Localizable.projectTasksTasks(viewModel.numberOfTasks)
-        progressView.progress = Float(viewModel.progress)
-        progressView.progressTintColor = viewModel.styleColor
-        progressLabel.text = "\(viewModel.progress * 100)%"
-        projectImageView.setImage(viewModel.icon)
-    }
-    
 }

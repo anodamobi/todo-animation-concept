@@ -3,7 +3,7 @@
 //  TODO
 //
 //  Created by Maxim Danilov on 5/24/18.
-//  Copyright © 2018 Simon Kostenko. All rights reserved.
+//  Copyright © 2018 ANODA. All rights reserved.
 //
 
 import Foundation

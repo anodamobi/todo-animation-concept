@@ -13,6 +13,8 @@ typealias Localizable = R.string.localizable
 struct CollectionViewLayout {
     
     private static let offset: CGFloat = 40
+    private static let itemWidth = UIScreen.main.bounds.width - offset * 2
+    private static let itemHeight = UIScreen.main.bounds.height * 0.4
     
     static var flowLayout: UICollectionViewFlowLayout {
         
@@ -26,10 +28,7 @@ struct CollectionViewLayout {
     }
     
     static private func itemSize() -> CGSize {
-        
-        let width = UIScreen.main.bounds.width - offset * 2
-        let height = UIScreen.main.bounds.height * 0.4
-        return CGSize(width: width, height: height)
+        return CGSize(width: itemWidth, height: itemHeight)
     }
 }
 

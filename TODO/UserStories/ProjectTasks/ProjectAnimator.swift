@@ -16,6 +16,15 @@ enum PresentationStyle {
 
 class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POPAnimationDelegate {
     
+    private struct AnimationKeyName {
+        static let projectViewAnimation = "projectViewAnimation"
+        static let moreButtonAnimation = "moreButtonAnimation"
+        static let containerViewAnimation = "containerViewAnimation"
+        static let navigationViewAnimation = "navigationViewAnimation"
+        static let taskButtonAnimation = "taskButtonAnimation"
+        static let taskButtonAlphaAnimation = "taskButtonAlphaAnimation"
+    }
+    
     private let originFrame: CGRect
     private let duration: TimeInterval
     private let presentationStyle: PresentationStyle
@@ -70,14 +79,14 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
                                                                          width: width, height: height) : originFrame
         projectViewAnimation?.toValue = NSValue(cgRect: projectViewEndFrame)
         projectViewAnimation?.duration = duration
-        projectView.pop_add(projectViewAnimation, forKey: "ProjectViewAnimation")
+        projectView.pop_add(projectViewAnimation, forKey: AnimationKeyName.projectViewAnimation)
         containerView.addSubview(projectView)
         
         let moreButtonAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
         moreButtonAnimation?.toValue = presentationStyle == .present ? 0.0 : 1.0
         moreButtonAnimation?.fromValue = presentationStyle == .present ? 1.0 : 0.0
         moreButtonAnimation?.duration = duration
-        projectView.moreButton.pop_add(moreButtonAnimation, forKey: "MoreButtonAnimation")
+        projectView.moreButton.pop_add(moreButtonAnimation, forKey: AnimationKeyName.moreButtonAnimation)
 
         taskView.projectView.isHidden = true
         taskView.layer.cornerRadius = 8.0
@@ -90,7 +99,7 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
         case .present:
             taskView.newTaskButton.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
             taskView.navigationView.alpha = 0.0
-            toView.pop_add(containerViewAnimation, forKey: "containerViewAnimation")
+            toView.pop_add(containerViewAnimation, forKey: AnimationKeyName.containerViewAnimation)
             UIView.animateKeyframes(withDuration: duration, delay: 0, options: [], animations: {
                 taskView.layer.cornerRadius = 0.0
                 UIView.addKeyframe(withRelativeStartTime: 3/4, relativeDuration: 1/4) {
@@ -99,24 +108,25 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
                 }
             }, completion: nil)
         case .dismiss:
-            fromView.pop_add(containerViewAnimation, forKey: "containerViewAnimation")
+            fromView.pop_add(containerViewAnimation, forKey: AnimationKeyName.containerViewAnimation)
             
             let navigationViewAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
             navigationViewAnimation?.fromValue = 1.0
             navigationViewAnimation?.toValue = 0.0
             navigationViewAnimation?.duration = duration / 8
-            taskView.navigationView.pop_add(navigationViewAnimation, forKey: "navigationViewAnimation")
+            taskView.navigationView.pop_add(navigationViewAnimation, forKey: AnimationKeyName.navigationViewAnimation)
             
             let taskButtonAnimation = POPBasicAnimation(propertyNamed: kPOPViewScaleXY)
             taskButtonAnimation?.fromValue = NSValue(cgPoint: CGPoint(x: 1.0, y: 1.0))
             taskButtonAnimation?.toValue = NSValue(cgPoint: .zero)
             taskButtonAnimation?.duration = duration / 4
-            taskView.newTaskButton.pop_add(taskButtonAnimation, forKey: "taskButtonAnimation")
+            taskView.newTaskButton.pop_add(taskButtonAnimation, forKey: AnimationKeyName.taskButtonAnimation)
+            
             let taskButtonAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
             taskButtonAlphaAnimation?.fromValue = 1.0
             taskButtonAlphaAnimation?.toValue = 0.0
             taskButtonAlphaAnimation?.duration = duration / 4
-            taskView.newTaskButton.pop_add(taskButtonAlphaAnimation, forKey: "taskButtonAlphaAnimation")
+            taskView.newTaskButton.pop_add(taskButtonAlphaAnimation, forKey: AnimationKeyName.taskButtonAlphaAnimation)
         }
         
         containerViewAnimation?.completionBlock = { (_, _) in

@@ -39,14 +39,14 @@ class NavigationView: UIView {
         addSubview(leftButton)
         leftButton.snp.makeConstraints { (make) in
             make.size.equalTo(44)
-            make.top.bottom.equalToSuperview()
+            make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(20)
         }
         
         addSubview(rightButton)
         rightButton.snp.makeConstraints { (make) in
             make.size.equalTo(44)
-            make.top.bottom.equalTo(leftButton)
+            make.centerY.equalToSuperview()
             make.right.equalToSuperview().offset(-20)
         }
         
@@ -55,7 +55,7 @@ class NavigationView: UIView {
         titleLabel.font = UIFont.heavyBody
         titleLabel.textColor = UIColor.dark
         titleLabel.snp.makeConstraints { (make) in
-            make.top.bottom.height.equalTo(leftButton)
+            make.centerY.height.equalTo(leftButton)
             make.left.equalTo(leftButton.snp.right)
             make.right.equalTo(rightButton.snp.left)
         }

@@ -25,10 +25,8 @@ class BaseView: UIView {
         addSubview(navigationView)
         navigationView.snp.makeConstraints { (make) in
             make.height.equalTo(44)
-            make.width.equalToSuperview()
+            make.width.centerX.equalToSuperview()
             make.top.equalTo(safeAreaLayoutGuide.snp.topMargin)
-            make.left.equalTo(safeAreaLayoutGuide.snp.left)
-            make.right.equalTo(safeAreaLayoutGuide.snp.right)
         }
     }
 }
