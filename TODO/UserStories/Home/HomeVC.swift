@@ -64,11 +64,11 @@ extension HomeVC: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController,
                              source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         guard let project = (presented as? ProjectTasksVC)?.project else { return nil }
-        return ProjectTasksAnimator(duration: 0.75, presentationStyle: .present, originFrame: projectCellRect, project: project)
+        return ProjectTasksAnimator(duration: 0.55, presentationStyle: .present, originFrame: projectCellRect, project: project)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         guard let project = (dismissed as? ProjectTasksVC)?.project else { return nil }
-        return ProjectTasksAnimator(duration: 0.75, presentationStyle: .dismiss, originFrame: projectCellRect, project: project)
+        return ProjectTasksAnimator(duration: 0.55, presentationStyle: .dismiss, originFrame: projectCellRect, project: project)
     }
 }
