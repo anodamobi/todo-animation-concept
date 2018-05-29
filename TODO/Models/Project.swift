@@ -77,21 +77,21 @@ enum Project {
         get {
             switch self {
             case .today:
-                return Task.todayTasks
+                return TestDataGenerator.todayTasks
             case .personal:
-                return Task.personalTasks
+                return TestDataGenerator.personalTasks
             case .work:
-                return Task.workTasks
+                return TestDataGenerator.workTasks
             }
         }
         set {
             switch self {
             case .today:
-                Task.todayTasks.append(contentsOf: newValue)
+                TestDataGenerator.todayTasks.append(contentsOf: newValue)
             case .work:
-                Task.workTasks.append(contentsOf: newValue)
+                TestDataGenerator.workTasks.append(contentsOf: newValue)
             case .personal:
-                Task.personalTasks.append(contentsOf: newValue)
+                TestDataGenerator.personalTasks.append(contentsOf: newValue)
             }
         }
     }

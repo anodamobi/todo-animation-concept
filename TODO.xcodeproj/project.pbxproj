@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B14FFF9A20BD91F7001113E9 /* TestDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14FFF9920BD91F7001113E9 /* TestDataGenerator.swift */; };
 		B163428520B8660F00155DF7 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163428420B8660F00155DF7 /* R.generated.swift */; };
 		B18209C220B8647300AF0D03 /* today_outline.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182098520B8647300AF0D03 /* today_outline.pdf */; };
 		B18209C320B8647300AF0D03 /* work.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182098620B8647300AF0D03 /* work.pdf */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		A3D5ADC8E769AF16D2F1E2C0 /* Pods_TODO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TODO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B14FFF9920BD91F7001113E9 /* TestDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataGenerator.swift; sourceTree = "<group>"; };
 		B163428420B8660F00155DF7 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		B182098520B8647300AF0D03 /* today_outline.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = today_outline.pdf; sourceTree = "<group>"; };
 		B182098620B8647300AF0D03 /* work.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = work.pdf; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			children = (
 				B182099C20B8647300AF0D03 /* Project.swift */,
 				B182099D20B8647300AF0D03 /* Task.swift */,
+				B14FFF9920BD91F7001113E9 /* TestDataGenerator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				B18209DD20B8647300AF0D03 /* HomeView.swift in Sources */,
 				B18209EF20B8647300AF0D03 /* BaseView.swift in Sources */,
 				B18209D820B8647300AF0D03 /* UIFont+Ext.swift in Sources */,
+				B14FFF9A20BD91F7001113E9 /* TestDataGenerator.swift in Sources */,
 				B18209DE20B8647300AF0D03 /* ProjectView.swift in Sources */,
 				B18209E220B8647300AF0D03 /* ProjectCell.swift in Sources */,
 				B18209ED20B8647300AF0D03 /* NavigationView+Style.swift in Sources */,
