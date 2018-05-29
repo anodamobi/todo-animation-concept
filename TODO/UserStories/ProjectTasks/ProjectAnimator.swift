@@ -138,4 +138,3 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
         }
     }
 }
-

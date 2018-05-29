@@ -25,7 +25,8 @@ class NewTaskView: BaseView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        NotificationCenter.default.addObserver(self, selector: #selector(willShow(_:)), name: NSNotification.Name.UIKeyboardWillShow,
+        NotificationCenter.default.addObserver(self, selector: #selector(willShow(_:)),
+                                               name: NSNotification.Name.UIKeyboardWillShow,
                                                object: nil)
         setupLayout()
     }
@@ -84,7 +85,7 @@ class NewTaskView: BaseView {
         
         addSubview(tableView)
         tableView.rowHeight = NewTaskConstants.rowHeight
-        tableView.separatorInset = UIEdgeInsetsMake(0, 30, 0, 0)
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 0)
         tableView.snp.makeConstraints { (make) in
             make.centerX.width.equalToSuperview()
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)

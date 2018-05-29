@@ -35,9 +35,9 @@ class HomeVC: UIViewController {
             guard let cell = self.controller.collectionView.cellForItem(at: indexPath) as? ProjectTasksCell else { return }
             self.projectCellRect = self.controller.collectionView.convert(cell.frame, to: self.view)
 
-            let vc = ProjectTasksVC(project: viewModel.project)
-            vc.transitioningDelegate = self
-            self.present(vc, animated: true, completion: nil)
+            let projectTasksVC = ProjectTasksVC(project: viewModel.project)
+            projectTasksVC.transitioningDelegate = self
+            self.present(projectTasksVC, animated: true, completion: nil)
         }
         
         contentView.backgroundImageView.setImage(Project.today.background)

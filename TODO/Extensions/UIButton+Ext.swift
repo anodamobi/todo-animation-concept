@@ -26,12 +26,17 @@ extension UIButton {
 
     private var targetClosure: UIButtonTargetClosure? {
         get {
-            guard let closureWrapper = objc_getAssociatedObject(self, &AssociatedKeys.targetClosure) as? ClosureWrapper else { return nil }
+            guard let closureWrapper = objc_getAssociatedObject(self, &AssociatedKeys.targetClosure) as? ClosureWrapper else {
+                return nil
+            }
             return closureWrapper.closure
         }
-        set(newValue) {
+        set {
             guard let newValue = newValue else { return }
-            objc_setAssociatedObject(self, &AssociatedKeys.targetClosure, ClosureWrapper(newValue), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self,
+                                     &AssociatedKeys.targetClosure,
+                                     ClosureWrapper(newValue),
+                                     objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 

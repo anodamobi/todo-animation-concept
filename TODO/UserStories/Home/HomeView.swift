@@ -100,7 +100,7 @@ class HomeView: BaseView {
         setupGestures()
     }
     
-    //MARK: - Gestures -
+    // MARK: - Gestures
     
     private func setupGestures() {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft(_:)))
@@ -128,9 +128,9 @@ class HomeView: BaseView {
     }
     
     private func currentProjectIndexPath() -> IndexPath? {
-        let x = collectionView.contentOffset.x + collectionView.frame.width / 2
-        let y = collectionView.frame.height / 2
-        return collectionView.indexPathForItem(at: CGPoint(x: x, y: y))
+        let currentProjectX = collectionView.contentOffset.x + collectionView.frame.width / 2
+        let currentProjectY = collectionView.frame.height / 2
+        return collectionView.indexPathForItem(at: CGPoint(x: currentProjectX, y: currentProjectY))
     }
     
     private func scrollToProject(at indexPath: IndexPath) {

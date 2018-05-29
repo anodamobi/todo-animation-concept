@@ -11,7 +11,7 @@ import Foundation
 class Task {
     let title: String
     var startDate: Date = Date()
-    var endDate: Date? = nil
+    var endDate: Date?
     var isCompleted: Bool = false
     
     init(title: String) {

@@ -50,9 +50,9 @@ class ProjectTasksVC: UIViewController {
         contentView.navigationView.apply(appearance: navigationAppearance)
         
         contentView.newTaskButton.addTargetClosure { [unowned self] _ in
-            let vc = NewTaskVC(project: self.project)
-            vc.transitioningDelegate = self
-            self.present(vc, animated: true, completion: nil)
+            let newTaskVC = NewTaskVC(project: self.project)
+            newTaskVC.transitioningDelegate = self
+            self.present(newTaskVC, animated: true, completion: nil)
         }
         
         contentView.newTaskButton.backgroundColor = project.styleColor
@@ -81,7 +81,9 @@ class ProjectTasksVC: UIViewController {
 
 extension ProjectTasksVC: UIViewControllerTransitioningDelegate {
     
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.presenting = true
         return transition
     }

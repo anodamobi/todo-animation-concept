@@ -25,7 +25,9 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     override init() {
         super.init()
-        NotificationCenter.default.addObserver(self, selector: #selector(willShow(_:)), name: NSNotification.Name.UIKeyboardWillShow,
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(willShow(_:)),
+                                               name: NSNotification.Name.UIKeyboardWillShow,
                                                object: nil)
     }
     

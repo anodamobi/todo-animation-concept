@@ -31,4 +31,3 @@ struct CollectionViewLayout {
         return CGSize(width: itemWidth, height: itemHeight)
     }
 }
-

@@ -42,18 +42,17 @@ class DebugVC: UIViewController {
             change?.addItem(DebugScreens.addNew.rawValue)
         }
         
-        controller.configureItemSelectionBlock { (viewModel, indexPath) in
+        controller.configureItemSelectionBlock { (_, indexPath) in
             guard let indexPath = indexPath else {
                 fatalError()
             }
             
             switch indexPath.row {
             case 0:
-                let vc = HomeVC()
-                self.present(vc, animated: true, completion: nil)
+                self.present(HomeVC(), animated: true, completion: nil)
             case 1:
-                let vc = UINavigationController(rootViewController: ProjectTasksVC(project: .today))
-                self.present(vc, animated: true, completion: nil)
+                let navVC = UINavigationController(rootViewController: ProjectTasksVC(project: .today))
+                self.present(navVC, animated: true, completion: nil)
             default:
                 break
             }
