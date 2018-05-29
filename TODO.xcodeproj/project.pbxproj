@@ -51,7 +51,6 @@
 		B18209E920B8647300AF0D03 /* ProjectTasksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209B720B8647300AF0D03 /* ProjectTasksVC.swift */; };
 		B18209EA20B8647300AF0D03 /* DebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209B920B8647300AF0D03 /* DebugVC.swift */; };
 		B18209EB20B8647300AF0D03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209BB20B8647300AF0D03 /* AppDelegate.swift */; };
-		B18209EC20B8647300AF0D03 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B18209BC20B8647300AF0D03 /* Info.plist */; };
 		B18209ED20B8647300AF0D03 /* NavigationView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209BF20B8647300AF0D03 /* NavigationView+Style.swift */; };
 		B18209EE20B8647300AF0D03 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209C020B8647300AF0D03 /* NavigationView.swift */; };
 		B18209EF20B8647300AF0D03 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209C120B8647300AF0D03 /* BaseView.swift */; };
@@ -430,7 +429,6 @@
 				B18209CC20B8647300AF0D03 /* background3.pdf in Resources */,
 				B18209C620B8647300AF0D03 /* timer.pdf in Resources */,
 				B18209C220B8647300AF0D03 /* today_outline.pdf in Resources */,
-				B18209EC20B8647300AF0D03 /* Info.plist in Resources */,
 				B18209C820B8647300AF0D03 /* checkbox.pdf in Resources */,
 				B18209D120B8647300AF0D03 /* burger.pdf in Resources */,
 				B18209CB20B8647300AF0D03 /* background1.pdf in Resources */,
@@ -600,7 +598,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
