@@ -11,6 +11,11 @@ PODS:
     - Masonry
   - ANODA-Alister/Core (0.2):
     - ANODA-Alister/ANKeyboardHandler
+  - Closures (0.4)
+  - Crashlytics (3.10.1):
+    - Fabric (~> 1.7.5)
+  - Fabric (1.7.6)
+  - Hero (1.0.1)
   - libextobjc (0.4.1):
     - libextobjc/EXTADT (= 0.4.1)
     - libextobjc/EXTConcreteProtocol (= 0.4.1)
@@ -20,8 +25,8 @@ PODS:
     - libextobjc/EXTScope (= 0.4.1)
     - libextobjc/EXTSelectorChecking (= 0.4.1)
     - libextobjc/EXTSynthesize (= 0.4.1)
-    - libextobjc/NSInvocation+EXT (= 0.4.1)
-    - libextobjc/NSMethodSignature+EXT (= 0.4.1)
+    - "libextobjc/NSInvocation+EXT (= 0.4.1)"
+    - "libextobjc/NSMethodSignature+EXT (= 0.4.1)"
     - libextobjc/RuntimeExtensions (= 0.4.1)
     - libextobjc/UmbrellaHeader (= 0.4.1)
   - libextobjc/EXTADT (0.4.1):
@@ -40,36 +45,80 @@ PODS:
     - libextobjc/RuntimeExtensions
   - libextobjc/EXTSynthesize (0.4.1):
     - libextobjc/RuntimeExtensions
-  - libextobjc/NSInvocation+EXT (0.4.1):
+  - "libextobjc/NSInvocation+EXT (0.4.1)":
     - libextobjc/RuntimeExtensions
-  - libextobjc/NSMethodSignature+EXT (0.4.1):
+  - "libextobjc/NSMethodSignature+EXT (0.4.1)":
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
   - libextobjc/UmbrellaHeader (0.4.1)
   - Masonry (1.1.0)
+  - pop (1.0.10)
+  - R.swift (4.0.0):
+    - R.swift.Library (~> 4.0.0)
+  - R.swift.Library (4.0.0)
   - SnapKit (4.0.0)
+  - SwiftLint (0.25.1)
+  - UIImagePDF (0.9-beta1)
 
 DEPENDENCIES:
   - ANODA-Alister (from `https://github.com/anodamobi/Alister.git`, commit `7a5bd5a`, branch `master`)
+  - Closures
+  - Crashlytics
+  - Fabric
+  - Hero
+  - pop (~> 1.0)
+  - R.swift
   - SnapKit
+  - SwiftLint
+  - "UIImagePDF (from `git@github.com:anodamobi/UIImage-PDF.git`, commit `7d9dfbf`, branch `0.9-beta1`)"
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Closures
+    - Crashlytics
+    - Fabric
+    - Hero
+    - libextobjc
+    - Masonry
+    - pop
+    - R.swift
+    - R.swift.Library
+    - SnapKit
+    - SwiftLint
 
 EXTERNAL SOURCES:
   ANODA-Alister:
     :branch: master
     :commit: 7a5bd5a
     :git: https://github.com/anodamobi/Alister.git
+  UIImagePDF:
+    :branch: 0.9-beta1
+    :commit: 7d9dfbf
+    :git: "git@github.com:anodamobi/UIImage-PDF.git"
 
 CHECKOUT OPTIONS:
   ANODA-Alister:
     :commit: 7a5bd5ab21ce82e833d49453c8c9188f6468baed
     :git: https://github.com/anodamobi/Alister.git
+  UIImagePDF:
+    :commit: 7d9dfbf7d961f6af225e015dae94728f029fe7ef
+    :git: "git@github.com:anodamobi/UIImage-PDF.git"
 
 SPEC CHECKSUMS:
   ANODA-Alister: 193602452fd17d2cad2f0e7fe93ffdb605eae0fc
+  Closures: fe9ecbda045d8d42cc13520209b4ea5208e38248
+  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
+  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
+  Hero: cee286821578e170d8c0c9c9cda7897357401112
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
+  R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
+  R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
+  UIImagePDF: 7cae10d97e503ae042a3ebbfa53d19e4bca4daf9
 
-PODFILE CHECKSUM: 3536f9aaab4491c1633ab4145e1820cde4a0b106
+PODFILE CHECKSUM: 6bfc611c4c974c5cd4c5634bf91522eb2880084d
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.0

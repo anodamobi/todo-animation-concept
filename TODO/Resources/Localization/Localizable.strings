@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  Todo
+
+  Created by Maxim Danilov on 5/25/18.
+  Copyright © 2018 ANODA. All rights reserved.
+*/
+
+    ///Home
+"home.title" = "TODO";
+"home.welcome-message%@" = "Hello, %@";
+"home.status-message" = "Looks like feel good.\nYou have %d tasks to do today.";
+"home.today%@" = "TODAY: %@";
+
+    ///Project Tasks
+"project-tasks.tasks" = "%d tasks";
+"project-tasks.today" = "TODAY";
+
+    ///New Task
+"new-task.title" = "New Task";
+"new-task.hint" = "What tasks are you planning to perform?";

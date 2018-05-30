@@ -1,9 +1,9 @@
 //
 //  DebugVC.swift
-//  TODO
+//  Todo
 //
 //  Created by Simon Kostenko on 1/16/18.
-//  Copyright © 2018 Simon Kostenko. All rights reserved.
+//  Copyright © 2018 ANODA. All rights reserved.
 //
 
 import UIKit
@@ -14,7 +14,7 @@ class DebugVC: UIViewController {
     
     enum DebugScreens: String {
         case main
-        case section
+        case projectTasks
         case addNew
     }
     
@@ -38,22 +38,21 @@ class DebugVC: UIViewController {
         
         storage.updateWithoutAnimationChange { (change) in
             change?.addItem(DebugScreens.main.rawValue)
-            change?.addItem(DebugScreens.section.rawValue)
+            change?.addItem(DebugScreens.projectTasks.rawValue)
             change?.addItem(DebugScreens.addNew.rawValue)
         }
         
-        controller.configureItemSelectionBlock { (viewModel, indexPath) in
+        controller.configureItemSelectionBlock { (_, indexPath) in
             guard let indexPath = indexPath else {
                 fatalError()
             }
             
             switch indexPath.row {
             case 0:
-                break
+                self.present(HomeVC(), animated: true, completion: nil)
             case 1:
-                break
-            case 2:
-                break
+                let navVC = UINavigationController(rootViewController: ProjectTasksVC(project: .today))
+                self.present(navVC, animated: true, completion: nil)
             default:
                 break
             }
