@@ -162,14 +162,12 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let resultView = UIView(frame: UIScreen.main.bounds)
         resultView.frame.size.height += 30
         
-        let firstView = UIView(frame: CGRect(x: 0, y: 0, width: resultView.frame.width, height: 10))
-        firstView.backgroundColor = UIColor(white: 1.0, alpha: 0.2)
-        
-        let secondView = UIView(frame: CGRect(x: 0, y: 10, width: resultView.frame.width, height: 10))
-        secondView.backgroundColor = UIColor(white: 1.0, alpha: 0.5)
-        
-        let thirdView = UIView(frame: CGRect(x: 0, y: 20, width: resultView.frame.width, height: 10))
-        thirdView.backgroundColor = UIColor(white: 1.0, alpha: 0.8)
+        var frame = CGRect(x: 0, y: 0, width: resultView.frame.width, height: 10)
+        let firstView = auxiliaryDismissView(frame: frame, alpha: 0.2)
+        frame.origin.y += 10
+        let secondView = auxiliaryDismissView(frame: frame, alpha: 0.5)
+        frame.origin.y += 10
+        let thirdView = auxiliaryDismissView(frame: frame, alpha: 0.8)
         
         let whiteView = UIView.init(frame: UIScreen.main.bounds)
         whiteView.frame.origin.y += 30
@@ -182,5 +180,11 @@ class NewTaskAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         resultView.frame.origin = CGPoint(x: 0, y: presenting ? UIScreen.main.bounds.height : -30.0)
         return resultView
+    }
+    
+    private func auxiliaryDismissView(frame: CGRect, alpha: CGFloat) -> UIView {
+        let view = UIView(frame: frame)
+        view.backgroundColor = UIColor(white: 1.0, alpha: 0.2)
+        return view
     }
 }
