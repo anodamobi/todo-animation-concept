@@ -30,23 +30,17 @@ class HomeVC: UIViewController {
         }
 
         controller.configureItemSelectionBlock { [unowned self] (viewModel, indexPath) in
-            guard let viewModel = viewModel as? ProjectTasksViewModel else { return }
-            guard let indexPath = indexPath else { return }
-            guard let cell = self.controller.collectionView.cellForItem(at: indexPath) as? ProjectTasksCell else { return }
-            self.projectCellRect = self.controller.collectionView.convert(cell.frame, to: self.view)
-
-            let projectTasksVC = ProjectTasksVC(project: viewModel.project)
-            projectTasksVC.transitioningDelegate = self
-            self.present(projectTasksVC, animated: true, completion: nil)
+            guard let viewModel = viewModel as? ProjectTasksViewModel, let indexPath = indexPath else { return }
+            guard let collectionView = self.controller.collectionView,
+            let cell = collectionView.cellForItem(at: indexPath) as? ProjectTasksCell else { return }
+            self.projectCellRect = collectionView.convert(cell.frame, to: self.view)
+            self.selectProject(viewModel.project)
         }
         
         contentView.backgroundImageView.setImage(Project.today.background)
         contentView.appearanceChangingClosure = { [unowned self] indexPath in
-            if let viewModel = self.storage.object(at: indexPath) as? ProjectTasksViewModel {
-                UIView.transition(with: self.contentView, duration: 0.25, options: [.curveLinear], animations: {
-                    self.contentView.backgroundImageView.setImage(viewModel.background)
-                })
-            }
+            guard let viewModel = self.storage.object(at: indexPath) as? ProjectTasksViewModel else { return }
+            self.animateBackgroundChanging(to: viewModel.style.background)
         }
     }
     
@@ -57,6 +51,18 @@ class HomeVC: UIViewController {
             let items = Project.projects.map ({ ProjectTasksViewModel(project: $0) })
             change?.addItems(items)
         }
+    }
+    
+    private func animateBackgroundChanging(to image: UIImage?) {
+        UIView.transition(with: contentView, duration: 0.25, options: [.curveLinear], animations: {
+            self.contentView.backgroundImageView.setImage(image)
+        })
+    }
+    
+    private func selectProject(_ project: Project) {
+        let projectTasksVC = ProjectTasksVC(project: project)
+        projectTasksVC.transitioningDelegate = self
+        present(projectTasksVC, animated: true, completion: nil)
     }
 }
 
