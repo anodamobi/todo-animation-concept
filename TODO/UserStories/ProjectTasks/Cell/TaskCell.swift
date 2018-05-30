@@ -11,11 +11,11 @@ import ANODA_Alister
 import SnapKit
 
 class TaskCellViewModel: NSObject {
-    let checkBoxClosure: UIButtonTargetClosure
+    let checkBoxClosure: () -> Void
     let taskTitle: String
     var isCanBeExpired: Bool
     
-    init(task: Task, checkBoxClosure: @escaping UIButtonTargetClosure) {
+    init(task: Task, checkBoxClosure: @escaping () -> Void) {
         taskTitle = task.title
         isCanBeExpired = task.endDate != nil
         self.checkBoxClosure = checkBoxClosure
@@ -47,7 +47,9 @@ class TaskCell: ANBaseTableViewCell {
         
         timerImageView.isHidden = !viewModel.isCanBeExpired
         taskTitleLabel.text = viewModel.taskTitle
-        checkBoxButton.addTargetClosure(closure: viewModel.checkBoxClosure)
+        checkBoxButton.onTap {
+            viewModel.checkBoxClosure()
+        }
     }
     
     private func setupLayout() {

@@ -42,14 +42,14 @@ class ProjectTasksVC: UIViewController {
         }
         controller.attachStorage(storage)
         
-        let dismissClosure: UIButtonTargetClosure = { [unowned self] (_) in
+        let dismissClosure: () -> Void = { [unowned self] in
             self.dismiss(animated: true, completion: nil)
         }
         let navigationAppearance = NavigationViewAppearance(leftItemAppearance: (navItemType: .back, closure: dismissClosure),
                                                             rightItemAppearance: (navItemType: .more, closure: nil))
         contentView.navigationView.apply(appearance: navigationAppearance)
         
-        contentView.newTaskButton.addTargetClosure { [unowned self] _ in
+        contentView.newTaskButton.onTap { [unowned self] in
             let newTaskVC = NewTaskVC(project: self.project)
             newTaskVC.transitioningDelegate = self
             self.present(newTaskVC, animated: true, completion: nil)
@@ -57,8 +57,7 @@ class ProjectTasksVC: UIViewController {
         
         contentView.newTaskButton.backgroundColor = project.styleColor
         storage.updateWithoutAnimationChange { [unowned self] (updater) in
-            
-            let viewModels = self.project.tasks.map { TaskCellViewModel(task: $0, checkBoxClosure: { _ in }) }
+            let viewModels = self.project.tasks.map { TaskCellViewModel(task: $0, checkBoxClosure: { }) }
             let header = TaskSectionHeaderViewModel.init(dateString: Localizable.projectTasksToday())
             
             updater?.addItems(viewModels)
@@ -73,7 +72,7 @@ class ProjectTasksVC: UIViewController {
         storage.update { (updater) in
             guard let items = self.storage.items(inSection: 0), self.project.tasks.count != items.count else { return }
             if let task = self.project.tasks.last {
-                updater?.addItem(TaskCellViewModel(task: task, checkBoxClosure: { _ in }))
+                updater?.addItem(TaskCellViewModel(task: task, checkBoxClosure: { }))
             }
         }
     }

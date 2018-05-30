@@ -66,13 +66,17 @@ class NavigationView: UIView {
         if let leftNavAppearance = appearance.leftItemAppearance {
             leftButton.setImage(leftNavAppearance.navItemType.icon, for: .normal)
             if let closure = leftNavAppearance.closure {
-                leftButton.addTargetClosure(closure: closure)
+                leftButton.onTap {
+                    closure()
+                }
             }
         }
         if let rightNavAppearance = appearance.rightItemAppearance {
             rightButton.setImage(rightNavAppearance.navItemType.icon, for: .normal)
             if let closure = rightNavAppearance.closure {
-                rightButton.addTargetClosure(closure: closure)
+                rightButton.onTap {
+                    closure()
+                }
             }
         }
     }

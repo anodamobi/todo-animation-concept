@@ -39,7 +39,7 @@ enum NavItemType {
 
 struct NavigationViewAppearance {
     
-    typealias NavItemAppearance = (navItemType: NavItemType, closure: UIButtonTargetClosure?)
+    typealias NavItemAppearance = (navItemType: NavItemType, closure:(() -> Void)?)
     
     let title: String
     let leftItemAppearance: NavItemAppearance?

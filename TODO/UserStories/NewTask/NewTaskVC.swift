@@ -8,6 +8,7 @@
 
 import UIKit
 import ANODA_Alister
+import Closures
 
 class NewTaskVC: UIViewController {
 
@@ -38,16 +39,16 @@ class NewTaskVC: UIViewController {
         }
         controller.attachStorage(storage)
 
-        let dismissClosure: UIButtonTargetClosure = { [unowned self] _ in
+        let dismissClosure: () -> Void = { [unowned self] in
             self.dismiss(animated: true, completion: nil)
         }
         
         contentView.addNewTaskButton.backgroundColor = project.styleColor
-        contentView.addNewTaskButton.addTargetClosure { [unowned self] button in
+        contentView.addNewTaskButton.onTap { [unowned self] in
             guard let title = self.contentView.taskDetailsTextView.text, !title.isEmpty else { return }
             let task = Task(title: self.contentView.taskDetailsTextView.text)
             self.project.tasks = [task]
-            dismissClosure(button)
+            dismissClosure()
         }
         
         storage.updateWithoutAnimationChange { (updater) in

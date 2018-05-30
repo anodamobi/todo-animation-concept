@@ -11,6 +11,7 @@ PODS:
     - Masonry
   - ANODA-Alister/Core (0.2):
     - ANODA-Alister/ANKeyboardHandler
+  - Closures (0.4)
   - Crashlytics (3.10.1):
     - Fabric (~> 1.7.5)
   - Fabric (1.7.6)
@@ -61,6 +62,7 @@ PODS:
 
 DEPENDENCIES:
   - ANODA-Alister (from `https://github.com/anodamobi/Alister.git`, commit `7a5bd5a`, branch `master`)
+  - Closures
   - Crashlytics
   - Fabric
   - Hero
@@ -72,6 +74,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Closures
     - Crashlytics
     - Fabric
     - Hero
@@ -103,6 +106,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ANODA-Alister: 193602452fd17d2cad2f0e7fe93ffdb605eae0fc
+  Closures: fe9ecbda045d8d42cc13520209b4ea5208e38248
   Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
   Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
   Hero: cee286821578e170d8c0c9c9cda7897357401112
@@ -115,6 +119,6 @@ SPEC CHECKSUMS:
   SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
   UIImagePDF: 7cae10d97e503ae042a3ebbfa53d19e4bca4daf9
 
-PODFILE CHECKSUM: e86e1428581bdf0ad7b6f67b1109ac5f0092399c
+PODFILE CHECKSUM: 6bfc611c4c974c5cd4c5634bf91522eb2880084d
 
 COCOAPODS: 1.5.0

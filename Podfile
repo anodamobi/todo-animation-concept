@@ -11,6 +11,7 @@ target 'TODO' do
   pod 'UIImagePDF', :git=> 'git@github.com:anodamobi/UIImage-PDF.git', :branch => '0.9-beta1', :commit => '7d9dfbf'
 
   pod 'SnapKit'
+  pod 'Closures'
   pod 'Hero'
   pod 'pop', '~> 1.0'
   pod 'R.swift'

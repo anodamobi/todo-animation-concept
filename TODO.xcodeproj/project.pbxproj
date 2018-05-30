@@ -34,7 +34,6 @@
 		B18209D820B8647300AF0D03 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209A020B8647300AF0D03 /* UIFont+Ext.swift */; };
 		B18209D920B8647300AF0D03 /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209A120B8647300AF0D03 /* Double+Ext.swift */; };
 		B18209DA20B8647300AF0D03 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209A220B8647300AF0D03 /* Date+Ext.swift */; };
-		B18209DB20B8647300AF0D03 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209A320B8647300AF0D03 /* UIButton+Ext.swift */; };
 		B18209DC20B8647300AF0D03 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209A420B8647300AF0D03 /* UIColor+Ext.swift */; };
 		B18209DD20B8647300AF0D03 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209A720B8647300AF0D03 /* HomeView.swift */; };
 		B18209DE20B8647300AF0D03 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18209A820B8647300AF0D03 /* ProjectView.swift */; };
@@ -86,7 +85,6 @@
 		B18209A020B8647300AF0D03 /* UIFont+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
 		B18209A120B8647300AF0D03 /* Double+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
 		B18209A220B8647300AF0D03 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
-		B18209A320B8647300AF0D03 /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		B18209A420B8647300AF0D03 /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		B18209A720B8647300AF0D03 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B18209A820B8647300AF0D03 /* ProjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
@@ -229,7 +227,6 @@
 				B18209A020B8647300AF0D03 /* UIFont+Ext.swift */,
 				B18209A120B8647300AF0D03 /* Double+Ext.swift */,
 				B18209A220B8647300AF0D03 /* Date+Ext.swift */,
-				B18209A320B8647300AF0D03 /* UIButton+Ext.swift */,
 				B18209A420B8647300AF0D03 /* UIColor+Ext.swift */,
 			);
 			path = Extensions;
@@ -483,6 +480,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TODO/Pods-TODO-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ANODA-Alister/ANODA_Alister.framework",
+				"${BUILT_PRODUCTS_DIR}/Closures/Closures.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
@@ -494,6 +492,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ANODA_Alister.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Closures.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
@@ -555,7 +554,6 @@
 				B18209E420B8647300AF0D03 /* NewTaskView.swift in Sources */,
 				B18209E820B8647300AF0D03 /* ProjectTasksView.swift in Sources */,
 				B18209D620B8647300AF0D03 /* Task.swift in Sources */,
-				B18209DB20B8647300AF0D03 /* UIButton+Ext.swift in Sources */,
 				B18209E920B8647300AF0D03 /* ProjectTasksVC.swift in Sources */,
 				B18209D520B8647300AF0D03 /* Project.swift in Sources */,
 				B18209EA20B8647300AF0D03 /* DebugVC.swift in Sources */,
