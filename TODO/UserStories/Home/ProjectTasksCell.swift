@@ -12,21 +12,15 @@ import ANODA_Alister
 class ProjectTasksViewModel: NSObject {
     
     var name: String
-    var icon: UIImage?
-    var background: UIImage?
-    var numberOfTasks: Int
     var progress: Double
-    var styleColor: UIColor
+    let style: ProjectStyle
     let project: Project
     
     init(project: Project) {
         self.project = project
         name = project.name
-        icon = project.icon
-        background = project.background
-        numberOfTasks = project.tasks.count
         progress = project.progress
-        styleColor = project.styleColor
+        style = ProjectStyle(project: project)
         super.init()
     }
 }
