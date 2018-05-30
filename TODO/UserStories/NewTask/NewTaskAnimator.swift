@@ -1,6 +1,6 @@
 //
 //  NewTaskAnimator.swift
-//  TODO
+//  Todo
 //
 //  Created by Simon Kostenko on 5/23/18.
 //  Copyright © 2018 ANODA. All rights reserved.

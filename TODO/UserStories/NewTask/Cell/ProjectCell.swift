@@ -1,6 +1,6 @@
 //
 //  ProjectCell.swift
-//  TODO
+//  Todo
 //
 //  Created by Simon Kostenko on 5/25/18.
 //  Copyright © 2018 ANODA. All rights reserved.

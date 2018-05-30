@@ -1,6 +1,6 @@
 //
 //  BaseView.swift
-//  TODO
+//  Todo
 //
 //  Created by Maxim Danilov on 5/24/18.
 //  Copyright © 2018 ANODA. All rights reserved.
