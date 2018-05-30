@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2197F76F20BECB2A00815831 /* ProjectStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197F76E20BECB2A00815831 /* ProjectStyle.swift */; };
 		2197F77220BEE03900815831 /* POPBasicAnimation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197F77120BEE03900815831 /* POPBasicAnimation+Ext.swift */; };
 		B14FFF9A20BD91F7001113E9 /* TestDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14FFF9920BD91F7001113E9 /* TestDataGenerator.swift */; };
 		B163428520B8660F00155DF7 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163428420B8660F00155DF7 /* R.generated.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2197F76E20BECB2A00815831 /* ProjectStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStyle.swift; sourceTree = "<group>"; };
 		2197F77120BEE03900815831 /* POPBasicAnimation+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POPBasicAnimation+Ext.swift"; sourceTree = "<group>"; };
 		A3D5ADC8E769AF16D2F1E2C0 /* Pods_TODO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TODO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14FFF9920BD91F7001113E9 /* TestDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataGenerator.swift; sourceTree = "<group>"; };
@@ -124,6 +126,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2197F77020BECB4600815831 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2197F76E20BECB2A00815831 /* ProjectStyle.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		433CFAFECF1E4253A4EDE9B3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +235,7 @@
 		B182099E20B8647300AF0D03 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2197F77020BECB4600815831 /* UI */,
 				B182099F20B8647300AF0D03 /* Constants.swift */,
 				B18209A020B8647300AF0D03 /* UIFont+Ext.swift */,
 				B18209A120B8647300AF0D03 /* Double+Ext.swift */,
@@ -552,6 +563,7 @@
 				B18209D820B8647300AF0D03 /* UIFont+Ext.swift in Sources */,
 				B14FFF9A20BD91F7001113E9 /* TestDataGenerator.swift in Sources */,
 				B18209DE20B8647300AF0D03 /* ProjectView.swift in Sources */,
+				2197F76F20BECB2A00815831 /* ProjectStyle.swift in Sources */,
 				B18209E220B8647300AF0D03 /* ProjectCell.swift in Sources */,
 				B18209ED20B8647300AF0D03 /* NavigationView+Style.swift in Sources */,
 				B18209E420B8647300AF0D03 /* NewTaskView.swift in Sources */,

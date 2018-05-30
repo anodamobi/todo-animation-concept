@@ -36,11 +36,12 @@ class ProjectView: UIView {
     
     func update(_ viewModel: ProjectTasksViewModel) {
         nameLabel.text = viewModel.name
-        tasksLabel.text = Localizable.projectTasksTasks(viewModel.numberOfTasks)
+        let taskNumber = viewModel.project.tasks.count
+        tasksLabel.text = Localizable.projectTasksTasks(taskNumber)
         progressView.progress = Float(viewModel.progress)
-        progressView.progressTintColor = viewModel.styleColor
+        progressView.progressTintColor = viewModel.style.color
         progressLabel.text = "\(viewModel.progress * 100)%"
-        projectImageView.setImage(viewModel.icon)
+        projectImageView.setImage(viewModel.style.icon)
     }
     
     private func setupLayout() {
