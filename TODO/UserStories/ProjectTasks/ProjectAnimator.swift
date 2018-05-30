@@ -64,69 +64,31 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
             containerView.addSubview(fromView)
         }
 
-        let projectViewStartFrame = presentationStyle == .present ? originFrame : CGRect(x: ProjectTasksConstants.margin,
-                                                                                         y: navigationViewFrame.maxY,
-                                                                                         width: width, height: height)
-        let projectView = ProjectView(viewModel: projectViewModel)
-        projectView.frame = projectViewStartFrame
-        projectView.backgroundColor = UIColor.white
-        projectView.layer.cornerRadius = 8
-        projectView.clipsToBounds = true
+        let startFrame = CGRect(x: ProjectTasksConstants.margin, y: navigationViewFrame.maxY, width: width, height: height)
+        let projectViewStartFrame = presentationStyle == .present ? originFrame : startFrame
+        let projectView = createProjectView(frame: projectViewStartFrame)
         
-        let projectViewAnimation = POPBasicAnimation(propertyNamed: kPOPViewFrame)
-        let projectViewEndFrame = presentationStyle == .present ? CGRect(x: ProjectTasksConstants.margin,
-                                                                         y: navigationViewFrame.maxY,
-                                                                         width: width, height: height) : originFrame
-        projectViewAnimation?.toValue = NSValue(cgRect: projectViewEndFrame)
-        projectViewAnimation?.duration = duration
+        let endFrame = CGRect(x: ProjectTasksConstants.margin, y: navigationViewFrame.maxY, width: width, height: height)
+        let projectViewEndFrame = presentationStyle == .present ? endFrame : originFrame
+        let projectViewAnimation = POPBasicAnimation.frameAnimation(duration: duration, frame: projectViewEndFrame)
         projectView.pop_add(projectViewAnimation, forKey: AnimationKeyName.projectViewAnimation)
         containerView.addSubview(projectView)
         
-        let moreButtonAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
-        moreButtonAnimation?.toValue = presentationStyle == .present ? 0.0 : 1.0
-        moreButtonAnimation?.fromValue = presentationStyle == .present ? 1.0 : 0.0
-        moreButtonAnimation?.duration = duration
+        let moreButtonAnimation = POPBasicAnimation.alphaAnimation(duration: duration, hide: presentationStyle == .present)
         projectView.moreButton.pop_add(moreButtonAnimation, forKey: AnimationKeyName.moreButtonAnimation)
 
         taskView.projectView.isHidden = true
         taskView.layer.cornerRadius = 8.0
         taskView.clipsToBounds = true
-        
-        let containerViewAnimation = POPBasicAnimation(propertyNamed: kPOPViewFrame)
-        containerViewAnimation?.toValue = NSValue(cgRect: presentationStyle == .present ? finalFrame : originFrame)
-        containerViewAnimation?.duration = duration
+        let containerViewFrame = presentationStyle == .present ? finalFrame : originFrame
+        let containerViewAnimation = POPBasicAnimation.frameAnimation(duration: duration, frame: containerViewFrame)
         switch presentationStyle {
         case .present:
-            taskView.newTaskButton.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
-            taskView.navigationView.alpha = 0.0
+            animatePresentation(taskView: taskView)
             toView.pop_add(containerViewAnimation, forKey: AnimationKeyName.containerViewAnimation)
-            UIView.animateKeyframes(withDuration: duration, delay: 0, options: [], animations: {
-                taskView.layer.cornerRadius = 0.0
-                UIView.addKeyframe(withRelativeStartTime: 3/4, relativeDuration: 1/4) {
-                    taskView.newTaskButton.transform = .identity
-                    taskView.navigationView.alpha = 1.0
-                }
-            }, completion: nil)
         case .dismiss:
             fromView.pop_add(containerViewAnimation, forKey: AnimationKeyName.containerViewAnimation)
-            
-            let navigationViewAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
-            navigationViewAnimation?.fromValue = 1.0
-            navigationViewAnimation?.toValue = 0.0
-            navigationViewAnimation?.duration = duration / 8
-            taskView.navigationView.pop_add(navigationViewAnimation, forKey: AnimationKeyName.navigationViewAnimation)
-            
-            let taskButtonAnimation = POPBasicAnimation(propertyNamed: kPOPViewScaleXY)
-            taskButtonAnimation?.fromValue = NSValue(cgPoint: CGPoint(x: 1.0, y: 1.0))
-            taskButtonAnimation?.toValue = NSValue(cgPoint: .zero)
-            taskButtonAnimation?.duration = duration / 4
-            taskView.newTaskButton.pop_add(taskButtonAnimation, forKey: AnimationKeyName.taskButtonAnimation)
-            
-            let taskButtonAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
-            taskButtonAlphaAnimation?.fromValue = 1.0
-            taskButtonAlphaAnimation?.toValue = 0.0
-            taskButtonAlphaAnimation?.duration = duration / 4
-            taskView.newTaskButton.pop_add(taskButtonAlphaAnimation, forKey: AnimationKeyName.taskButtonAlphaAnimation)
+            animateDismissal(taskView: taskView)
         }
         
         containerViewAnimation?.completionBlock = { (_, _) in
@@ -136,5 +98,36 @@ class ProjectTasksAnimator: NSObject, UIViewControllerAnimatedTransitioning, POP
             toView.subviews.forEach { $0.isHidden = false }
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
+    }
+    
+    private func animatePresentation(taskView: ProjectTasksView) {
+        taskView.newTaskButton.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+        taskView.navigationView.alpha = 0.0
+        UIView.animateKeyframes(withDuration: duration, delay: 0, options: [], animations: {
+            taskView.layer.cornerRadius = 0.0
+            UIView.addKeyframe(withRelativeStartTime: 3/4, relativeDuration: 1/4) {
+                taskView.newTaskButton.transform = .identity
+                taskView.navigationView.alpha = 1.0
+            }
+        }, completion: nil)
+    }
+    
+    private func animateDismissal(taskView: ProjectTasksView) {
+        let navigationViewAnimation = POPBasicAnimation.alphaAnimation(duration: duration / 8)
+        taskView.navigationView.pop_add(navigationViewAnimation, forKey: AnimationKeyName.navigationViewAnimation)
+        let points = (from: CGPoint(x: 1, y: 1), to: CGPoint.zero)
+        let taskButtonAnimation = POPBasicAnimation.scaleAnimation(points: points, duration: duration / 4)
+        taskView.newTaskButton.pop_add(taskButtonAnimation, forKey: AnimationKeyName.taskButtonAnimation)
+        let taskButtonAlphaAnimation = POPBasicAnimation.alphaAnimation(duration: duration / 4)
+        taskView.newTaskButton.pop_add(taskButtonAlphaAnimation, forKey: AnimationKeyName.taskButtonAlphaAnimation)
+    }
+    
+    private func createProjectView(frame: CGRect) -> ProjectView {
+        let projectView = ProjectView(viewModel: projectViewModel)
+        projectView.frame = frame
+        projectView.backgroundColor = UIColor.white
+        projectView.layer.cornerRadius = 8
+        projectView.clipsToBounds = true
+        return projectView
     }
 }

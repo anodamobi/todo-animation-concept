@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2197F77220BEE03900815831 /* POPBasicAnimation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197F77120BEE03900815831 /* POPBasicAnimation+Ext.swift */; };
 		B14FFF9A20BD91F7001113E9 /* TestDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14FFF9920BD91F7001113E9 /* TestDataGenerator.swift */; };
 		B163428520B8660F00155DF7 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163428420B8660F00155DF7 /* R.generated.swift */; };
 		B18209C220B8647300AF0D03 /* today_outline.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B182098520B8647300AF0D03 /* today_outline.pdf */; };
@@ -57,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2197F77120BEE03900815831 /* POPBasicAnimation+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POPBasicAnimation+Ext.swift"; sourceTree = "<group>"; };
 		A3D5ADC8E769AF16D2F1E2C0 /* Pods_TODO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TODO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14FFF9920BD91F7001113E9 /* TestDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataGenerator.swift; sourceTree = "<group>"; };
 		B163428420B8660F00155DF7 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
@@ -228,6 +230,7 @@
 				B18209A120B8647300AF0D03 /* Double+Ext.swift */,
 				B18209A220B8647300AF0D03 /* Date+Ext.swift */,
 				B18209A420B8647300AF0D03 /* UIColor+Ext.swift */,
+				2197F77120BEE03900815831 /* POPBasicAnimation+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				B18209EA20B8647300AF0D03 /* DebugVC.swift in Sources */,
 				B18209E320B8647300AF0D03 /* NewTaskAnimator.swift in Sources */,
 				B18209E020B8647300AF0D03 /* ProjectTasksCell.swift in Sources */,
+				2197F77220BEE03900815831 /* POPBasicAnimation+Ext.swift in Sources */,
 				B18209E720B8647300AF0D03 /* ProjectAnimator.swift in Sources */,
 				B18209DA20B8647300AF0D03 /* Date+Ext.swift in Sources */,
 				B18209DC20B8647300AF0D03 /* UIColor+Ext.swift in Sources */,
