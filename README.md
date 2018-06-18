@@ -4,7 +4,8 @@ ANODA Open Source iOS Swift TODO Animations app
 
 ![](http://s.themengzor.com/logo_small.png)
 
-![Demo](https://user-images.githubusercontent.com/39635153/40622546-d75502f2-62aa-11e8-9f9e-640a669477e5.gif)
+![](https://user-images.githubusercontent.com/39635153/40622546-d75502f2-62aa-11e8-9f9e-640a669477e5.gif)
+![](https://user-images.githubusercontent.com/32670942/41550463-82e4e9c0-7331-11e8-9d70-abcfa025cb1d.gif)
 
 ## Demo        
 
